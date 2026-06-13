@@ -1,0 +1,33 @@
+[paths]
+results = "data/raw/results.csv"
+schedule = "data/input/schedule_2026.csv"
+rankings = "data/input/rankings.csv"
+squads = "data/input/squads.csv"
+model = "artifacts/model.joblib"
+metrics = "artifacts/metrics.json"
+team_state = "artifacts/team_state.json"
+predictions = "outputs/match_predictions.csv"
+simulation = "outputs/tournament_probabilities.csv"
+
+[training]
+start_date = "2000-01-01"
+# Matches on or after cutoff_date are excluded from training, team-state
+# building, and the simulation baseline, so the model stays purely
+# pre-tournament. Defaults to the 2026 World Cup kickoff. Set
+# include_tournament = true (phase 2) to fold tournament games back in.
+cutoff_date = "2026-06-11"
+include_tournament = false
+validation_fraction = 0.20
+recency_half_life_years = 4.0
+form_matches = 8
+random_state = 42
+
+[model]
+learning_rate = 0.05
+max_iter = 250
+max_leaf_nodes = 15
+l2_regularization = 1.0
+
+[simulation]
+runs = 2000
+seed = 42

@@ -1,0 +1,1249 @@
+as_of,team,player,club,position,talent,talent_se,exp_minutes,available,age,is_starter
+2026-06-01,Algeria,Melvin Mastil,Stade Nyonnais,GK,59.97223211696154,4.0,,True,26.3,False
+2026-06-01,Algeria,Aïssa Mandi,Lille,DEF,76.0,3.0,,True,34.6,True
+2026-06-01,Algeria,Achref Abada,USM Alger,DEF,66.08428422848922,4.0,,True,27.0,False
+2026-06-01,Algeria,Mohamed Amine Tougai,Espérance de Tunis,DEF,66.3296655200829,4.0,,True,26.4,False
+2026-06-01,Algeria,Zineddine Belaïd,JS Kabylie,DEF,67.0,3.0,,True,27.2,False
+2026-06-01,Algeria,Ramiz Zerrouki,Twente,MID,75.0,3.0,,True,28.0,True
+2026-06-01,Algeria,Riyad Mahrez,Al-Ahli,FWD,85.0,3.0,,True,35.3,True
+2026-06-01,Algeria,Houssem Aouar,Al-Ittihad,MID,75.0,3.0,,True,27.9,False
+2026-06-01,Algeria,Amine Gouiri,Marseille,FWD,78.0,3.0,,True,26.3,True
+2026-06-01,Algeria,Farès Chaïbi,Eintracht Frankfurt,MID,77.0,3.0,,True,23.5,True
+2026-06-01,Algeria,Anis Hadj Moussa,Feyenoord,FWD,67.0,3.0,,True,24.3,False
+2026-06-01,Algeria,Nadhir Benbouali,Győri ETO,FWD,65.6537875841615,4.0,,True,26.1,False
+2026-06-01,Algeria,Jaouen Hadjam,Young Boys,DEF,68.0,3.0,,True,23.2,False
+2026-06-01,Algeria,Hicham Boudaoui,Nice,MID,76.0,3.0,,True,26.7,True
+2026-06-01,Algeria,Rayan Aït-Nouri,Manchester City,DEF,79.0,3.0,,True,25.0,True
+2026-06-01,Algeria,Oussama Benbot,USM Alger,GK,71.19323647523603,4.0,,True,31.6,False
+2026-06-01,Algeria,Rafik Belghali,Hellas Verona,DEF,65.0,3.0,,True,24.0,False
+2026-06-01,Algeria,Mohamed Amoura,VfL Wolfsburg,FWD,75.0,3.0,,True,26.1,True
+2026-06-01,Algeria,Nabil Bentaleb,Lille,MID,78.0,3.0,,True,31.5,True
+2026-06-01,Algeria,Adil Boulbina,Al-Duhail,FWD,65.38532871108691,4.0,,True,23.1,False
+2026-06-01,Algeria,Ramy Bensebaini,Borussia Dortmund,DEF,78.0,3.0,,True,31.1,True
+2026-06-01,Algeria,Ibrahim Maza,Bayer Leverkusen,MID,67.0,4.0,,True,20.5,False
+2026-06-01,Algeria,Luca Zidane,Granada,GK,70.0,4.0,,True,28.1,True
+2026-06-01,Algeria,Yacine Titraoui,Charleroi,MID,65.0,3.0,,True,22.9,False
+2026-06-01,Algeria,Farès Ghedjemis,Frosinone,FWD,69.59603719177943,4.0,,True,23.7,False
+2026-06-01,Algeria,Samir Chergui,Paris FC,DEF,67.0,4.0,,True,27.3,False
+2026-06-01,Argentina,Juan Musso,Atlético Madrid,GK,79.0,3.0,,True,32.1,False
+2026-06-01,Argentina,Marcos Senesi,Bournemouth,DEF,78.0,3.0,,True,29.1,False
+2026-06-01,Argentina,Nicolás Tagliafico,Lyon,DEF,78.0,3.0,,True,33.7,False
+2026-06-01,Argentina,Gonzalo Montiel,River Plate,DEF,76.0,3.0,,True,29.4,False
+2026-06-01,Argentina,Leandro Paredes,Boca Juniors,MID,78.0,3.0,,True,31.9,False
+2026-06-01,Argentina,Lisandro Martínez,Manchester United,DEF,84.0,3.0,,True,28.4,True
+2026-06-01,Argentina,Rodrigo De Paul,Inter Miami CF,MID,84.0,3.0,,True,32.0,True
+2026-06-01,Argentina,Valentín Barco,Strasbourg,MID,73.0,3.0,,True,21.9,False
+2026-06-01,Argentina,Julián Alvarez,Atlético Madrid,FWD,84.0,3.0,,True,26.3,True
+2026-06-01,Argentina,Lionel Messi,Inter Miami CF,FWD,88.0,3.0,,True,38.9,True
+2026-06-01,Argentina,Giovani Lo Celso,Real Betis,MID,80.0,3.0,,True,30.1,False
+2026-06-01,Argentina,Gerónimo Rulli,Marseille,GK,79.0,3.0,,True,34.0,False
+2026-06-01,Argentina,Cristian Romero,Tottenham Hotspur,DEF,84.0,3.0,,True,28.1,True
+2026-06-01,Argentina,Exequiel Palacios,Bayer Leverkusen,MID,84.0,3.0,,True,27.7,True
+2026-06-01,Argentina,Nicolás González,Atlético Madrid,MID,80.0,3.0,,True,28.2,False
+2026-06-01,Argentina,Thiago Almada,Atlético Madrid,FWD,73.95848705905868,4.0,,True,25.1,False
+2026-06-01,Argentina,Giuliano Simeone,Atlético Madrid,FWD,72.0,3.0,,True,23.5,False
+2026-06-01,Argentina,Nico Paz,Como,FWD,69.0,3.0,,True,21.7,False
+2026-06-01,Argentina,Nicolás Otamendi,Benfica,DEF,81.0,3.0,,True,38.3,False
+2026-06-01,Argentina,Alexis Mac Allister,Liverpool,MID,86.0,3.0,,True,27.4,True
+2026-06-01,Argentina,José Manuel López,Palmeiras,FWD,76.38742857839966,4.0,,True,25.5,False
+2026-06-01,Argentina,Lautaro Martínez,Inter Milan,FWD,89.0,3.0,,True,28.8,True
+2026-06-01,Argentina,Emiliano Martínez,Aston Villa,GK,87.0,3.0,,True,33.7,True
+2026-06-01,Argentina,Enzo Fernández,Chelsea,MID,82.0,3.0,,True,25.4,True
+2026-06-01,Argentina,Facundo Medina,Marseille,DEF,80.0,3.0,,True,27.0,False
+2026-06-01,Argentina,Nahuel Molina,Atlético Madrid,DEF,82.0,3.0,,True,28.2,True
+2026-06-01,Australia,Mathew Ryan,Levante,GK,78.0,3.0,,True,34.1,True
+2026-06-01,Australia,Miloš Degenek,APOEL,DEF,69.41088793384276,4.0,,True,32.1,False
+2026-06-01,Australia,Alessandro Circati,Parma,DEF,73.0,3.0,,True,22.6,True
+2026-06-01,Australia,Jacob Italiano,Grazer AK,DEF,61.0,3.0,,True,24.8,False
+2026-06-01,Australia,Jordan Bos,Feyenoord,DEF,69.0,3.0,,True,23.6,True
+2026-06-01,Australia,Jason Geria,Albirex Niigata,DEF,66.0,3.0,,True,33.1,False
+2026-06-01,Australia,Mathew Leckie,Melbourne City,FWD,73.0,3.0,,True,35.3,True
+2026-06-01,Australia,Connor Metcalfe,FC St. Pauli,MID,69.0,3.0,,True,26.6,True
+2026-06-01,Australia,Mohamed Touré,Norwich City,FWD,64.0,3.0,,True,22.2,False
+2026-06-01,Australia,Ajdin Hrustic,Heracles Almelo,FWD,69.0,3.0,,True,29.9,True
+2026-06-01,Australia,Awer Mabil,Castellón,FWD,68.0,3.0,,True,30.7,False
+2026-06-01,Australia,Paul Izzo,Randers,GK,69.0,3.0,,True,31.4,False
+2026-06-01,Australia,Aiden O'Neill,New York City FC,MID,70.0,3.0,,True,27.9,True
+2026-06-01,Australia,Cammy Devlin,Heart of Midlothian,MID,72.0,3.0,,True,28.0,True
+2026-06-01,Australia,Kai Trewin,New York City FC,DEF,65.0,3.0,,True,25.0,False
+2026-06-01,Australia,Aziz Behich,Melbourne City,DEF,67.0,3.0,,True,35.5,False
+2026-06-01,Australia,Nestory Irankunda,Watford,FWD,68.0,3.0,,True,20.3,False
+2026-06-01,Australia,Patrick Beach,Melbourne City,GK,56.0,3.0,,True,22.8,False
+2026-06-01,Australia,Harry Souttar,Leicester City,DEF,71.0,3.0,,True,27.6,True
+2026-06-01,Australia,Cristian Volpato,Sassuolo,FWD,68.0,4.0,,True,22.5,False
+2026-06-01,Australia,Cameron Burgess,Swansea City,DEF,72.0,3.0,,True,30.6,True
+2026-06-01,Australia,Jackson Irvine,FC St. Pauli,MID,74.0,3.0,,True,33.2,True
+2026-06-01,Australia,Nishan Velupillay,Melbourne Victory,FWD,64.0,3.0,,True,25.1,False
+2026-06-01,Australia,Paul Okon-Engstler,Sydney FC,MID,59.681564445805314,4.0,,True,21.3,False
+2026-06-01,Australia,Lucas Herrington,Colorado Rapids,DEF,61.4437151648471,4.0,,True,18.7,False
+2026-06-01,Australia,Tete Yengi,Machida Zelvia,FWD,61.19908111860298,4.0,,True,25.5,False
+2026-06-01,Austria,Alexander Schlager,Red Bull Salzburg,GK,74.0,3.0,,True,30.3,True
+2026-06-01,Austria,David Affengruber,Elche,DEF,75.17053549577975,4.0,,True,25.2,False
+2026-06-01,Austria,Kevin Danso,Tottenham Hotspur,DEF,80.0,3.0,,True,27.7,True
+2026-06-01,Austria,Xaver Schlager,RB Leipzig,MID,81.0,3.0,,True,28.7,True
+2026-06-01,Austria,Stefan Posch,Mainz 05,DEF,78.0,3.0,,True,29.0,True
+2026-06-01,Austria,Nicolas Seiwald,RB Leipzig,MID,77.0,3.0,,True,25.1,True
+2026-06-01,Austria,Marko Arnautović,Red Star Belgrade,FWD,80.0,3.0,,True,37.1,True
+2026-06-01,Austria,David Alaba,Real Madrid,DEF,85.0,3.0,,True,33.9,True
+2026-06-01,Austria,Marcel Sabitzer,Borussia Dortmund,MID,84.0,3.0,,True,32.2,True
+2026-06-01,Austria,Florian Grillitsch,Braga,MID,74.0,3.0,,True,30.8,False
+2026-06-01,Austria,Michael Gregoritsch,FC Augsburg,FWD,78.0,3.0,,True,32.1,True
+2026-06-01,Austria,Florian Wiegele,Viktoria Plzeň,GK,66.82558706233877,4.0,,True,25.2,False
+2026-06-01,Austria,Patrick Pentz,Brøndby,GK,74.0,3.0,,True,29.4,False
+2026-06-01,Austria,Saša Kalajdžić,LASK,FWD,77.0,3.0,,True,28.9,False
+2026-06-01,Austria,Philipp Lienhart,SC Freiburg,DEF,79.0,3.0,,True,29.9,True
+2026-06-01,Austria,Phillipp Mwene,Mainz 05,DEF,74.0,3.0,,True,32.3,False
+2026-06-01,Austria,Carney Chukwuemeka,Borussia Dortmund,MID,72.0,4.0,,True,22.6,False
+2026-06-01,Austria,Romano Schmid,Werder Bremen,MID,75.0,3.0,,True,26.3,False
+2026-06-01,Austria,Dejan Ljubičić,Schalke 04,MID,74.0,3.0,,True,28.6,False
+2026-06-01,Austria,Konrad Laimer,Bayern Munich,MID,83.0,3.0,,True,29.0,True
+2026-06-01,Austria,Patrick Wimmer,VfL Wolfsburg,FWD,77.0,3.0,,True,25.0,False
+2026-06-01,Austria,Alexander Prass,TSG Hoffenheim,MID,74.0,3.0,,True,25.0,False
+2026-06-01,Austria,Marco Friedl,Werder Bremen,DEF,75.0,3.0,,True,28.2,False
+2026-06-01,Austria,Paul Wanner,PSV Eindhoven,MID,68.0,4.0,,True,20.4,False
+2026-06-01,Austria,Michael Svoboda,Venezia,DEF,69.0,3.0,,True,27.6,False
+2026-06-01,Austria,Alessandro Schöpf,Wolfsberger AC,MID,68.0,3.0,,True,32.3,False
+2026-06-01,Belgium,Thibaut Courtois,Real Madrid,GK,89.0,3.0,,True,34.1,True
+2026-06-01,Belgium,Zeno Debast,Sporting CP,DEF,76.0,3.0,,True,22.6,False
+2026-06-01,Belgium,Arthur Theate,Eintracht Frankfurt,DEF,77.0,3.0,,True,26.0,False
+2026-06-01,Belgium,Brandon Mechele,Club Brugge,DEF,75.0,3.0,,True,33.3,False
+2026-06-01,Belgium,Maxim De Cuyper,Brighton & Hove Albion,DEF,76.0,3.0,,True,25.4,False
+2026-06-01,Belgium,Axel Witsel,Girona,MID,80.0,3.0,,True,37.4,True
+2026-06-01,Belgium,Kevin De Bruyne,Napoli,MID,90.0,3.0,,True,34.9,True
+2026-06-01,Belgium,Youri Tielemans,Aston Villa,MID,81.0,3.0,,True,29.1,True
+2026-06-01,Belgium,Romelu Lukaku,Napoli,FWD,82.0,3.0,,True,33.1,True
+2026-06-01,Belgium,Leandro Trossard,Arsenal,FWD,83.0,3.0,,True,31.5,True
+2026-06-01,Belgium,Jérémy Doku,Manchester City,FWD,80.0,3.0,,True,24.0,True
+2026-06-01,Belgium,Senne Lammens,Manchester United,GK,67.0,3.0,,True,23.9,False
+2026-06-01,Belgium,Mike Penders,Strasbourg,GK,65.0,3.0,,True,20.8,False
+2026-06-01,Belgium,Dodi Lukébakio,Benfica,FWD,79.0,3.0,,True,28.7,True
+2026-06-01,Belgium,Thomas Meunier,Lille,DEF,76.0,3.0,,True,34.7,False
+2026-06-01,Belgium,Koni De Winter,Milan,DEF,72.0,3.0,,True,24.0,False
+2026-06-01,Belgium,Charles De Ketelaere,Atalanta,FWD,79.0,3.0,,True,25.2,True
+2026-06-01,Belgium,Joaquin Seys,Club Brugge,DEF,62.0,3.0,,True,21.2,False
+2026-06-01,Belgium,Diego Moreira,Strasbourg,MID,68.0,4.0,,True,21.8,False
+2026-06-01,Belgium,Hans Vanaken,Club Brugge,MID,80.0,3.0,,True,33.8,True
+2026-06-01,Belgium,Timothy Castagne,Fulham,DEF,77.0,3.0,,True,30.5,False
+2026-06-01,Belgium,Alexis Saelemaekers,Milan,MID,78.0,3.0,,True,26.9,False
+2026-06-01,Belgium,Nicolas Raskin,Rangers,MID,75.0,3.0,,True,25.3,False
+2026-06-01,Belgium,Amadou Onana,Aston Villa,MID,78.0,3.0,,True,24.8,True
+2026-06-01,Belgium,Nathan Ngoy,Lille,DEF,67.0,3.0,,True,23.0,False
+2026-06-01,Belgium,Matias Fernandez-Pardo,Lille,FWD,67.0,3.0,,True,21.3,False
+2026-06-01,Bosnia and Herzegovina,Nikola Vasilj,FC St. Pauli,GK,70.0,3.0,,True,30.5,True
+2026-06-01,Bosnia and Herzegovina,Nihad Mujakić,Gaziantep,DEF,68.14221389180994,4.0,,True,28.1,False
+2026-06-01,Bosnia and Herzegovina,Dennis Hadžikadunić,Sampdoria,DEF,70.0,3.0,,True,27.9,True
+2026-06-01,Bosnia and Herzegovina,Tarik Muharemović,Sassuolo,DEF,73.65015963998641,4.0,,True,23.3,False
+2026-06-01,Bosnia and Herzegovina,Sead Kolašinac,Atalanta,DEF,79.0,3.0,,True,32.9,True
+2026-06-01,Bosnia and Herzegovina,Benjamin Tahirović,Brøndby,MID,70.0,3.0,,True,23.2,True
+2026-06-01,Bosnia and Herzegovina,Amar Dedić,Benfica,DEF,73.0,3.0,,True,23.8,True
+2026-06-01,Bosnia and Herzegovina,Armin Gigović,Young Boys,MID,67.0,3.0,,True,24.2,False
+2026-06-01,Bosnia and Herzegovina,Samed Baždar,Jagiellonia Białystok,FWD,61.76940673610216,4.0,,True,22.3,False
+2026-06-01,Bosnia and Herzegovina,Ermedin Demirović,VfB Stuttgart,FWD,79.0,3.0,,True,28.2,True
+2026-06-01,Bosnia and Herzegovina,Edin Džeko,Schalke 04,FWD,82.0,3.0,,True,40.2,True
+2026-06-01,Bosnia and Herzegovina,Mladen Jurkas,Borac Banja Luka,GK,54.40884957656743,4.0,,True,18.7,False
+2026-06-01,Bosnia and Herzegovina,Ivan Bašić,Astana,MID,64.00899041298575,4.0,,True,24.1,False
+2026-06-01,Bosnia and Herzegovina,Ivan Šunjić,Pafos,MID,71.93978988035755,4.0,,True,29.6,False
+2026-06-01,Bosnia and Herzegovina,Amar Memić,Viktoria Plzeň,MID,69.77994329546928,4.0,,True,25.4,False
+2026-06-01,Bosnia and Herzegovina,Amir Hadžiahmetović,Hull City,MID,74.0,3.0,,True,29.2,True
+2026-06-01,Bosnia and Herzegovina,Dženis Burnić,Karlsruher SC,MID,68.0,4.0,,True,28.0,True
+2026-06-01,Bosnia and Herzegovina,Nikola Katić,Schalke 04,DEF,69.0,4.0,,True,29.6,True
+2026-06-01,Bosnia and Herzegovina,Kerim Alajbegović,Red Bull Salzburg,FWD,67.44348505473013,4.0,,True,18.7,False
+2026-06-01,Bosnia and Herzegovina,Esmir Bajraktarević,PSV Eindhoven,FWD,63.0,4.0,,True,21.2,False
+2026-06-01,Bosnia and Herzegovina,Stjepan Radeljić,Rijeka,DEF,72.09208401866024,4.0,,True,28.7,False
+2026-06-01,Bosnia and Herzegovina,Martin Zlomislić,Rijeka,GK,69.70020620347395,4.0,,True,27.8,False
+2026-06-01,Bosnia and Herzegovina,Haris Tabaković,Borussia Mönchengladbach,FWD,73.0,3.0,,True,31.9,True
+2026-06-01,Bosnia and Herzegovina,Arjan Malić,Sturm Graz,DEF,59.0,4.0,,True,20.8,False
+2026-06-01,Bosnia and Herzegovina,Jovo Lukić,Universitatea Cluj,FWD,69.68727731613444,4.0,,True,27.5,False
+2026-06-01,Bosnia and Herzegovina,Ermin Mahmić,Slovan Liberec,MID,64.9525799766322,4.0,,True,21.2,False
+2026-06-01,Brazil,Alisson,Liverpool,GK,89.0,3.0,,True,33.7,True
+2026-06-01,Brazil,Éderson Silva,Atalanta,MID,80.0,3.0,,True,26.9,False
+2026-06-01,Brazil,Gabriel Magalhães,Arsenal,DEF,86.0,4.0,,True,28.4,True
+2026-06-01,Brazil,Marquinhos,Paris Saint-Germain,DEF,87.0,3.0,,True,32.0,True
+2026-06-01,Brazil,Casemiro,Manchester United,MID,84.0,3.0,,True,34.3,True
+2026-06-01,Brazil,Alex Sandro,Flamengo,DEF,76.0,5.0,,True,35.3,False
+2026-06-01,Brazil,Vinícius Júnior,Real Madrid,FWD,90.0,4.0,,True,25.9,True
+2026-06-01,Brazil,Bruno Guimarães,Newcastle United,MID,85.0,3.0,,True,28.5,True
+2026-06-01,Brazil,Matheus Cunha,Manchester United,FWD,79.0,3.0,,True,27.0,False
+2026-06-01,Brazil,Neymar,Santos,FWD,87.0,3.0,,True,34.3,True
+2026-06-01,Brazil,Raphinha,Barcelona,FWD,84.0,3.0,,True,29.5,True
+2026-06-01,Brazil,Weverton,Grêmio,GK,70.0,5.0,,True,38.5,False
+2026-06-01,Brazil,Danilo Luiz,Flamengo,DEF,82.0,4.0,,True,34.9,True
+2026-06-01,Brazil,Bremer,Juventus,DEF,86.0,3.0,,True,29.2,True
+2026-06-01,Brazil,Léo Pereira,Flamengo,DEF,79.58476632247192,4.0,,True,30.3,False
+2026-06-01,Brazil,Douglas Santos,Zenit Saint Petersburg,DEF,80.1718489992852,4.0,,True,32.2,False
+2026-06-01,Brazil,Fabinho,Al-Ittihad,MID,82.0,3.0,,True,32.6,False
+2026-06-01,Brazil,Danilo Santos,Botafogo,MID,76.0,4.0,,True,25.1,False
+2026-06-01,Brazil,Endrick,Lyon,FWD,77.0,3.0,,True,19.9,False
+2026-06-01,Brazil,Lucas Paquetá,Flamengo,MID,82.0,3.0,,True,28.8,False
+2026-06-01,Brazil,Luiz Henrique,Zenit Saint Petersburg,FWD,74.0,5.0,,True,25.4,False
+2026-06-01,Brazil,Gabriel Martinelli,Arsenal,FWD,83.0,3.0,,True,25.0,True
+2026-06-01,Brazil,Ederson Moraes,Fenerbahçe,GK,88.0,4.0,,True,32.8,False
+2026-06-01,Brazil,Roger Ibañez,Al-Ahli,DEF,80.0,4.0,,True,27.5,False
+2026-06-01,Brazil,Igor Thiago,Brentford,FWD,76.0,3.0,,True,24.9,False
+2026-06-01,Brazil,Rayan,Bournemouth,FWD,72.60526024764113,4.0,,True,19.8,False
+2026-06-01,Canada,Dayne St. Clair,Inter Miami CF,GK,71.0,3.0,,True,29.1,False
+2026-06-01,Canada,Alistair Johnston,Celtic,DEF,75.0,3.0,,True,27.6,True
+2026-06-01,Canada,Alfie Jones,Middlesbrough,DEF,72.0,4.0,,True,28.6,False
+2026-06-01,Canada,Luc de Fougerolles,Dender,DEF,58.0,3.0,,True,20.6,False
+2026-06-01,Canada,Joel Waterman,Chicago Fire FC,DEF,67.0,3.0,,True,30.4,False
+2026-06-01,Canada,Mathieu Choinière,Los Angeles FC,MID,70.0,3.0,,True,27.3,False
+2026-06-01,Canada,Stephen Eustáquio,Los Angeles FC,MID,76.0,3.0,,True,29.4,True
+2026-06-01,Canada,Ismaël Koné,Sassuolo,MID,72.0,3.0,,True,24.0,True
+2026-06-01,Canada,Cyle Larin,Southampton,FWD,75.0,3.0,,True,31.1,True
+2026-06-01,Canada,Jonathan David,Juventus,FWD,81.0,3.0,,True,26.4,True
+2026-06-01,Canada,Liam Millar,Hull City,MID,72.0,3.0,,True,26.7,True
+2026-06-01,Canada,Tani Oluwaseyi,Villarreal,FWD,59.0,4.0,,True,26.0,False
+2026-06-01,Canada,Derek Cornelius,Rangers,DEF,72.0,3.0,,True,28.5,True
+2026-06-01,Canada,Jacob Shaffelburg,Los Angeles FC,MID,67.0,3.0,,True,26.5,False
+2026-06-01,Canada,Moïse Bombito,Nice,DEF,67.0,3.0,,True,26.2,False
+2026-06-01,Canada,Maxime Crépeau,Orlando City SC,GK,73.0,3.0,,True,32.1,True
+2026-06-01,Canada,Tajon Buchanan,Villarreal,FWD,74.0,3.0,,True,27.3,True
+2026-06-01,Canada,Owen Goodman,Barnsley,GK,62.0,4.0,,True,22.5,False
+2026-06-01,Canada,Alphonso Davies,Bayern Munich,DEF,82.0,3.0,,True,25.6,True
+2026-06-01,Canada,Ali Ahmed,Norwich City,FWD,64.0,3.0,,True,25.6,False
+2026-06-01,Canada,Jonathan Osorio,Toronto FC,MID,72.0,3.0,,True,34.0,True
+2026-06-01,Canada,Richie Laryea,Toronto FC,DEF,71.0,3.0,,True,31.4,False
+2026-06-01,Canada,Niko Sigur,Hajduk Split,DEF,69.0,3.0,,True,22.7,False
+2026-06-01,Canada,Promise David,Union Saint-Gilloise,FWD,63.0,3.0,,True,24.9,False
+2026-06-01,Canada,Nathan Saliba,Anderlecht,MID,62.0,4.0,,True,22.3,False
+2026-06-01,Canada,Jayden Nelson,Austin FC,FWD,66.0,3.0,,True,23.7,False
+2026-06-01,Cape Verde,Vozinha,Chaves,GK,70.93322028402986,4.0,,True,40.0,True
+2026-06-01,Cape Verde,Stopira,Torreense,DEF,68.44479397638142,4.0,,True,38.0,True
+2026-06-01,Cape Verde,Diney,Al Bataeh,DEF,71.16049017809118,4.0,,True,31.4,False
+2026-06-01,Cape Verde,Roberto Lopes,Shamrock Rovers,DEF,67.0,3.0,,True,34.0,True
+2026-06-01,Cape Verde,Logan Costa,Villarreal,DEF,74.0,3.0,,True,25.2,True
+2026-06-01,Cape Verde,Kevin Pina,Krasnodar,MID,75.03070652260828,4.0,,True,29.3,False
+2026-06-01,Cape Verde,Jovane Cabral,Estrela Amadora,MID,67.32849738231343,4.0,,True,28.0,False
+2026-06-01,Cape Verde,João Paulo,FCSB,MID,76.0,4.0,,True,28.0,True
+2026-06-01,Cape Verde,Gilson Benchimol,Akron Tolyatti,FWD,63.53862522266035,4.0,,True,24.4,False
+2026-06-01,Cape Verde,Jamiro Monteiro,PEC Zwolle,MID,71.29881430648521,4.0,,True,32.5,False
+2026-06-01,Cape Verde,Garry Rodrigues,Apollon Limassol,MID,72.10828832625836,4.0,,True,35.5,True
+2026-06-01,Cape Verde,Márcio Rosa,Montana,GK,64.9769575551787,4.0,,True,29.3,False
+2026-06-01,Cape Verde,Sidny Lopes Cabral,Benfica,DEF,67.21948372472008,4.0,,True,23.7,False
+2026-06-01,Cape Verde,Deroy Duarte,Ludogorets Razgrad,MID,68.1820824378076,4.0,,True,26.9,False
+2026-06-01,Cape Verde,Laros Duarte,Puskás Akadémia,MID,68.94597448228492,4.0,,True,29.3,False
+2026-06-01,Cape Verde,Yannick Semedo,Farense,MID,65.07350604764082,4.0,,True,30.4,False
+2026-06-01,Cape Verde,Willy Semedo,Omonia,MID,72.4297713129927,4.0,,True,32.1,False
+2026-06-01,Cape Verde,Telmo Arcanjo,Vitória de Guimarães,MID,61.0,3.0,,True,24.9,False
+2026-06-01,Cape Verde,Dailon Livramento,Casa Pia,FWD,69.0,4.0,,True,25.1,True
+2026-06-01,Cape Verde,Ryan Mendes,Iğdır,FWD,71.69515583411342,4.0,,True,36.4,True
+2026-06-01,Cape Verde,Nuno da Costa,İstanbul Başakşehir,MID,72.0,3.0,,True,35.3,True
+2026-06-01,Cape Verde,Steven Moreira,Columbus Crew,DEF,69.0,3.0,,True,31.8,True
+2026-06-01,Cape Verde,CJ dos Santos,San Diego FC,GK,61.0,4.0,,True,25.8,False
+2026-06-01,Cape Verde,Wagner Pina,Trabzonspor,DEF,67.0,3.0,,True,23.6,True
+2026-06-01,Cape Verde,Kelvin Pires,SJK,DEF,61.37589048626702,4.0,,True,26.0,False
+2026-06-01,Cape Verde,Hélio Varela,Maccabi Tel Aviv,MID,65.94024667079702,4.0,,True,24.1,False
+2026-06-01,Colombia,David Ospina,Atlético Nacional,GK,77.0,3.0,,True,37.7,True
+2026-06-01,Colombia,Daniel Muñoz,Crystal Palace,DEF,80.0,3.0,,True,30.0,True
+2026-06-01,Colombia,Jhon Lucumí,Bologna,DEF,77.0,3.0,,True,27.9,True
+2026-06-01,Colombia,Santiago Arias,Independiente,DEF,75.98075676090244,4.0,,True,34.4,False
+2026-06-01,Colombia,Kevin Castaño,River Plate,MID,70.55153916884115,4.0,,True,25.7,False
+2026-06-01,Colombia,Richard Ríos,Benfica,MID,77.00953515531177,4.0,,True,26.0,False
+2026-06-01,Colombia,Luis Díaz,Bayern Munich,FWD,84.0,3.0,,True,29.4,True
+2026-06-01,Colombia,Jorge Carrascal,Flamengo,MID,77.02569005845035,4.0,,True,28.0,False
+2026-06-01,Colombia,Jhon Córdoba,Krasnodar,FWD,82.37926795906563,4.0,,True,33.1,False
+2026-06-01,Colombia,James Rodríguez,Minnesota United FC,MID,77.4464924742872,4.0,,True,34.9,False
+2026-06-01,Colombia,Jhon Arias,Palmeiras,MID,78.43765441282585,4.0,,True,28.7,False
+2026-06-01,Colombia,Camilo Vargas,Atlas,GK,75.75637501834623,4.0,,True,37.2,False
+2026-06-01,Colombia,Yerry Mina,Cagliari,DEF,76.0,3.0,,True,31.7,True
+2026-06-01,Colombia,Gustavo Puerta,Racing Santander,DEF,65.0,3.0,,True,22.9,False
+2026-06-01,Colombia,Juan Portilla,Athletico Paranaense,MID,72.0,4.0,,True,27.7,False
+2026-06-01,Colombia,Jefferson Lerma,Crystal Palace,MID,79.0,3.0,,True,31.6,True
+2026-06-01,Colombia,Johan Mojica,Mallorca,DEF,77.0,3.0,,True,33.8,True
+2026-06-01,Colombia,Willer Ditta,Cruz Azul,DEF,74.27124974297425,4.0,,True,28.4,False
+2026-06-01,Colombia,Cucho Hernández,Real Betis,FWD,78.0,3.0,,True,27.1,True
+2026-06-01,Colombia,Juan Fernando Quintero,River Plate,MID,77.0,3.0,,True,33.4,True
+2026-06-01,Colombia,Jaminton Campaz,Rosario Central,FWD,76.0,3.0,,True,26.0,False
+2026-06-01,Colombia,Deiver Machado,Nantes,DEF,76.0,3.0,,True,32.7,True
+2026-06-01,Colombia,Davinson Sánchez,Galatasaray,DEF,80.0,3.0,,True,30.0,True
+2026-06-01,Colombia,Álvaro Montero,Vélez Sarsfield,GK,76.0,3.0,,True,31.2,False
+2026-06-01,Colombia,Luis Suárez,Sporting CP,FWD,75.0,4.0,,True,28.5,False
+2026-06-01,Colombia,Andrés Gómez,Vasco da Gama,FWD,70.0,3.0,,True,23.7,False
+2026-06-01,Croatia,Dominik Livaković,Dinamo Zagreb,GK,80.0,3.0,,True,31.4,True
+2026-06-01,Croatia,Josip Stanišić,Bayern Munich,DEF,77.0,3.0,,True,26.2,True
+2026-06-01,Croatia,Marin Pongračić,Fiorentina,DEF,75.0,3.0,,True,28.7,False
+2026-06-01,Croatia,Joško Gvardiol,Manchester City,DEF,83.0,3.0,,True,24.4,True
+2026-06-01,Croatia,Duje Ćaleta-Car,Real Sociedad,DEF,75.0,3.0,,True,29.7,False
+2026-06-01,Croatia,Josip Šutalo,Ajax,DEF,77.0,3.0,,True,26.3,True
+2026-06-01,Croatia,Nikola Moro,Bologna,MID,75.0,3.0,,True,28.2,False
+2026-06-01,Croatia,Mateo Kovačić,Manchester City,MID,83.0,3.0,,True,32.1,True
+2026-06-01,Croatia,Andrej Kramarić,TSG Hoffenheim,FWD,81.0,3.0,,True,35.0,True
+2026-06-01,Croatia,Luka Modrić,Milan,MID,86.0,3.0,,True,40.7,True
+2026-06-01,Croatia,Ante Budimir,Osasuna,FWD,78.0,3.0,,True,34.9,True
+2026-06-01,Croatia,Ivor Pandur,Hull City,GK,70.0,3.0,,True,26.2,False
+2026-06-01,Croatia,Nikola Vlašić,Torino,MID,79.0,3.0,,True,28.7,True
+2026-06-01,Croatia,Ivan Perišić,PSV Eindhoven,FWD,79.58897490699266,4.0,,True,37.3,False
+2026-06-01,Croatia,Mario Pašalić,Atalanta,MID,80.0,3.0,,True,31.3,True
+2026-06-01,Croatia,Martin Baturina,Como,MID,76.0,3.0,,True,23.3,False
+2026-06-01,Croatia,Petar Sučić,Inter Milan,MID,70.0,3.0,,True,22.6,False
+2026-06-01,Croatia,Kristijan Jakić,FC Augsburg,DEF,75.0,3.0,,True,29.0,False
+2026-06-01,Croatia,Toni Fruk,Rijeka,MID,72.1516521166298,4.0,,True,25.2,False
+2026-06-01,Croatia,Igor Matanović,SC Freiburg,FWD,71.0,3.0,,True,23.2,False
+2026-06-01,Croatia,Luka Sučić,Real Sociedad,MID,74.0,3.0,,True,23.7,False
+2026-06-01,Croatia,Luka Vušković,Hamburger SV,DEF,64.0,3.0,,True,19.3,False
+2026-06-01,Croatia,Dominik Kotarski,Copenhagen,GK,76.0,3.0,,True,26.3,False
+2026-06-01,Croatia,Marco Pašalić,Orlando City SC,FWD,80.0,5.0,,True,25.7,True
+2026-06-01,Croatia,Martin Erlić,Midtjylland,DEF,72.0,3.0,,True,28.4,False
+2026-06-01,Croatia,Petar Musa,FC Dallas,FWD,76.0,3.0,,True,28.2,False
+2026-06-01,Curaçao,Eloy Room,Miami FC,GK,71.72732055121656,4.0,,True,37.3,True
+2026-06-01,Curaçao,Shurandy Sambo,Sparta Rotterdam,DEF,69.0,4.0,,True,24.8,True
+2026-06-01,Curaçao,Juriën Gaari,Abha,DEF,68.83401833203374,4.0,,True,32.4,False
+2026-06-01,Curaçao,Roshon van Eijma,RKC Waalwijk,DEF,63.0,3.0,,True,28.0,False
+2026-06-01,Curaçao,Sherel Floranus,PEC Zwolle,DEF,69.0,3.0,,True,27.8,True
+2026-06-01,Curaçao,Godfried Roemeratoe,RKC Waalwijk,MID,65.0,3.0,,True,26.8,True
+2026-06-01,Curaçao,Juninho Bacuna,Volendam,MID,70.0,3.0,,True,28.8,True
+2026-06-01,Curaçao,Livano Comenencia,Zürich,MID,57.61593095359009,4.0,,True,22.3,False
+2026-06-01,Curaçao,Jürgen Locadia,Miami FC,FWD,66.96714584958144,4.0,,True,32.6,False
+2026-06-01,Curaçao,Leandro Bacuna,Iğdır,MID,68.0,3.0,,True,34.8,True
+2026-06-01,Curaçao,Jeremy Antonisse,Kifisia,FWD,66.0,3.0,,True,24.2,True
+2026-06-01,Curaçao,Sontje Hansen,Middlesbrough,FWD,68.0,4.0,,True,24.0,True
+2026-06-01,Curaçao,Tyrese Noslin,Telstar,FWD,60.8907536995307,4.0,,True,23.7,False
+2026-06-01,Curaçao,Kenji Gorré,Maccabi Haifa,FWD,70.00082979365172,4.0,,True,31.7,False
+2026-06-01,Curaçao,Ar'jany Martha,Rotherham United,MID,64.0,3.0,,True,22.7,False
+2026-06-01,Curaçao,Jearl Margaritha,Beveren,FWD,64.96449239004744,4.0,,True,26.1,False
+2026-06-01,Curaçao,Brandley Kuwas,Volendam,FWD,69.1794094552607,4.0,,True,33.7,False
+2026-06-01,Curaçao,Armando Obispo,PSV Eindhoven,DEF,73.0,4.0,,True,27.2,True
+2026-06-01,Curaçao,Gervane Kastaneer,Terengganu,FWD,64.17748885888656,4.0,,True,30.0,False
+2026-06-01,Curaçao,Joshua Brenet,Kayserispor,DEF,72.55419262837512,4.0,,True,32.2,False
+2026-06-01,Curaçao,Tahith Chong,Sheffield United,MID,71.0,4.0,,True,26.5,True
+2026-06-01,Curaçao,Kevin Felida,Den Bosch,MID,64.0,3.0,,True,26.6,False
+2026-06-01,Curaçao,Riechedly Bazoer,Konyaspor,DEF,75.0,4.0,,True,29.6,True
+2026-06-01,Curaçao,Deveron Fonville,NEC,DEF,62.64035594377912,4.0,,True,23.0,False
+2026-06-01,Curaçao,Tyrick Bodak,Telstar,GK,50.0,4.0,,True,24.0,False
+2026-06-01,Curaçao,Trevor Doornbusch,VVV-Venlo,GK,54.634027968932706,4.0,,True,26.9,False
+2026-06-01,Czech Republic,Matěj Kovář,PSV Eindhoven,GK,76.0,3.0,,True,26.0,True
+2026-06-01,Czech Republic,David Zima,Slavia Prague,DEF,73.0,3.0,,True,25.6,False
+2026-06-01,Czech Republic,Tomáš Holeš,Slavia Prague,DEF,76.0,3.0,,True,33.2,True
+2026-06-01,Czech Republic,Robin Hranáč,TSG Hoffenheim,DEF,74.0,3.0,,True,26.3,False
+2026-06-01,Czech Republic,Vladimír Coufal,TSG Hoffenheim,DEF,78.0,3.0,,True,33.8,True
+2026-06-01,Czech Republic,Štěpán Chaloupek,Slavia Prague,DEF,70.0,3.0,,True,23.2,False
+2026-06-01,Czech Republic,Ladislav Krejčí,Wolverhampton Wanderers,DEF,77.0,3.0,,True,27.1,True
+2026-06-01,Czech Republic,Vladimír Darida,Hradec Králové,MID,73.32518140887825,4.0,,True,35.8,False
+2026-06-01,Czech Republic,Adam Hložek,TSG Hoffenheim,FWD,76.0,3.0,,True,23.9,True
+2026-06-01,Czech Republic,Patrik Schick,Bayer Leverkusen,FWD,82.0,3.0,,True,30.4,True
+2026-06-01,Czech Republic,Jan Kuchta,Sparta Prague,FWD,75.0,3.0,,True,29.4,True
+2026-06-01,Czech Republic,Lukáš Červ,Viktoria Plzeň,MID,72.0,3.0,,True,25.1,False
+2026-06-01,Czech Republic,Mojmír Chytil,Slavia Prague,FWD,74.0,3.0,,True,27.1,False
+2026-06-01,Czech Republic,David Jurásek,Slavia Prague,DEF,73.0,3.0,,True,25.8,False
+2026-06-01,Czech Republic,Pavel Šulc,Lyon,FWD,75.0,3.0,,True,25.4,True
+2026-06-01,Czech Republic,Jindřich Staněk,Slavia Prague,GK,76.0,3.0,,True,30.1,False
+2026-06-01,Czech Republic,Lukáš Provod,Slavia Prague,MID,74.0,3.0,,True,29.6,True
+2026-06-01,Czech Republic,Michal Sadílek,Slavia Prague,MID,76.0,3.0,,True,27.0,True
+2026-06-01,Czech Republic,Tomáš Chorý,Slavia Prague,FWD,74.0,3.0,,True,31.3,False
+2026-06-01,Czech Republic,Jaroslav Zelený,Sparta Prague,DEF,73.0,3.0,,True,33.8,False
+2026-06-01,Czech Republic,David Douděra,Slavia Prague,DEF,74.0,3.0,,True,28.0,False
+2026-06-01,Czech Republic,Tomáš Souček,West Ham United,MID,79.0,3.0,,True,31.3,True
+2026-06-01,Czech Republic,Lukáš Horníček,Braga,GK,66.0,3.0,,True,23.9,False
+2026-06-01,Czech Republic,Alexandr Sojka,Viktoria Plzeň,MID,64.50521760352805,4.0,,True,23.2,False
+2026-06-01,Czech Republic,Hugo Sochůrek,Sparta Prague,MID,59.62263240921386,4.0,,True,18.0,False
+2026-06-01,Czech Republic,Denis Višinský,Viktoria Plzeň,FWD,65.50975002646933,4.0,,True,23.2,False
+2026-06-01,DR Congo,Lionel Mpasi,Le Havre,GK,68.0,3.0,,True,31.8,True
+2026-06-01,DR Congo,Aaron Wan-Bissaka,West Ham United,DEF,79.0,4.0,,True,28.5,True
+2026-06-01,DR Congo,Steve Kapuadi,Widzew Łódź,DEF,66.0,4.0,,True,28.1,False
+2026-06-01,DR Congo,Axel Tuanzebe,Burnley,DEF,73.0,4.0,,True,28.5,True
+2026-06-01,DR Congo,Dylan Batubinsika,AEL,DEF,71.0,3.0,,True,30.3,False
+2026-06-01,DR Congo,Ngal'ayel Mukau,Lille,MID,68.0,3.0,,True,21.6,False
+2026-06-01,DR Congo,Nathanaël Mbuku,Montpellier,MID,71.0,4.0,,True,24.2,False
+2026-06-01,DR Congo,Samuel Moutoussamy,Atromitos,MID,70.2573762533111,4.0,,True,29.8,False
+2026-06-01,DR Congo,Brian Cipenga,Castellón,FWD,66.0,3.0,,True,28.2,False
+2026-06-01,DR Congo,Théo Bongonda,Spartak Moscow,MID,74.59250604938603,4.0,,True,30.5,False
+2026-06-01,DR Congo,Gaël Kakuta,AEL,FWD,70.67246523984974,4.0,,True,34.9,False
+2026-06-01,DR Congo,Joris Kayembe,Genk,DEF,73.0,3.0,,True,31.8,True
+2026-06-01,DR Congo,Meschak Elia,Alanyaspor,FWD,74.0,3.0,,True,28.8,True
+2026-06-01,DR Congo,Noah Sadiki,Sunderland,MID,67.0,3.0,,True,21.5,False
+2026-06-01,DR Congo,Aaron Tshibola,Kilmarnock,MID,64.38646294365373,4.0,,True,31.4,False
+2026-06-01,DR Congo,Timothy Fayulu,Noah,GK,67.0,3.0,,True,26.9,False
+2026-06-01,DR Congo,Cédric Bakambu,Real Betis,FWD,75.0,3.0,,True,35.1,True
+2026-06-01,DR Congo,Charles Pickel,Espanyol,MID,70.0,3.0,,True,29.0,False
+2026-06-01,DR Congo,Fiston Mayele,Pyramids,FWD,74.40314820692865,4.0,,True,31.9,False
+2026-06-01,DR Congo,Yoane Wissa,Newcastle United,FWD,79.0,3.0,,True,29.7,True
+2026-06-01,DR Congo,Matthieu Epolo,Standard Liège,GK,64.0,4.0,,True,21.4,False
+2026-06-01,DR Congo,Chancel Mbemba,Lille,DEF,79.0,3.0,,True,31.8,True
+2026-06-01,DR Congo,Simon Banza,Al Jazira,FWD,80.0,3.0,,True,29.8,True
+2026-06-01,DR Congo,Gédéon Kalulu,Aris Limassol,DEF,72.0,3.0,,True,28.8,True
+2026-06-01,DR Congo,Edo Kayembe,Watford,MID,71.0,3.0,,True,28.0,False
+2026-06-01,DR Congo,Arthur Masuaku,Lens,DEF,76.0,3.0,,True,32.6,True
+2026-06-01,Ecuador,Hernán Galíndez,Huracán,GK,74.0,3.0,,True,39.2,True
+2026-06-01,Ecuador,Félix Torres,Internacional,DEF,69.07039579766735,4.0,,True,29.4,False
+2026-06-01,Ecuador,Piero Hincapié,Arsenal,DEF,81.0,3.0,,True,24.4,True
+2026-06-01,Ecuador,Joel Ordóñez,Club Brugge,DEF,69.0,3.0,,True,22.1,False
+2026-06-01,Ecuador,Jordy Alcívar,Independiente del Valle,MID,68.45599304964975,4.0,,True,26.8,False
+2026-06-01,Ecuador,Willian Pacho,Paris Saint-Germain,DEF,78.0,3.0,,True,24.6,True
+2026-06-01,Ecuador,Pervis Estupiñán,Milan,DEF,80.0,3.0,,True,28.4,True
+2026-06-01,Ecuador,Anthony Valencia,Antwerp,MID,66.0,3.0,,True,22.9,False
+2026-06-01,Ecuador,John Yeboah,Venezia,FWD,69.0,3.0,,True,25.9,True
+2026-06-01,Ecuador,Kendry Páez,River Plate,MID,72.0,3.0,,True,19.1,True
+2026-06-01,Ecuador,Kevin Rodríguez,Union Saint-Gilloise,FWD,68.0,3.0,,True,26.2,False
+2026-06-01,Ecuador,Moisés Ramírez,Kifisia,GK,74.0,3.0,,True,25.7,False
+2026-06-01,Ecuador,Enner Valencia,Pachuca,FWD,78.02873050520162,4.0,,True,36.6,False
+2026-06-01,Ecuador,Alan Minda,Atlético Mineiro,MID,70.0,3.0,,True,23.0,True
+2026-06-01,Ecuador,Pedro Vite,Pumas,MID,67.0,3.0,,True,24.2,False
+2026-06-01,Ecuador,Jordy Caicedo,Huracán,FWD,69.0,3.0,,True,28.5,True
+2026-06-01,Ecuador,Ángelo Preciado,Atlético Mineiro,DEF,75.0,3.0,,True,28.3,True
+2026-06-01,Ecuador,Denil Castillo,Midtjylland,MID,63.0,3.0,,True,22.2,False
+2026-06-01,Ecuador,Gonzalo Plata,Flamengo,FWD,72.64933737815952,4.0,,True,25.6,False
+2026-06-01,Ecuador,Nilson Angulo,Sunderland,FWD,67.0,3.0,,True,23.0,False
+2026-06-01,Ecuador,Alan Franco,Atlético Mineiro,MID,72.7660548646474,4.0,,True,27.8,False
+2026-06-01,Ecuador,Gonzalo Valle,LDU Quito,GK,66.0,3.0,,True,30.3,False
+2026-06-01,Ecuador,Moisés Caicedo,Chelsea,MID,82.0,3.0,,True,24.6,True
+2026-06-01,Ecuador,Jeremy Arévalo,VfB Stuttgart,FWD,59.0,4.0,,True,21.2,False
+2026-06-01,Ecuador,Jackson Porozo,Tijuana,DEF,71.0,3.0,,True,25.8,True
+2026-06-01,Ecuador,Yaimar Medina,Genk,DEF,66.0,3.0,,True,21.6,False
+2026-06-01,Egypt,Mohamed El Shenawy,Al Ahly,GK,76.52797089171807,4.0,,True,37.5,False
+2026-06-01,Egypt,Yasser Ibrahim,Al Ahly,DEF,69.04205925253876,4.0,,True,33.3,False
+2026-06-01,Egypt,Mohamed Hany,Al Ahly,DEF,71.72311196669583,4.0,,True,30.3,True
+2026-06-01,Egypt,Hossam Abdelmaguid,Zamalek,DEF,66.3408306881486,4.0,,True,25.1,False
+2026-06-01,Egypt,Ramy Rabia,Al Ain,DEF,71.61830689362318,4.0,,True,33.0,True
+2026-06-01,Egypt,Mohamed Abdelmonem,Nice,DEF,69.92172876303451,4.0,,True,27.3,True
+2026-06-01,Egypt,Trézéguet,Al Ahly,FWD,77.6184861645618,4.0,,True,31.7,True
+2026-06-01,Egypt,Emam Ashour,Al Ahly,MID,72.94286423231142,4.0,,True,28.3,False
+2026-06-01,Egypt,Hamza Abdelkarim,Barcelona B,FWD,56.91697543618775,4.0,,True,18.4,False
+2026-06-01,Egypt,Mohamed Salah,Liverpool,FWD,89.0,3.0,,True,34.0,True
+2026-06-01,Egypt,Mostafa Ziko,Pyramids,MID,70.91935137622087,4.0,,True,29.1,False
+2026-06-01,Egypt,Haissem Hassan,Oviedo,FWD,70.0,4.0,,True,24.3,False
+2026-06-01,Egypt,Ahmed Fatouh,Zamalek,DEF,67.57734001307827,4.0,,True,28.2,True
+2026-06-01,Egypt,Hamdy Fathy,Al-Wakrah,MID,74.15430557616381,4.0,,True,31.7,True
+2026-06-01,Egypt,Karim Hafez,Pyramids,DEF,68.71730084554582,4.0,,True,30.2,False
+2026-06-01,Egypt,El Mahdy Soliman,Zamalek,GK,70.0,8.0,,True,39.0,False
+2026-06-01,Egypt,Mohanad Lasheen,Pyramids,MID,73.97039947247393,4.0,,True,30.0,False
+2026-06-01,Egypt,Nabil Emad,Al-Najma,MID,70.06576632072671,4.0,,True,30.2,False
+2026-06-01,Egypt,Marwan Attia,Al Ahly,MID,70.0,8.0,,True,27.8,True
+2026-06-01,Egypt,Ibrahim Adel,Nordsjælland,FWD,67.18445982462126,4.0,,True,25.1,False
+2026-06-01,Egypt,Mahmoud Saber,ZED,MID,64.8799396206627,4.0,,True,24.8,False
+2026-06-01,Egypt,Omar Marmoush,Manchester City,FWD,79.0,3.0,,True,27.3,True
+2026-06-01,Egypt,Mostafa Shobeir,Al Ahly,GK,70.0,8.0,,True,26.0,False
+2026-06-01,Egypt,Tarek Alaa,ZED,DEF,57.60822712469555,4.0,,True,24.4,False
+2026-06-01,Egypt,Zizo,Al Ahly,FWD,75.05087551663405,4.0,,True,30.4,True
+2026-06-01,Egypt,Mohamed Alaa,El Gouna,GK,89.0,5.0,,True,27.4,True
+2026-06-01,England,Jordan Pickford,Everton,GK,83.0,3.0,,True,32.2,True
+2026-06-01,England,Ezri Konsa,Aston Villa,DEF,81.0,3.0,,True,28.6,False
+2026-06-01,England,Nico O'Reilly,Manchester City,DEF,74.92994944562543,4.0,,True,21.2,False
+2026-06-01,England,Declan Rice,Arsenal,MID,87.0,3.0,,True,27.4,True
+2026-06-01,England,John Stones,Manchester City,DEF,85.0,3.0,,True,32.0,True
+2026-06-01,England,Marc Guéhi,Manchester City,DEF,81.0,3.0,,True,25.9,True
+2026-06-01,England,Bukayo Saka,Arsenal,FWD,87.0,3.0,,True,24.7,True
+2026-06-01,England,Elliot Anderson,Nottingham Forest,MID,75.0,3.0,,True,23.6,False
+2026-06-01,England,Harry Kane,Bayern Munich,FWD,90.0,3.0,,True,32.8,True
+2026-06-01,England,Jude Bellingham,Real Madrid,MID,90.0,3.0,,True,22.9,True
+2026-06-01,England,Marcus Rashford,Barcelona,FWD,81.0,3.0,,True,28.6,True
+2026-06-01,England,Tino Livramento,Newcastle United,DEF,78.0,3.0,,True,23.6,False
+2026-06-01,England,Dean Henderson,Crystal Palace,GK,79.0,3.0,,True,29.2,False
+2026-06-01,England,Jordan Henderson,Brentford,MID,80.0,3.0,,True,36.0,False
+2026-06-01,England,Dan Burn,Newcastle United,DEF,78.0,3.0,,True,34.1,False
+2026-06-01,England,Kobbie Mainoo,Manchester United,MID,77.0,3.0,,True,21.1,False
+2026-06-01,England,Morgan Rogers,Aston Villa,MID,75.0,3.0,,True,23.8,False
+2026-06-01,England,Anthony Gordon,Newcastle United,FWD,82.0,3.0,,True,25.3,True
+2026-06-01,England,Ollie Watkins,Aston Villa,FWD,85.0,3.0,,True,30.4,True
+2026-06-01,England,Noni Madueke,Arsenal,FWD,78.0,3.0,,True,24.2,False
+2026-06-01,England,Eberechi Eze,Arsenal,MID,81.0,3.0,,True,27.9,False
+2026-06-01,England,Ivan Toney,Al-Ahli,FWD,80.0,3.0,,True,30.2,False
+2026-06-01,England,James Trafford,Manchester City,GK,73.0,3.0,,True,23.6,False
+2026-06-01,England,Reece James,Chelsea,DEF,82.0,3.0,,True,26.5,True
+2026-06-01,England,Djed Spence,Tottenham Hotspur,DEF,72.0,3.0,,True,25.8,False
+2026-06-01,England,Jarell Quansah,Bayer Leverkusen,DEF,75.0,3.0,,True,23.3,False
+2026-06-01,France,Brice Samba,Rennes,GK,82.0,3.0,,True,32.1,False
+2026-06-01,France,Malo Gusto,Chelsea,DEF,80.0,3.0,,True,23.0,False
+2026-06-01,France,Lucas Digne,Aston Villa,DEF,79.0,3.0,,True,32.9,False
+2026-06-01,France,Dayot Upamecano,Bayern Munich,DEF,82.0,3.0,,True,27.6,False
+2026-06-01,France,Jules Koundé,Barcelona,DEF,85.0,3.0,,True,27.6,True
+2026-06-01,France,Manu Koné,Roma,MID,76.0,4.0,,True,25.0,False
+2026-06-01,France,Ousmane Dembélé,Paris Saint-Germain,FWD,86.0,3.0,,True,29.0,True
+2026-06-01,France,Aurélien Tchouaméni,Real Madrid,MID,85.0,3.0,,True,26.3,True
+2026-06-01,France,Marcus Thuram,Inter Milan,FWD,83.0,3.0,,True,28.8,True
+2026-06-01,France,Kylian Mbappé,Real Madrid,FWD,91.0,3.0,,True,27.4,True
+2026-06-01,France,Michael Olise,Bayern Munich,FWD,82.0,3.0,,True,24.5,False
+2026-06-01,France,Bradley Barcola,Paris Saint-Germain,FWD,80.0,3.0,,True,23.7,False
+2026-06-01,France,N'Golo Kanté,Fenerbahçe,MID,85.0,3.0,,True,35.2,True
+2026-06-01,France,Adrien Rabiot,Milan,MID,82.23748249150043,4.0,,True,31.2,False
+2026-06-01,France,Ibrahima Konaté,Liverpool,DEF,83.0,3.0,,True,27.0,True
+2026-06-01,France,Mike Maignan,Milan,GK,87.0,3.0,,True,30.9,True
+2026-06-01,France,William Saliba,Arsenal,DEF,87.0,3.0,,True,25.2,True
+2026-06-01,France,Warren Zaïre-Emery,Paris Saint-Germain,MID,80.0,3.0,,True,20.2,False
+2026-06-01,France,Théo Hernandez,Al-Hilal,DEF,87.0,3.0,,True,28.7,True
+2026-06-01,France,Désiré Doué,Paris Saint-Germain,FWD,76.0,3.0,,True,21.0,False
+2026-06-01,France,Lucas Hernandez,Paris Saint-Germain,DEF,83.0,3.0,,True,30.3,True
+2026-06-01,France,Jean-Philippe Mateta,Crystal Palace,FWD,79.0,3.0,,True,28.9,False
+2026-06-01,France,Robin Risser,Lens,GK,67.0,3.0,,True,21.5,False
+2026-06-01,France,Rayan Cherki,Manchester City,MID,75.0,3.0,,True,22.8,False
+2026-06-01,France,Maghnes Akliouche,Monaco,MID,76.0,3.0,,True,24.3,False
+2026-06-01,France,Maxence Lacroix,Crystal Palace,DEF,76.0,3.0,,True,26.2,False
+2026-06-01,Germany,Manuel Neuer,Bayern Munich,GK,86.0,3.0,,True,40.2,True
+2026-06-01,Germany,Antonio Rüdiger,Real Madrid,DEF,88.0,3.0,,True,33.2,True
+2026-06-01,Germany,Waldemar Anton,Borussia Dortmund,DEF,81.0,3.0,,True,29.9,False
+2026-06-01,Germany,Jonathan Tah,Bayern Munich,DEF,86.0,3.0,,True,30.3,True
+2026-06-01,Germany,Aleksandar Pavlović,Bayern Munich,MID,73.0,3.0,,True,22.1,False
+2026-06-01,Germany,Joshua Kimmich,Bayern Munich,DEF,86.0,3.0,,True,31.3,True
+2026-06-01,Germany,Kai Havertz,Arsenal,FWD,83.0,3.0,,True,27.0,True
+2026-06-01,Germany,Leon Goretzka,Bayern Munich,MID,83.0,3.0,,True,31.3,True
+2026-06-01,Germany,Jamie Leweling,VfB Stuttgart,MID,74.0,3.0,,True,25.3,False
+2026-06-01,Germany,Jamal Musiala,Bayern Munich,MID,87.0,3.0,,True,23.3,True
+2026-06-01,Germany,Nick Woltemade,Newcastle United,FWD,69.0,3.0,,True,24.3,False
+2026-06-01,Germany,Oliver Baumann,TSG Hoffenheim,GK,82.0,3.0,,True,36.0,False
+2026-06-01,Germany,Pascal Groß,Brighton & Hove Albion,MID,81.0,3.0,,True,35.0,False
+2026-06-01,Germany,Maximilian Beier,Borussia Dortmund,FWD,78.0,3.0,,True,23.6,False
+2026-06-01,Germany,Nico Schlotterbeck,Borussia Dortmund,DEF,85.0,3.0,,True,26.5,True
+2026-06-01,Germany,Angelo Stiller,VfB Stuttgart,MID,78.0,3.0,,True,25.2,False
+2026-06-01,Germany,Florian Wirtz,Liverpool,MID,88.0,3.0,,True,23.1,True
+2026-06-01,Germany,Nathaniel Brown,Eintracht Frankfurt,DEF,69.0,3.0,,True,23.0,False
+2026-06-01,Germany,Leroy Sané,Galatasaray,MID,85.0,3.0,,True,30.4,True
+2026-06-01,Germany,Nadiem Amiri,Mainz 05,MID,78.0,3.0,,True,29.6,False
+2026-06-01,Germany,Alexander Nübel,VfB Stuttgart,GK,80.0,3.0,,True,29.7,False
+2026-06-01,Germany,David Raum,RB Leipzig,DEF,81.0,3.0,,True,28.1,True
+2026-06-01,Germany,Felix Nmecha,Borussia Dortmund,MID,77.0,3.0,,True,25.6,False
+2026-06-01,Germany,Malick Thiaw,Newcastle United,DEF,78.0,3.0,,True,24.8,False
+2026-06-01,Germany,Assan Ouédraogo,RB Leipzig,MID,69.0,3.0,,True,20.1,False
+2026-06-01,Germany,Deniz Undav,VfB Stuttgart,FWD,81.0,3.0,,True,29.9,False
+2026-06-01,Ghana,Lawrence Ati-Zigi,St. Gallen,GK,73.0,3.0,,True,29.5,True
+2026-06-01,Ghana,Alidu Seidu,Rennes,DEF,74.0,3.0,,True,26.0,True
+2026-06-01,Ghana,Caleb Yirenkyi,Nordsjælland,MID,66.5777609054982,4.0,,True,20.4,False
+2026-06-01,Ghana,Jonas Adjetey,VfL Wolfsburg,DEF,64.0,3.0,,True,22.5,False
+2026-06-01,Ghana,Thomas Partey,Villarreal,MID,82.0,3.0,,True,33.0,True
+2026-06-01,Ghana,Abdul Mumin,Rayo Vallecano,DEF,70.0,3.0,,True,28.0,False
+2026-06-01,Ghana,Abdul Fatawu,Leicester City,FWD,76.0,3.0,,True,22.2,True
+2026-06-01,Ghana,Kwasi Sibo,Oviedo,MID,67.0,3.0,,True,27.9,False
+2026-06-01,Ghana,Jordan Ayew,Leicester City,FWD,75.0,3.0,,True,34.7,True
+2026-06-01,Ghana,Brandon Thomas-Asante,Coventry City,FWD,70.0,3.0,,True,27.4,False
+2026-06-01,Ghana,Antoine Semenyo,Manchester City,MID,76.0,3.0,,True,26.4,True
+2026-06-01,Ghana,Joseph Anang,St Patrick's Athletic,GK,64.0,4.0,,True,26.0,False
+2026-06-01,Ghana,Christopher Bonsu Baah,Al-Qadsiah,FWD,69.0,3.0,,True,21.5,False
+2026-06-01,Ghana,Gideon Mensah,Auxerre,DEF,70.0,3.0,,True,27.9,False
+2026-06-01,Ghana,Elisha Owusu,Auxerre,MID,71.0,3.0,,True,28.6,True
+2026-06-01,Ghana,Benjamin Asare,Hearts of Oak,GK,65.96407149762754,4.0,,True,33.9,False
+2026-06-01,Ghana,Abdul Rahman Baba,PAOK,DEF,74.0,3.0,,True,31.9,True
+2026-06-01,Ghana,Jerome Opoku,İstanbul Başakşehir,DEF,71.0,3.0,,True,27.6,False
+2026-06-01,Ghana,Iñaki Williams,Athletic Bilbao,FWD,82.0,3.0,,True,32.0,True
+2026-06-01,Ghana,Augustine Boakye,Saint-Étienne,MID,69.0,3.0,,True,25.6,False
+2026-06-01,Ghana,Kojo Peprah Oppong,Nice,DEF,68.56850195161692,4.0,,True,22.0,False
+2026-06-01,Ghana,Kamaldeen Sulemana,Atalanta,FWD,71.0,3.0,,True,24.3,True
+2026-06-01,Ghana,Derrick Luckassen,Pafos,DEF,70.93671552840365,4.0,,True,30.9,False
+2026-06-01,Ghana,Ernest Nuamah,Lyon,FWD,74.0,3.0,,True,22.6,True
+2026-06-01,Ghana,Prince Kwabena Adu,Viktoria Plzeň,FWD,64.8876434495572,4.0,,True,22.7,False
+2026-06-01,Ghana,Marvin Senaya,Auxerre,DEF,70.0,4.0,,True,25.3,False
+2026-06-01,Haiti,Johny Placide,Bastia,GK,67.0,3.0,,True,38.3,True
+2026-06-01,Haiti,Carlens Arcus,Angers,DEF,68.0,3.0,,True,29.9,True
+2026-06-01,Haiti,Keeto Thermoncy,Young Boys,DEF,50.0,4.0,,True,20.2,False
+2026-06-01,Haiti,Ricardo Adé,LDU Quito,DEF,72.73039490317046,4.0,,True,36.0,False
+2026-06-01,Haiti,Hannes Delcroix,Lugano,DEF,72.0,4.0,,True,27.3,True
+2026-06-01,Haiti,Carl Sainté,El Paso Locomotive FC,MID,54.241147780475664,4.0,,True,23.8,False
+2026-06-01,Haiti,Derrick Etienne Jr.,Toronto FC,FWD,67.0,3.0,,True,29.5,True
+2026-06-01,Haiti,Martin Expérience,Nancy,DEF,62.36410993214785,4.0,,True,27.2,False
+2026-06-01,Haiti,Duckens Nazon,Esteghlal,FWD,68.0,3.0,,True,32.2,True
+2026-06-01,Haiti,Jean-Ricner Bellegarde,Wolverhampton Wanderers,MID,75.0,4.0,,True,27.9,True
+2026-06-01,Haiti,Louicius Deedson,FC Dallas,FWD,64.65841706110214,4.0,,True,25.3,False
+2026-06-01,Haiti,Alexandre Pierre,Sochaux,GK,62.62065639180721,4.0,,True,25.3,False
+2026-06-01,Haiti,Duke Lacroix,Colorado Springs Switchbacks FC,DEF,65.1902235341287,4.0,,True,32.6,False
+2026-06-01,Haiti,Garven Metusala,Colorado Springs Switchbacks FC,DEF,59.253024295871334,4.0,,True,26.4,False
+2026-06-01,Haiti,Ruben Providence,Almere City,FWD,68.0,4.0,,True,24.9,True
+2026-06-01,Haiti,Lenny Joseph,Ferencváros,FWD,68.0,4.0,,True,25.6,True
+2026-06-01,Haiti,Danley Jean Jacques,Philadelphia Union,MID,70.0,3.0,,True,26.0,True
+2026-06-01,Haiti,Wilson Isidor,Sunderland,FWD,75.51873146084972,4.0,,True,25.8,False
+2026-06-01,Haiti,Yassin Fortuné,Vizela,FWD,61.90574046489984,4.0,,True,27.3,False
+2026-06-01,Haiti,Frantzdy Pierrot,Çaykur Rizespor,FWD,57.0,5.0,,True,31.2,False
+2026-06-01,Haiti,Josué Casimir,Auxerre,FWD,71.0,4.0,,True,24.7,True
+2026-06-01,Haiti,Jean-Kévin Duverne,Gent,DEF,71.0,3.0,,True,28.9,True
+2026-06-01,Haiti,Josué Duverger,Cosmos Koblenz,GK,53.63865744587334,4.0,,True,26.1,False
+2026-06-01,Haiti,Wilguens Paugain,Zulte Waregem,DEF,62.50338615360332,4.0,,True,24.8,False
+2026-06-01,Haiti,Dominique Simon,Tatran Prešov,MID,58.50649640357681,4.0,,True,25.8,False
+2026-06-01,Haiti,Woodensky Pierre,Violette,MID,50.41140707482493,4.0,,True,21.4,False
+2026-06-01,Iran,Alireza Beiranvand,Tractor,GK,72.79187009107426,4.0,,True,33.7,True
+2026-06-01,Iran,Saleh Hardani,Esteghlal,DEF,65.73834035354628,4.0,,True,27.4,False
+2026-06-01,Iran,Ehsan Hajsafi,Sepahan,DEF,71.0,3.0,,True,36.3,True
+2026-06-01,Iran,Shojae Khalilzadeh,Tractor,DEF,62.0,8.0,,True,37.0,True
+2026-06-01,Iran,Milad Mohammadi,Persepolis,DEF,72.77796727806265,4.0,,True,32.7,True
+2026-06-01,Iran,Saeid Ezatolahi,Shabab Al Ahli,MID,62.0,8.0,,True,29.7,True
+2026-06-01,Iran,Alireza Jahanbakhsh,Dender,MID,70.68016906874428,4.0,,True,32.8,True
+2026-06-01,Iran,Mohammad Mohebi,Rostov,MID,70.04615007841693,4.0,,True,27.4,False
+2026-06-01,Iran,Mehdi Taremi,Olympiacos,FWD,80.0,3.0,,True,33.9,True
+2026-06-01,Iran,Mehdi Ghayedi,Al Nasr,FWD,72.39279091850014,4.0,,True,27.5,False
+2026-06-01,Iran,Ali Alipour,Persepolis,FWD,72.5695747733372,4.0,,True,30.6,False
+2026-06-01,Iran,Payam Niazmand,Persepolis,GK,69.96151399937006,4.0,,True,31.2,False
+2026-06-01,Iran,Hossein Kanaanizadegan,Persepolis,DEF,74.33111494382786,4.0,,True,32.2,True
+2026-06-01,Iran,Saman Ghoddos,Kalba,MID,73.86559439940129,4.0,,True,32.7,True
+2026-06-01,Iran,Rouzbeh Cheshmi,Esteghlal,MID,70.40625845690212,4.0,,True,32.9,False
+2026-06-01,Iran,Mehdi Torabi,Tractor,MID,72.62138124557708,4.0,,True,31.7,False
+2026-06-01,Iran,Aria Yousefi,Sepahan,DEF,64.00899041298575,4.0,,True,24.1,False
+2026-06-01,Iran,Amirhossein Hosseinzadeh,Tractor,FWD,67.32327232386845,4.0,,True,25.6,False
+2026-06-01,Iran,Ali Nemati,Foolad,DEF,67.92997124299151,4.0,,True,30.3,False
+2026-06-01,Iran,Shahriyar Moghanlou,Kalba,FWD,62.0,8.0,,True,31.4,False
+2026-06-01,Iran,Mohammad Ghorbani,Al Wahda,MID,63.787467853425206,4.0,,True,24.6,False
+2026-06-01,Iran,Hossein Hosseini,Sepahan,GK,72.0488035379509,4.0,,True,33.9,False
+2026-06-01,Iran,Ramin Rezaeian,Foolad,DEF,72.28994233982121,4.0,,True,36.2,True
+2026-06-01,Iran,Dennis Eckert,Standard Liège,FWD,70.0,4.0,,True,29.4,True
+2026-06-01,Iran,Danial Eiri,Malavan,DEF,60.609746351662714,4.0,,True,22.6,False
+2026-06-01,Iran,Amirmohammad Razzaghinia,Esteghlal,MID,58.18850866121627,4.0,,True,20.1,False
+2026-06-01,Iraq,Fahad Talib,Al-Talaba,GK,68.09948616281659,4.0,,True,31.6,False
+2026-06-01,Iraq,Rebin Sulaka,Port,DEF,66.21291412839238,4.0,,True,34.1,False
+2026-06-01,Iraq,Hussein Ali,Pogoń Szczecin,DEF,62.0,3.0,,True,24.3,False
+2026-06-01,Iraq,Zaid Tahseen,Pakhtakor,DEF,62.0378656091768,4.0,,True,25.3,False
+2026-06-01,Iraq,Akam Hashim,Al-Zawraa,DEF,65.73118927636773,4.0,,True,27.8,False
+2026-06-01,Iraq,Manaf Younis,Al-Shorta,DEF,64.6430094033131,4.0,,True,29.5,False
+2026-06-01,Iraq,Youssef Amyn,AEK Larnaca,MID,64.0,3.0,,True,22.8,True
+2026-06-01,Iraq,Ibrahim Bayesh,Al Dhafra,MID,64.12086325357481,4.0,,True,26.1,True
+2026-06-01,Iraq,Ali Al-Hamadi,Luton Town,FWD,66.0,3.0,,True,24.3,True
+2026-06-01,Iraq,Mohanad Ali,Dibba,FWD,65.40494495339667,4.0,,True,25.9,True
+2026-06-01,Iraq,Ahmed Qasem,Nashville SC,FWD,63.0,4.0,,True,22.9,True
+2026-06-01,Iraq,Jalal Hassan,Al-Zawraa,GK,70.79688655523216,4.0,,True,35.0,True
+2026-06-01,Iraq,Ali Yousif,Al-Talaba,FWD,64.22987691116816,4.0,,True,30.4,False
+2026-06-01,Iraq,Zidane Iqbal,Utrecht,MID,63.0,3.0,,True,23.1,True
+2026-06-01,Iraq,Ahmed Maknzi,Al-Karma,DEF,60.20371059554362,4.0,,True,24.7,False
+2026-06-01,Iraq,Amir Al-Ammari,Cracovia,MID,65.0,3.0,,True,28.8,True
+2026-06-01,Iraq,Ali Jasim,Al-Najma,FWD,57.74035226897251,4.0,,True,22.4,False
+2026-06-01,Iraq,Aymen Hussein,Al-Karma,FWD,66.60158573232869,4.0,,True,30.2,True
+2026-06-01,Iraq,Kevin Yakob,AGF,MID,68.0,3.0,,True,25.6,True
+2026-06-01,Iraq,Aimar Sher,Sarpsborg 08,MID,64.0,4.0,,True,23.4,True
+2026-06-01,Iraq,Marko Farji,Venezia,FWD,62.11818428121385,4.0,,True,22.2,False
+2026-06-01,Iraq,Ahmed Basil,Al-Shorta,GK,66.54919768004709,4.0,,True,29.8,False
+2026-06-01,Iraq,Merchas Doski,Viktoria Plzeň,DEF,67.46830084265795,4.0,,True,26.5,False
+2026-06-01,Iraq,Zaid Ismail,Al-Talaba,MID,60.22877857662092,4.0,,True,24.4,False
+2026-06-01,Iraq,Mustafa Saadoon,Al-Shorta,DEF,59.62684099373458,4.0,,True,25.0,False
+2026-06-01,Iraq,Frans Putros,Persib,DEF,69.17594811608953,4.0,,True,32.9,False
+2026-06-01,Ivory Coast,Yahia Fofana,Çaykur Rizespor,GK,72.0,3.0,,True,25.8,False
+2026-06-01,Ivory Coast,Ousmane Diomande,Sporting CP,DEF,78.0,3.0,,True,22.5,True
+2026-06-01,Ivory Coast,Ghislain Konan,Gil Vicente,DEF,74.46808473400361,4.0,,True,30.4,False
+2026-06-01,Ivory Coast,Jean Michaël Seri,Maribor,MID,72.0,3.0,,True,34.9,False
+2026-06-01,Ivory Coast,Wilfried Singo,Galatasaray,DEF,79.0,3.0,,True,25.4,True
+2026-06-01,Ivory Coast,Seko Fofana,Porto,MID,80.0,3.0,,True,31.1,True
+2026-06-01,Ivory Coast,Odilon Kossounou,Atalanta,DEF,81.0,3.0,,True,25.4,True
+2026-06-01,Ivory Coast,Franck Kessié,Al-Ahli,MID,82.0,4.0,,True,29.4,True
+2026-06-01,Ivory Coast,Ange-Yoan Bonny,Inter Milan,FWD,73.0,4.0,,True,22.6,False
+2026-06-01,Ivory Coast,Simon Adingra,Monaco,FWD,76.0,3.0,,True,24.4,False
+2026-06-01,Ivory Coast,Yan Diomande,RB Leipzig,FWD,73.76492063208056,4.0,,True,19.5,False
+2026-06-01,Ivory Coast,Elye Wahi,Nice,FWD,77.0,4.0,,True,23.4,True
+2026-06-01,Ivory Coast,Christopher Opéri,İstanbul Başakşehir,DEF,74.0,3.0,,True,29.1,False
+2026-06-01,Ivory Coast,Oumar Diakité,Cercle Brugge,FWD,72.0,3.0,,True,22.4,False
+2026-06-01,Ivory Coast,Amad Diallo,Manchester United,FWD,75.0,3.0,,True,23.9,False
+2026-06-01,Ivory Coast,Mohamed Koné,Charleroi,GK,66.0,3.0,,True,24.2,False
+2026-06-01,Ivory Coast,Guéla Doué,Strasbourg,DEF,72.0,3.0,,True,23.6,False
+2026-06-01,Ivory Coast,Ibrahim Sangaré,Nottingham Forest,MID,77.0,3.0,,True,28.5,True
+2026-06-01,Ivory Coast,Nicolas Pépé,Villarreal,FWD,78.0,3.0,,True,31.0,True
+2026-06-01,Ivory Coast,Emmanuel Agbadou,Beşiktaş,DEF,77.0,3.0,,True,29.0,True
+2026-06-01,Ivory Coast,Evan Ndicka,Roma,DEF,77.0,3.0,,True,26.8,True
+2026-06-01,Ivory Coast,Evann Guessand,Crystal Palace,FWD,74.0,3.0,,True,24.9,False
+2026-06-01,Ivory Coast,Alban Lafont,Panathinaikos,GK,76.0,4.0,,True,27.4,True
+2026-06-01,Ivory Coast,Bazoumana Touré,TSG Hoffenheim,FWD,71.57002117858408,4.0,,True,20.2,False
+2026-06-01,Ivory Coast,Parfait Guiagon,Charleroi,MID,69.0,3.0,,True,25.3,False
+2026-06-01,Ivory Coast,Christ Inao Oulaï,Trabzonspor,MID,69.47786163430416,4.0,,True,20.2,False
+2026-06-01,Japan,Zion Suzuki,Parma,GK,71.0,3.0,,True,23.8,True
+2026-06-01,Japan,Yukinari Sugawara,Werder Bremen,DEF,77.0,3.0,,True,25.9,True
+2026-06-01,Japan,Shōgo Taniguchi,Sint-Truiden,DEF,72.0,3.0,,True,34.9,False
+2026-06-01,Japan,Kō Itakura,Ajax,DEF,76.0,3.0,,True,29.3,True
+2026-06-01,Japan,Yūto Nagatomo,FC Tokyo,DEF,73.18050778980796,4.0,,True,39.7,False
+2026-06-01,Japan,Shuto Machino,Borussia Mönchengladbach,FWD,69.0,3.0,,True,26.7,False
+2026-06-01,Japan,Ao Tanaka,Leeds United,MID,73.0,3.0,,True,27.7,False
+2026-06-01,Japan,Takefusa Kubo,Real Sociedad,MID,81.0,3.0,,True,25.0,True
+2026-06-01,Japan,Keisuke Gotō,Sint-Truiden,FWD,67.32428879779272,4.0,,True,21.0,False
+2026-06-01,Japan,Ritsu Dōan,Eintracht Frankfurt,MID,78.0,3.0,,True,28.0,True
+2026-06-01,Japan,Daizen Maeda,Celtic,MID,74.0,3.0,,True,28.6,True
+2026-06-01,Japan,Keisuke Ōsako,Sanfrecce Hiroshima,GK,68.45599304964975,4.0,,True,26.8,False
+2026-06-01,Japan,Keito Nakamura,Reims,MID,74.0,3.0,,True,25.8,False
+2026-06-01,Japan,Junya Itō,Genk,MID,78.0,3.0,,True,33.2,True
+2026-06-01,Japan,Daichi Kamada,Crystal Palace,MID,81.0,3.0,,True,29.8,True
+2026-06-01,Japan,Tsuyoshi Watanabe,Feyenoord,DEF,74.0,3.0,,True,29.3,False
+2026-06-01,Japan,Yuito Suzuki,SC Freiburg,MID,68.0,3.0,,True,24.6,False
+2026-06-01,Japan,Ayase Ueda,Feyenoord,FWD,74.0,3.0,,True,27.8,True
+2026-06-01,Japan,Kōki Ogawa,NEC,FWD,69.0,3.0,,True,28.8,False
+2026-06-01,Japan,Ayumu Seko,Le Havre,DEF,66.0,3.0,,True,26.0,False
+2026-06-01,Japan,Hiroki Itō,Bayern Munich,DEF,79.0,3.0,,True,27.1,True
+2026-06-01,Japan,Takehiro Tomiyasu,Ajax,DEF,78.0,3.0,,True,27.6,True
+2026-06-01,Japan,Tomoki Hayakawa,Kashima Antlers,GK,68.95367831117943,4.0,,True,27.2,False
+2026-06-01,Japan,Kaishū Sano,Mainz 05,MID,68.0,3.0,,True,25.4,False
+2026-06-01,Japan,Junnosuke Suzuki,Copenhagen,DEF,65.71927686295248,4.0,,True,22.9,False
+2026-06-01,Japan,Kento Shiogai,VfL Wolfsburg,FWD,66.72950229208493,4.0,,True,21.2,False
+2026-06-01,Jordan,Yazeed Abulaila,Al-Hussein,GK,69.4954407032275,4.0,,True,33.4,True
+2026-06-01,Jordan,Mohammad Abu Hashish,Al-Karma,DEF,67.72137757077047,4.0,,True,31.1,True
+2026-06-01,Jordan,Abdallah Nasib,Al-Zawraa,DEF,69.21443335535952,4.0,,True,32.3,True
+2026-06-01,Jordan,Husam Abu Dahab,Al-Faisaly,DEF,60.99547546294121,4.0,,True,26.1,False
+2026-06-01,Jordan,Yazan Al-Arab,FC Seoul,DEF,62.0,3.0,,True,30.3,True
+2026-06-01,Jordan,Amer Jamous,Al-Zawraa,MID,59.606671999708816,4.0,,True,23.9,False
+2026-06-01,Jordan,Mohammad Abu Zrayq,Raja Casablanca,FWD,62.0,8.0,,True,28.4,False
+2026-06-01,Jordan,Noor Al-Rawabdeh,Selangor,MID,66.32542303035956,4.0,,True,29.3,True
+2026-06-01,Jordan,Ali Olwan,Al-Sailiya,FWD,64.24528456895723,4.0,,True,26.2,True
+2026-06-01,Jordan,Musa Al-Taamari,Rennes,FWD,75.0,3.0,,True,29.0,True
+2026-06-01,Jordan,Odeh Al-Fakhouri,Pyramids,FWD,62.0,8.0,,True,20.5,False
+2026-06-01,Jordan,Nour Bani Attiah,Al-Faisaly,GK,62.0,8.0,,True,33.3,False
+2026-06-01,Jordan,Mahmoud Al-Mardi,Al-Hussein,FWD,69.207282278181,4.0,,True,32.7,True
+2026-06-01,Jordan,Rajaei Ayed,Al-Hussein,MID,69.17594811608953,4.0,,True,32.9,True
+2026-06-01,Jordan,Ibrahim Sadeh,Al-Karma,MID,62.34394093812207,4.0,,True,26.1,True
+2026-06-01,Jordan,Mo Abualnadi,Selangor,DEF,60.000104939881844,4.0,,True,25.3,False
+2026-06-01,Jordan,Salim Obaid,Al-Hussein,DEF,61.34507517068891,4.0,,True,34.4,False
+2026-06-01,Jordan,Mohammad Taha,Al-Hussein,MID,62.0,8.0,,True,20.9,False
+2026-06-01,Jordan,Saed Al-Rosan,Al-Hussein,DEF,62.0,8.0,,True,29.3,False
+2026-06-01,Jordan,Mohannad Abu Taha,Al-Quwa Al-Jawiya,MID,59.22047916622204,4.0,,True,23.3,False
+2026-06-01,Jordan,Nizar Al-Rashdan,Qatar SC,MID,64.4018706014428,4.0,,True,27.2,False
+2026-06-01,Jordan,Abdallah Al-Fakhouri,Al-Wehdat,GK,60.09665343234396,4.0,,True,26.4,False
+2026-06-01,Jordan,Ihsan Haddad,Al-Hussein,DEF,62.0,8.0,,True,32.3,True
+2026-06-01,Jordan,Ali Azaizeh,Al-Shabab,FWD,55.738446054788064,4.0,,True,22.1,False
+2026-06-01,Jordan,Mohammad Al-Dawoud,Al-Wehdat,MID,67.74583845897911,4.0,,True,34.1,False
+2026-06-01,Jordan,Anas Badawi,Al-Faisaly,DEF,62.114714549667006,4.0,,True,28.7,False
+2026-06-01,Mexico,Raúl Rangel,Guadalajara,GK,72.28997624502384,4.0,,True,26.3,False
+2026-06-01,Mexico,Jorge Sánchez,PAOK,DEF,70.5711554111509,4.0,,True,28.5,False
+2026-06-01,Mexico,César Montes,Lokomotiv Moscow,DEF,74.0,3.0,,True,29.3,True
+2026-06-01,Mexico,Edson Álvarez,Fenerbahçe,DEF,81.0,3.0,,True,28.6,True
+2026-06-01,Mexico,Johan Vásquez,Genoa,DEF,74.0,3.0,,True,27.6,True
+2026-06-01,Mexico,Érik Lira,Cruz Azul,MID,74.35907107641026,4.0,,True,26.1,False
+2026-06-01,Mexico,Luis Romo,Guadalajara,MID,75.21461262629816,4.0,,True,31.0,False
+2026-06-01,Mexico,Álvaro Fidalgo,Real Betis,MID,75.47115908595751,4.0,,True,29.1,False
+2026-06-01,Mexico,Raúl Jiménez,Fulham,FWD,74.0,3.0,,True,35.1,True
+2026-06-01,Mexico,Alexis Vega,Toluca,FWD,75.81225831500163,4.0,,True,28.5,False
+2026-06-01,Mexico,Santiago Giménez,AC Milan,FWD,79.0,3.0,,True,25.1,True
+2026-06-01,Mexico,Carlos Acevedo,Santos Laguna,GK,73.83398243401413,4.0,,True,30.1,False
+2026-06-01,Mexico,Guillermo Ochoa,AEL Limassol,GK,78.137744162795,4.0,,True,40.9,True
+2026-06-01,Mexico,Armando González,Guadalajara,FWD,71.47006075141027,4.0,,True,23.1,False
+2026-06-01,Mexico,Israel Reyes,América,DEF,71.91671229887658,4.0,,True,26.0,False
+2026-06-01,Mexico,Julián Quiñones,Al-Qadsiah,FWD,78.0,3.0,,True,29.2,True
+2026-06-01,Mexico,Orbelín Pineda,AEK Athens,MID,77.0,3.0,,True,30.2,True
+2026-06-01,Mexico,Obed Vargas,Atlético Madrid,MID,64.0,3.0,,True,20.8,False
+2026-06-01,Mexico,Gilberto Mora,Tijuana,MID,63.0939640747904,4.0,,True,17.6,False
+2026-06-01,Mexico,Mateo Chávez,AZ,DEF,65.22874267860135,4.0,,True,22.1,False
+2026-06-01,Mexico,César Huerta,Anderlecht,FWD,68.95423106289542,4.0,,True,25.5,False
+2026-06-01,Mexico,Guillermo Martínez,Pumas,FWD,72.84290380513764,4.0,,True,31.2,False
+2026-06-01,Mexico,Jesús Gallardo,Toluca,DEF,75.94914479551531,4.0,,True,31.8,True
+2026-06-01,Mexico,Luis Chávez,Dynamo Moscow,MID,77.08863618592898,4.0,,True,30.4,False
+2026-06-01,Mexico,Roberto Alvarado,Guadalajara,FWD,74.57288980707628,4.0,,True,27.7,True
+2026-06-01,Mexico,Brian Gutiérrez,Guadalajara,MID,67.0,4.0,,True,23.0,True
+2026-06-01,Morocco,Yassine Bounou,Al-Hilal,GK,84.0,3.0,,True,35.2,True
+2026-06-01,Morocco,Achraf Hakimi,Paris Saint-Germain,DEF,84.0,3.0,,True,27.6,True
+2026-06-01,Morocco,Noussair Mazraoui,Manchester United,DEF,81.0,3.0,,True,28.5,True
+2026-06-01,Morocco,Sofyan Amrabat,Real Betis,MID,78.0,3.0,,True,29.8,True
+2026-06-01,Morocco,Marwane Saâdane,Al-Fateh,DEF,70.0,3.0,,True,34.4,False
+2026-06-01,Morocco,Ayyoub Bouaddi,Lille,MID,70.5473305843204,4.0,,True,18.7,False
+2026-06-01,Morocco,Chemsdine Talbi,Sunderland,MID,63.0,4.0,,True,21.1,False
+2026-06-01,Morocco,Azzedine Ounahi,Girona,MID,75.0,3.0,,True,26.1,True
+2026-06-01,Morocco,Soufiane Rahimi,Al Ain,FWD,79.0,3.0,,True,30.0,True
+2026-06-01,Morocco,Brahim Díaz,Real Madrid,FWD,82.0,3.0,,True,26.8,True
+2026-06-01,Morocco,Ismael Saibari,PSV Eindhoven,MID,76.0,3.0,,True,25.3,True
+2026-06-01,Morocco,Munir Mohamedi,RS Berkane,GK,71.0,8.0,,True,37.1,False
+2026-06-01,Morocco,Zakaria El Ouahdi,Genk,DEF,71.0,3.0,,True,24.4,False
+2026-06-01,Morocco,Issa Diop,Fulham,DEF,77.0,4.0,,True,29.4,True
+2026-06-01,Morocco,Samir El Mourabet,Strasbourg,MID,69.17324437634625,4.0,,True,20.7,False
+2026-06-01,Morocco,Gessime Yassine,Strasbourg,MID,66.70218222088062,4.0,,True,20.5,False
+2026-06-01,Morocco,Amine Sbaï,Angers,FWD,68.0,3.0,,True,25.6,False
+2026-06-01,Morocco,Chadi Riad,Crystal Palace,DEF,72.0,3.0,,True,23.0,False
+2026-06-01,Morocco,Youssef Belammari,Al Ahly,DEF,67.64452863028026,4.0,,True,27.7,False
+2026-06-01,Morocco,Ayoub El Kaabi,Olympiacos,FWD,78.0,3.0,,True,32.9,True
+2026-06-01,Morocco,Ayoube Amaimouni,Eintracht Frankfurt,FWD,67.94639537470482,4.0,,True,21.5,False
+2026-06-01,Morocco,Ahmed Reda Tagnaouti,AS FAR,GK,70.06576632072671,4.0,,True,30.2,False
+2026-06-01,Morocco,Bilal El Khannouss,VfB Stuttgart,MID,76.0,3.0,,True,22.1,True
+2026-06-01,Morocco,Neil El Aynaoui,Roma,MID,75.0,3.0,,True,24.9,False
+2026-06-01,Morocco,Redouane Halhal,Mechelen,DEF,67.4410062842806,4.0,,True,23.2,False
+2026-06-01,Morocco,Anass Salah-Eddine,PSV Eindhoven,DEF,67.0,4.0,,True,24.4,False
+2026-06-01,Netherlands,Bart Verbruggen,Brighton & Hove Albion,GK,76.0,3.0,,True,23.8,False
+2026-06-01,Netherlands,Lutsharel Geertruida,Sunderland,DEF,79.0,3.0,,True,25.9,False
+2026-06-01,Netherlands,Marten de Roon,Atalanta,MID,79.0,3.0,,True,35.2,False
+2026-06-01,Netherlands,Virgil van Dijk,Liverpool,DEF,89.0,3.0,,True,34.9,True
+2026-06-01,Netherlands,Nathan Aké,Manchester City,DEF,84.0,3.0,,True,31.3,True
+2026-06-01,Netherlands,Jan Paul van Hecke,Brighton & Hove Albion,DEF,76.0,3.0,,True,26.0,False
+2026-06-01,Netherlands,Justin Kluivert,Bournemouth,MID,77.0,3.0,,True,27.1,False
+2026-06-01,Netherlands,Ryan Gravenberch,Liverpool,MID,78.0,3.0,,True,24.0,False
+2026-06-01,Netherlands,Wout Weghorst,Ajax,FWD,77.0,3.0,,True,33.8,False
+2026-06-01,Netherlands,Memphis Depay,Corinthians,FWD,80.0354319608254,4.0,,True,32.3,False
+2026-06-01,Netherlands,Cody Gakpo,Liverpool,FWD,83.0,3.0,,True,27.1,True
+2026-06-01,Netherlands,Mats Wieffer,Brighton & Hove Albion,DEF,80.0,3.0,,True,26.5,True
+2026-06-01,Netherlands,Robin Roefs,Sunderland,GK,66.0,3.0,,True,23.4,False
+2026-06-01,Netherlands,Tijjani Reijnders,Manchester City,MID,82.0,3.0,,True,27.8,True
+2026-06-01,Netherlands,Micky van de Ven,Tottenham Hotspur,DEF,82.0,3.0,,True,25.1,True
+2026-06-01,Netherlands,Guus Til,PSV Eindhoven,MID,75.0,3.0,,True,28.4,False
+2026-06-01,Netherlands,Noa Lang,Galatasaray,FWD,79.0,3.0,,True,27.0,False
+2026-06-01,Netherlands,Donyell Malen,Roma,FWD,83.0,3.0,,True,27.4,True
+2026-06-01,Netherlands,Brian Brobbey,Sunderland,FWD,79.0,3.0,,True,24.3,False
+2026-06-01,Netherlands,Teun Koopmeiners,Juventus,MID,83.0,3.0,,True,28.3,True
+2026-06-01,Netherlands,Frenkie de Jong,Barcelona,MID,87.0,3.0,,True,29.1,True
+2026-06-01,Netherlands,Denzel Dumfries,Inter Milan,DEF,82.0,3.0,,True,30.1,True
+2026-06-01,Netherlands,Mark Flekken,Bayer Leverkusen,GK,79.0,3.0,,True,33.0,True
+2026-06-01,Netherlands,Crysencio Summerville,West Ham United,FWD,76.0,3.0,,True,24.6,False
+2026-06-01,Netherlands,Jorrel Hato,Chelsea,DEF,73.0,3.0,,True,20.2,False
+2026-06-01,Netherlands,Quinten Timber,Marseille,MID,79.0,3.0,,True,25.0,False
+2026-06-01,New Zealand,Max Crocombe,Millwall,GK,65.0,3.0,,True,32.8,False
+2026-06-01,New Zealand,Tim Payne,Wellington Phoenix,DEF,67.0,3.0,,True,32.4,True
+2026-06-01,New Zealand,Francis de Vries,Auckland FC,DEF,64.0,3.0,,True,31.5,False
+2026-06-01,New Zealand,Tyler Bindon,Sheffield United,DEF,67.0,3.0,,True,21.3,True
+2026-06-01,New Zealand,Michael Boxall,Minnesota United FC,DEF,69.0,3.0,,True,37.8,True
+2026-06-01,New Zealand,Joe Bell,Viking,MID,67.0,3.0,,True,27.1,True
+2026-06-01,New Zealand,Matthew Garbett,Peterborough United,MID,64.0,3.0,,True,24.1,False
+2026-06-01,New Zealand,Marko Stamenić,Swansea City,MID,72.0,3.0,,True,24.3,True
+2026-06-01,New Zealand,Chris Wood,Nottingham Forest,FWD,76.0,3.0,,True,34.5,True
+2026-06-01,New Zealand,Sarpreet Singh,Wellington Phoenix,MID,63.83699672271113,4.0,,True,27.3,False
+2026-06-01,New Zealand,Elijah Just,Motherwell,MID,68.42867297844546,4.0,,True,26.1,False
+2026-06-01,New Zealand,Alex Paulsen,Lechia Gdańsk,GK,70.0,3.0,,True,23.9,True
+2026-06-01,New Zealand,Liberato Cacace,Wrexham,DEF,72.0,3.0,,True,25.7,True
+2026-06-01,New Zealand,Alex Rufer,Wellington Phoenix,MID,68.0,3.0,,True,30.0,True
+2026-06-01,New Zealand,Nando Pijnaker,Auckland FC,DEF,62.0,3.0,,True,27.3,False
+2026-06-01,New Zealand,Finn Surman,Portland Timbers,DEF,66.0,3.0,,True,22.7,False
+2026-06-01,New Zealand,Kosta Barbarouses,Western Sydney Wanderers,FWD,68.0,3.0,,True,36.3,True
+2026-06-01,New Zealand,Ben Waine,Port Vale,FWD,64.0,3.0,,True,25.0,False
+2026-06-01,New Zealand,Ben Old,Saint-Étienne,MID,67.0,3.0,,True,23.8,True
+2026-06-01,New Zealand,Callum McCowatt,Silkeborg,MID,66.0,3.0,,True,27.1,False
+2026-06-01,New Zealand,Jesse Randall,Auckland FC,FWD,61.7044702090272,4.0,,True,23.8,False
+2026-06-01,New Zealand,Michael Woud,Auckland FC,GK,62.0,3.0,,True,27.4,False
+2026-06-01,New Zealand,Ryan Thomas,PEC Zwolle,MID,66.0,3.0,,True,31.4,False
+2026-06-01,New Zealand,Callan Elliot,Auckland FC,DEF,62.0,3.0,,True,26.9,False
+2026-06-01,New Zealand,Lachlan Bayliss,Newcastle Jets,MID,58.0,3.0,,True,23.9,False
+2026-06-01,New Zealand,Tommy Smith,Braintree Town,DEF,62.0,3.0,,True,36.2,False
+2026-06-01,Norway,Ørjan Nyland,Sevilla,GK,76.0,3.0,,True,35.7,True
+2026-06-01,Norway,Morten Thorsby,Cremonese,MID,72.0,3.0,,True,30.1,False
+2026-06-01,Norway,Kristoffer Ajer,Brentford,DEF,76.0,3.0,,True,28.1,True
+2026-06-01,Norway,Leo Østigård,Genoa,DEF,72.0,3.0,,True,26.5,False
+2026-06-01,Norway,David Møller Wolfe,Wolverhampton Wanderers,DEF,70.0,3.0,,True,24.1,False
+2026-06-01,Norway,Patrick Berg,Bodø/Glimt,MID,76.0,3.0,,True,28.5,True
+2026-06-01,Norway,Alexander Sørloth,Atlético Madrid,FWD,82.0,3.0,,True,30.5,True
+2026-06-01,Norway,Sander Berge,Fulham,MID,76.0,3.0,,True,28.3,True
+2026-06-01,Norway,Erling Haaland,Manchester City,FWD,91.0,3.0,,True,25.9,True
+2026-06-01,Norway,Martin Ødegaard,Arsenal,MID,89.0,3.0,,True,27.5,True
+2026-06-01,Norway,Jørgen Strand Larsen,Crystal Palace,FWD,75.0,3.0,,True,26.3,True
+2026-06-01,Norway,Sander Tangvik,Hamburger SV,GK,65.0,3.0,,True,23.5,False
+2026-06-01,Norway,Egil Selvik,Watford,GK,69.0,3.0,,True,28.8,False
+2026-06-01,Norway,Fredrik Aursnes,Benfica,MID,80.0,3.0,,True,30.5,True
+2026-06-01,Norway,Fredrik André Bjørkan,Bodø/Glimt,DEF,73.0,3.0,,True,27.8,False
+2026-06-01,Norway,Marcus Holmgren Pedersen,Torino,DEF,73.0,3.0,,True,25.9,False
+2026-06-01,Norway,Torbjørn Heggem,Bologna,DEF,65.0,4.0,,True,27.4,False
+2026-06-01,Norway,Kristian Thorstvedt,Sassuolo,MID,73.0,3.0,,True,27.2,True
+2026-06-01,Norway,Thelo Aasgaard,Rangers,MID,66.0,3.0,,True,24.1,False
+2026-06-01,Norway,Antonio Nusa,RB Leipzig,FWD,72.0,3.0,,True,21.1,False
+2026-06-01,Norway,Andreas Schjelderup,Benfica,MID,72.0,3.0,,True,22.0,False
+2026-06-01,Norway,Oscar Bobb,Fulham,MID,72.0,3.0,,True,22.9,False
+2026-06-01,Norway,Jens Petter Hauge,Bodø/Glimt,MID,71.0,3.0,,True,26.6,False
+2026-06-01,Norway,Sondre Langås,Derby County,DEF,64.0,3.0,,True,25.3,False
+2026-06-01,Norway,Henrik Falchener,Viking,DEF,68.00588016301228,4.0,,True,23.1,False
+2026-06-01,Norway,Julian Ryerson,Borussia Dortmund,FWD,79.0,3.0,,True,28.5,True
+2026-06-01,Panama,Luis Mejía,Nacional,GK,70.0,3.0,,True,35.2,True
+2026-06-01,Panama,César Blackman,Slovan Bratislava,DEF,71.0415206014763,4.0,,True,28.2,False
+2026-06-01,Panama,José Córdoba,Norwich City,DEF,66.0,3.0,,True,25.0,True
+2026-06-01,Panama,Fidel Escobar,Saprissa,DEF,67.58980517820953,4.0,,True,31.4,False
+2026-06-01,Panama,Edgardo Fariña,Pari Nizhny Novgorod,DEF,62.699840732086564,4.0,,True,24.6,False
+2026-06-01,Panama,Cristian Martínez,Ironi Kiryat Shmona,MID,55.0,4.0,,True,29.3,False
+2026-06-01,Panama,José Luis Rodríguez,Juárez,MID,70.79267797071145,4.0,,True,28.0,False
+2026-06-01,Panama,Adalberto Carrasquilla,UNAM,MID,71.0,3.0,,True,27.5,True
+2026-06-01,Panama,Tomás Rodríguez,Saprissa,FWD,66.33312685925407,4.0,,True,27.2,False
+2026-06-01,Panama,Ismael Díaz,León,MID,74.0,3.0,,True,29.1,True
+2026-06-01,Panama,Yoel Bárcenas,Mazatlán,MID,71.42323562186763,4.0,,True,32.6,False
+2026-06-01,Panama,César Samudio,Marathón,GK,67.43751103990681,4.0,,True,32.3,False
+2026-06-01,Panama,Jiovany Ramos,Puerto Cabello,DEF,68.0,3.0,,True,29.3,True
+2026-06-01,Panama,Carlos Harvey,Minnesota United FC,DEF,56.0,3.0,,True,26.3,False
+2026-06-01,Panama,Eric Davis,Plaza Amador,DEF,64.96099714567364,4.0,,True,35.2,True
+2026-06-01,Panama,Andrés Andrade,LASK,DEF,71.0,3.0,,True,27.6,True
+2026-06-01,Panama,José Fajardo,Universidad Católica,FWD,70.0,3.0,,True,32.8,True
+2026-06-01,Panama,Cecilio Waterman,Universidad de Concepción,FWD,70.92130787061458,4.0,,True,35.1,False
+2026-06-01,Panama,Alberto Quintero,Plaza Amador,MID,70.59982488388025,4.0,,True,38.5,True
+2026-06-01,Panama,Aníbal Godoy,San Diego FC,MID,70.0,3.0,,True,36.3,True
+2026-06-01,Panama,César Yanis,Cobresal,MID,66.72600704771111,4.0,,True,30.3,False
+2026-06-01,Panama,Orlando Mosquera,Al-Fayha,GK,70.21035663013487,4.0,,True,31.4,False
+2026-06-01,Panama,Michael Amir Murillo,Beşiktaş,DEF,74.0,3.0,,True,30.3,True
+2026-06-01,Panama,Azarias Londoño,Universidad Católica,FWD,63.471436605458386,4.0,,True,24.9,False
+2026-06-01,Panama,Roderick Miller,Turan Tovuz,DEF,68.45305055699194,4.0,,True,34.2,False
+2026-06-01,Panama,Jorge Gutiérrez,Deportivo La Guaira,DEF,66.11160429969354,4.0,,True,27.7,False
+2026-06-01,Paraguay,Gatito Fernández,Cerro Porteño,GK,71.31418805907163,4.0,,True,38.2,False
+2026-06-01,Paraguay,Gustavo Velázquez,Cerro Porteño,DEF,73.0,3.0,,True,35.1,False
+2026-06-01,Paraguay,Omar Alderete,Sunderland,DEF,77.0,3.0,,True,29.4,True
+2026-06-01,Paraguay,Juan José Cáceres,Dynamo Moscow,DEF,73.0,3.0,,True,26.0,True
+2026-06-01,Paraguay,Fabián Balbuena,Grêmio,DEF,75.39081490109348,4.0,,True,34.8,False
+2026-06-01,Paraguay,Júnior Alonso,Atlético Mineiro,DEF,75.45575142816847,4.0,,True,33.3,False
+2026-06-01,Paraguay,Ramón Sosa,Palmeiras,MID,75.0,3.0,,True,26.8,True
+2026-06-01,Paraguay,Diego Gómez,Brighton & Hove Albion,MID,68.0,3.0,,True,23.2,False
+2026-06-01,Paraguay,Antonio Sanabria,Cremonese,FWD,77.0,3.0,,True,30.2,True
+2026-06-01,Paraguay,Miguel Almirón,Atlanta United FC,MID,78.0,3.0,,True,32.3,True
+2026-06-01,Paraguay,Maurício,Palmeiras,MID,73.70964442829384,4.0,,True,24.9,False
+2026-06-01,Paraguay,Orlando Gill,San Lorenzo,GK,71.61409830910247,4.0,,True,26.0,False
+2026-06-01,Paraguay,José Canale,Lanús,DEF,72.67338888531256,4.0,,True,29.9,False
+2026-06-01,Paraguay,Andrés Cubas,Vancouver Whitecaps FC,MID,74.0,3.0,,True,30.1,True
+2026-06-01,Paraguay,Gustavo Gómez,Palmeiras,DEF,78.4102510319594,4.0,,True,33.1,False
+2026-06-01,Paraguay,Damián Bobadilla,São Paulo,MID,70.24546383989585,4.0,,True,24.9,False
+2026-06-01,Paraguay,Kaku,Al Ain,FWD,79.0,3.0,,True,31.4,True
+2026-06-01,Paraguay,Álex Arce,Independiente Rivadavia,FWD,73.0,3.0,,True,31.0,True
+2026-06-01,Paraguay,Julio Enciso,Strasbourg,FWD,73.0,4.0,,True,22.4,True
+2026-06-01,Paraguay,Braian Ojeda,Orlando City SC,MID,70.0,3.0,,True,25.9,False
+2026-06-01,Paraguay,Gabriel Ávalos,Independiente,FWD,74.0,3.0,,True,34.9,True
+2026-06-01,Paraguay,Gastón Olveira,Olimpia,GK,73.0,4.0,,True,33.1,True
+2026-06-01,Paraguay,Matías Galarza,Atlanta United FC,MID,63.0,3.0,,True,24.3,False
+2026-06-01,Paraguay,Gustavo Caballero,Portsmouth,MID,64.0,3.0,,True,24.7,False
+2026-06-01,Paraguay,Isidro Pitta,Red Bull Bragantino,FWD,73.4530979686345,4.0,,True,26.8,False
+2026-06-01,Paraguay,Alexandro Maidana,Talleres,DEF,61.83434326317714,4.0,,True,20.8,False
+2026-06-01,Portugal,Diogo Costa,Porto,GK,84.0,3.0,,True,26.7,True
+2026-06-01,Portugal,Nélson Semedo,Fenerbahçe,DEF,78.0,3.0,,True,32.5,False
+2026-06-01,Portugal,Rúben Dias,Manchester City,DEF,88.0,3.0,,True,29.0,True
+2026-06-01,Portugal,Tomás Araújo,Benfica,DEF,73.0,3.0,,True,24.0,False
+2026-06-01,Portugal,Diogo Dalot,Manchester United,DEF,82.0,3.0,,True,27.2,True
+2026-06-01,Portugal,Matheus Nunes,Manchester City,MID,78.0,3.0,,True,27.8,False
+2026-06-01,Portugal,Cristiano Ronaldo,Al-Nassr,FWD,86.0,3.0,,True,41.3,True
+2026-06-01,Portugal,Bruno Fernandes,Manchester United,MID,87.0,3.0,,True,31.7,True
+2026-06-01,Portugal,Gonçalo Ramos,Paris Saint-Germain,FWD,79.0,3.0,,True,24.9,False
+2026-06-01,Portugal,Bernardo Silva,Manchester City,MID,88.0,3.0,,True,31.8,True
+2026-06-01,Portugal,João Félix,Al-Nassr,FWD,80.0,3.0,,True,26.6,False
+2026-06-01,Portugal,José Sá,Wolverhampton Wanderers,GK,79.0,3.0,,True,33.4,False
+2026-06-01,Portugal,Renato Veiga,Villarreal,DEF,72.0,3.0,,True,22.8,False
+2026-06-01,Portugal,Gonçalo Inácio,Sporting CP,DEF,80.0,3.0,,True,24.8,False
+2026-06-01,Portugal,João Neves,Paris Saint-Germain,MID,79.0,3.0,,True,21.7,False
+2026-06-01,Portugal,Francisco Trincão,Sporting CP,FWD,78.0,3.0,,True,26.4,False
+2026-06-01,Portugal,Rafael Leão,Milan,FWD,86.0,3.0,,True,27.0,True
+2026-06-01,Portugal,Pedro Neto,Chelsea,FWD,79.0,3.0,,True,26.2,False
+2026-06-01,Portugal,Gonçalo Guedes,Real Sociedad,FWD,77.0,3.0,,True,29.5,False
+2026-06-01,Portugal,João Cancelo,Barcelona,DEF,86.0,3.0,,True,32.0,True
+2026-06-01,Portugal,Rúben Neves,Al-Hilal,MID,84.0,3.0,,True,29.2,True
+2026-06-01,Portugal,Rui Silva,Sporting CP,GK,81.0,3.0,,True,32.3,False
+2026-06-01,Portugal,Vitinha,Paris Saint-Germain,MID,85.0,3.0,,True,26.3,True
+2026-06-01,Portugal,Samú Costa,Mallorca,DEF,74.0,3.0,,True,25.5,False
+2026-06-01,Portugal,Nuno Mendes,Paris Saint-Germain,DEF,83.0,3.0,,True,24.0,True
+2026-06-01,Portugal,Francisco Conceição,Juventus,FWD,78.0,3.0,,True,23.5,False
+2026-06-01,Qatar,Mahmud Abunada,Al-Rayyan,GK,61.74915443241428,4.0,,True,26.3,False
+2026-06-01,Qatar,Pedro Miguel,Al-Sadd,DEF,65.70752503796817,4.0,,True,35.8,True
+2026-06-01,Qatar,Lucas Mendes,Al-Wakrah,DEF,73.18876437041845,4.0,,True,35.9,False
+2026-06-01,Qatar,Issa Laye,Al-Arabi,DEF,61.741450603519745,4.0,,True,28.4,False
+2026-06-01,Qatar,Jassem Gaber,Al-Rayyan,DEF,60.1043572612385,4.0,,True,24.3,False
+2026-06-01,Qatar,Abdulaziz Hatem,Al-Rayyan,MID,72.53878497058605,4.0,,True,36.4,True
+2026-06-01,Qatar,Ahmed Alaaeldin,Al-Rayyan,FWD,69.37101938784508,4.0,,True,33.3,True
+2026-06-01,Qatar,Edmilson Junior,Al-Duhail,FWD,74.27872689154623,4.0,,True,31.8,False
+2026-06-01,Qatar,Mohammed Muntari,Al-Gharafa,FWD,66.71830321881657,4.0,,True,32.4,True
+2026-06-01,Qatar,Hassan Al-Haydos,Al-Sadd,FWD,62.0,8.0,,True,35.5,True
+2026-06-01,Qatar,Akram Afif,Al-Sadd,FWD,77.05647146882586,4.0,,True,29.5,True
+2026-06-01,Qatar,Karim Boudiaf,Al-Duhail,MID,70.31937028772825,4.0,,True,35.7,True
+2026-06-01,Qatar,Ayoub Al-Oui,Al-Gharafa,DEF,55.15966936304482,4.0,,True,21.2,False
+2026-06-01,Qatar,Homam Ahmed,Cultural Leonesa,DEF,63.214890145799025,4.0,,True,26.8,True
+2026-06-01,Qatar,Yusuf Abdurisag,Al-Wakrah,FWD,60.95467375268141,4.0,,True,26.8,False
+2026-06-01,Qatar,Boualem Khoukhi,Al-Sadd,DEF,71.07304925720132,4.0,,True,35.9,True
+2026-06-01,Qatar,Ahmed Al-Ganehi,Al-Gharafa,MID,61.846255676592385,4.0,,True,25.7,False
+2026-06-01,Qatar,Sultan Al-Brake,Al-Duhail,DEF,65.38953729560762,4.0,,True,30.1,False
+2026-06-01,Qatar,Almoez Ali,Al-Duhail,FWD,73.03226164759502,4.0,,True,29.8,True
+2026-06-01,Qatar,Ahmed Fathy,Al-Arabi,MID,62.0,8.0,,True,33.3,False
+2026-06-01,Qatar,Salah Zakaria,Al-Duhail,GK,62.74452495547364,4.0,,True,27.1,False
+2026-06-01,Qatar,Meshaal Barsham,Al-Sadd,GK,66.35329585327983,4.0,,True,28.3,True
+2026-06-01,Qatar,Assim Madibo,Al-Wakrah,MID,65.35022150132596,4.0,,True,29.6,False
+2026-06-01,Qatar,Tahsin Jamshid,Al-Duhail,FWD,62.0,8.0,,True,20.0,False
+2026-06-01,Qatar,Al-Hashmi Al-Hussain,Al-Arabi,DEF,55.617486078576825,4.0,,True,22.8,False
+2026-06-01,Qatar,Mohamed Manai,Al-Shamal,FWD,62.0,8.0,,True,23.6,False
+2026-06-01,Saudi Arabia,Nawaf Al-Aqidi,Al-Nassr,GK,68.0,3.0,,True,26.1,False
+2026-06-01,Saudi Arabia,Ali Majrashi,Al-Ahli,DEF,65.0,3.0,,True,26.7,False
+2026-06-01,Saudi Arabia,Ali Lajami,Al-Hilal,DEF,69.0,3.0,,True,30.1,True
+2026-06-01,Saudi Arabia,Abdulelah Al-Amri,Al-Nassr,DEF,69.0,3.0,,True,29.4,True
+2026-06-01,Saudi Arabia,Hassan Al-Tambakti,Al-Hilal,DEF,73.0,3.0,,True,27.3,True
+2026-06-01,Saudi Arabia,Nasser Al-Dawsari,Al-Hilal,MID,66.0,3.0,,True,27.4,False
+2026-06-01,Saudi Arabia,Musab Al-Juwayr,Al-Qadsiah,MID,67.0,3.0,,True,22.9,False
+2026-06-01,Saudi Arabia,Ayman Yahya,Al-Nassr,FWD,66.0,3.0,,True,25.0,False
+2026-06-01,Saudi Arabia,Firas Al-Buraikan,Al-Ahli,FWD,75.0,3.0,,True,26.0,True
+2026-06-01,Saudi Arabia,Salem Al-Dawsari,Al-Hilal,FWD,80.0,3.0,,True,34.8,True
+2026-06-01,Saudi Arabia,Saleh Al-Shehri,Al-Ittihad,FWD,68.0,3.0,,True,32.6,True
+2026-06-01,Saudi Arabia,Saud Abdulhamid,Lens,DEF,78.0,3.0,,True,26.9,True
+2026-06-01,Saudi Arabia,Nawaf Boushal,Al-Nassr,DEF,63.0,3.0,,True,26.7,False
+2026-06-01,Saudi Arabia,Hassan Kadesh,Al-Ittihad,DEF,68.0,3.0,,True,33.7,True
+2026-06-01,Saudi Arabia,Abdullah Al-Khaibari,Al-Nassr,MID,71.0,3.0,,True,29.8,True
+2026-06-01,Saudi Arabia,Ziyad Al-Johani,Al-Ahli,MID,61.0,3.0,,True,24.6,False
+2026-06-01,Saudi Arabia,Khalid Al-Ghannam,Al-Ettifaq,FWD,62.0,3.0,,True,25.6,False
+2026-06-01,Saudi Arabia,Alaa Al-Hejji,Neom,MID,63.0,3.0,,True,30.5,False
+2026-06-01,Saudi Arabia,Abdullah Al-Hamdan,Al-Nassr,FWD,61.0,3.0,,True,26.7,False
+2026-06-01,Saudi Arabia,Sultan Mandash,Al-Hilal,FWD,66.0,3.0,,True,31.6,False
+2026-06-01,Saudi Arabia,Mohammed Al-Owais,Al-Ula,GK,69.0,3.0,,True,34.6,True
+2026-06-01,Saudi Arabia,Ahmed Al-Kassar,Al-Qadsiah,GK,63.0,3.0,,True,35.1,False
+2026-06-01,Saudi Arabia,Mohamed Kanno,Al-Hilal,MID,71.0,3.0,,True,31.7,True
+2026-06-01,Saudi Arabia,Moteb Al-Harbi,Al-Hilal,DEF,68.0,3.0,,True,26.3,False
+2026-06-01,Saudi Arabia,Jehad Thakri,Al-Qadsiah,DEF,64.16073179957246,4.0,,True,24.9,False
+2026-06-01,Saudi Arabia,Mohammed Abu Al-Shamat,Al-Qadsiah,DEF,64.32502166095256,4.0,,True,23.8,False
+2026-06-01,Scotland,Angus Gunn,Nottingham Forest,GK,74.0,3.0,,True,30.4,True
+2026-06-01,Scotland,Aaron Hickey,Brentford,DEF,76.0,3.0,,True,24.0,True
+2026-06-01,Scotland,Andy Robertson,Liverpool,DEF,85.0,3.0,,True,32.2,True
+2026-06-01,Scotland,Scott McTominay,Napoli,MID,78.0,3.0,,True,29.5,True
+2026-06-01,Scotland,Grant Hanley,Hibernian,DEF,71.0,3.0,,True,34.5,False
+2026-06-01,Scotland,Kieran Tierney,Celtic,DEF,79.0,3.0,,True,29.0,True
+2026-06-01,Scotland,John McGinn,Aston Villa,MID,82.0,3.0,,True,31.6,True
+2026-06-01,Scotland,Tyler Fletcher,Manchester United,MID,57.91234595924711,4.0,,True,19.2,False
+2026-06-01,Scotland,Lyndon Dykes,Charlton Athletic,FWD,69.0,3.0,,True,30.7,False
+2026-06-01,Scotland,Ché Adams,Torino,FWD,75.0,3.0,,True,29.9,True
+2026-06-01,Scotland,Ryan Christie,Bournemouth,MID,76.0,3.0,,True,31.3,True
+2026-06-01,Scotland,Liam Kelly,Rangers,GK,66.0,3.0,,True,30.4,False
+2026-06-01,Scotland,Jack Hendry,Al-Ettifaq,DEF,75.0,3.0,,True,31.1,True
+2026-06-01,Scotland,Ross Stewart,Southampton,FWD,71.0,3.0,,True,29.9,False
+2026-06-01,Scotland,John Souttar,Rangers,DEF,74.0,3.0,,True,29.7,False
+2026-06-01,Scotland,Dominic Hyam,Wrexham,DEF,70.0,3.0,,True,30.4,False
+2026-06-01,Scotland,Ben Gannon-Doak,Bournemouth,FWD,66.0,3.0,,True,20.6,False
+2026-06-01,Scotland,George Hirst,Ipswich Town,FWD,71.0,4.0,,True,27.3,False
+2026-06-01,Scotland,Lewis Ferguson,Bologna,MID,79.0,3.0,,True,26.8,True
+2026-06-01,Scotland,Lawrence Shankland,Heart of Midlothian,FWD,75.0,3.0,,True,30.8,True
+2026-06-01,Scotland,Craig Gordon,Heart of Midlothian,GK,71.0,3.0,,True,43.4,False
+2026-06-01,Scotland,Nathan Patterson,Everton,DEF,71.0,3.0,,True,24.6,False
+2026-06-01,Scotland,Kenny McLean,Norwich City,MID,72.0,3.0,,True,34.4,False
+2026-06-01,Scotland,Anthony Ralston,Celtic,DEF,71.0,3.0,,True,27.5,False
+2026-06-01,Scotland,Findlay Curtis,Kilmarnock,FWD,59.99534360364513,4.0,,True,20.0,False
+2026-06-01,Scotland,Scott McKenna,Dinamo Zagreb,DEF,71.0,3.0,,True,29.5,False
+2026-06-01,Senegal,Yehvann Diouf,Nice,GK,77.0,4.0,,True,26.5,False
+2026-06-01,Senegal,Mamadou Sarr,Chelsea,DEF,65.0,5.0,,True,20.8,False
+2026-06-01,Senegal,Kalidou Koulibaly,Al-Hilal,DEF,84.0,3.0,,True,34.9,True
+2026-06-01,Senegal,Abdoulaye Seck,Maccabi Haifa,DEF,71.3295957168607,4.0,,True,34.0,False
+2026-06-01,Senegal,Idrissa Gueye,Everton,MID,76.0,3.0,,True,36.7,True
+2026-06-01,Senegal,Pathé Ciss,Rayo Vallecano,MID,74.0,3.0,,True,32.2,False
+2026-06-01,Senegal,Assane Diao,Como,FWD,71.0,4.0,,True,20.7,False
+2026-06-01,Senegal,Lamine Camara,Monaco,MID,73.0,3.0,,True,22.4,False
+2026-06-01,Senegal,Bamba Dieng,Lorient,FWD,72.0,3.0,,True,26.2,False
+2026-06-01,Senegal,Sadio Mané,Al-Nassr,FWD,84.0,3.0,,True,34.1,True
+2026-06-01,Senegal,Nicolas Jackson,Bayern Munich,FWD,79.0,3.0,,True,24.9,True
+2026-06-01,Senegal,Cherif Ndiaye,Samsunspor,FWD,76.39934099181491,4.0,,True,30.4,False
+2026-06-01,Senegal,Iliman Ndiaye,Everton,FWD,75.0,3.0,,True,26.2,True
+2026-06-01,Senegal,Ismail Jakobs,Galatasaray,DEF,74.0,3.0,,True,26.8,False
+2026-06-01,Senegal,Krépin Diatta,Monaco,DEF,75.0,3.0,,True,27.3,True
+2026-06-01,Senegal,Édouard Mendy,Al-Ahli,GK,80.0,3.0,,True,34.3,True
+2026-06-01,Senegal,Pape Matar Sarr,Tottenham Hotspur,MID,79.0,3.0,,True,23.7,True
+2026-06-01,Senegal,Ismaïla Sarr,Crystal Palace,FWD,76.0,3.0,,True,28.3,True
+2026-06-01,Senegal,Moussa Niakhaté,Lyon,DEF,76.0,3.0,,True,30.2,True
+2026-06-01,Senegal,Ibrahim Mbaye,Paris Saint-Germain,FWD,68.24281038036185,4.0,,True,18.4,False
+2026-06-01,Senegal,Habib Diarra,Sunderland,MID,73.0,3.0,,True,22.4,False
+2026-06-01,Senegal,Bara Sapoko Ndiaye,Bayern Munich,MID,60.62515400945177,4.0,,True,18.4,False
+2026-06-01,Senegal,Mory Diaw,Le Havre,GK,75.0,3.0,,True,32.9,False
+2026-06-01,Senegal,Antoine Mendy,Nice,DEF,69.0,4.0,,True,22.0,False
+2026-06-01,Senegal,El Hadji Malick Diouf,West Ham United,DEF,71.0,3.0,,True,21.4,False
+2026-06-01,Senegal,Pape Gueye,Villarreal,MID,75.0,3.0,,True,27.4,True
+2026-06-01,South Africa,Ronwen Williams,Mamelodi Sundowns,GK,74.44783243031574,4.0,,True,34.4,True
+2026-06-01,South Africa,Thabang Matuludi,Polokwane City,DEF,67.271264684133,4.0,,True,27.4,False
+2026-06-01,South Africa,Khulumani Ndamane,Mamelodi Sundowns,DEF,60.92577759962952,4.0,,True,22.3,False
+2026-06-01,South Africa,Teboho Mokoena,Mamelodi Sundowns,MID,72.83861191095477,4.0,,True,29.3,True
+2026-06-01,South Africa,Thalente Mbatha,Orlando Pirates,MID,67.70946515735523,4.0,,True,26.2,True
+2026-06-01,South Africa,Aubrey Modiba,Mamelodi Sundowns,DEF,73.15893505310444,4.0,,True,30.9,True
+2026-06-01,South Africa,Oswin Appollis,Orlando Pirates,FWD,66.81119587847397,4.0,,True,24.8,True
+2026-06-01,South Africa,Tshepang Moremi,Orlando Pirates,FWD,65.73889310526226,4.0,,True,25.7,False
+2026-06-01,South Africa,Lyle Foster,Burnley,FWD,72.0,3.0,,True,25.7,True
+2026-06-01,South Africa,Relebohile Mofokeng,Orlando Pirates,FWD,63.519008980350584,4.0,,True,21.6,False
+2026-06-01,South Africa,Themba Zwane,Mamelodi Sundowns,MID,73.03647023211573,4.0,,True,36.8,True
+2026-06-01,South Africa,Thapelo Maseko,AEL Limassol,FWD,59.52211923032407,4.0,,True,22.6,False
+2026-06-01,South Africa,Sphephelo Sithole,Tondela,MID,66.0,3.0,,True,27.2,True
+2026-06-01,South Africa,Mbekezeli Mbokazi,Chicago Fire FC,DEF,62.982007924539225,4.0,,True,20.7,False
+2026-06-01,South Africa,Iqraam Rayners,Mamelodi Sundowns,FWD,74.33166769554381,4.0,,True,30.5,False
+2026-06-01,South Africa,Sipho Chaine,Orlando Pirates,GK,70.97173942850247,4.0,,True,29.5,False
+2026-06-01,South Africa,Evidence Makgopa,Orlando Pirates,FWD,66.11215705140953,4.0,,True,26.0,True
+2026-06-01,South Africa,Samukele Kabini,Molde,DEF,63.57624167853104,4.0,,True,22.2,False
+2026-06-01,South Africa,Nkosinathi Sibisi,Orlando Pirates,DEF,72.46479521309152,4.0,,True,30.7,True
+2026-06-01,South Africa,Khuliso Mudau,Mamelodi Sundowns,DEF,71.87485335328256,4.0,,True,31.1,True
+2026-06-01,South Africa,Ime Okon,Hannover 96,DEF,62.85703385744082,4.0,,True,22.3,False
+2026-06-01,South Africa,Ricardo Goss,Siwelele,GK,68.5851757012689,4.0,,True,32.2,False
+2026-06-01,South Africa,Jayden Adams,Mamelodi Sundowns,MID,65.94249876092402,4.0,,True,25.1,False
+2026-06-01,South Africa,Olwethu Makhanya,Philadelphia Union,DEF,50.0,3.0,,True,22.1,False
+2026-06-01,South Africa,Kamogelo Sebelebele,Orlando Pirates,FWD,62.91651864574825,4.0,,True,23.9,False
+2026-06-01,South Africa,Bradley Cross,Kaizer Chiefs,DEF,63.96912186698807,4.0,,True,25.3,False
+2026-06-01,South Korea,Kim Seung-gyu,FC Tokyo,GK,73.0,3.0,,True,35.7,False
+2026-06-01,South Korea,Lee Han-beom,Midtjylland,DEF,69.0,3.0,,True,24.0,False
+2026-06-01,South Korea,Lee Gi-hyuk,Gangwon FC,MID,66.0,3.0,,True,25.9,False
+2026-06-01,South Korea,Kim Min-jae,Bayern Munich,DEF,83.0,3.0,,True,29.5,True
+2026-06-01,South Korea,Kim Tae-hyeon,Kashima Antlers,DEF,50.0,5.0,,True,25.7,False
+2026-06-01,South Korea,Hwang In-beom,Feyenoord,MID,67.0,8.0,,True,29.7,False
+2026-06-01,South Korea,Son Heung-min,Los Angeles FC,FWD,87.0,4.0,,True,33.9,True
+2026-06-01,South Korea,Paik Seung-ho,Birmingham City,MID,72.0,3.0,,True,29.2,True
+2026-06-01,South Korea,Cho Gue-sung,Midtjylland,FWD,72.0,3.0,,True,28.3,True
+2026-06-01,South Korea,Lee Jae-sung,Mainz 05,MID,76.0,3.0,,True,33.8,True
+2026-06-01,South Korea,Hwang Hee-chan,Wolverhampton Wanderers,MID,78.0,3.0,,True,30.3,True
+2026-06-01,South Korea,Song Bum-keun,Jeonbuk Hyundai Motors,GK,67.0,8.0,,True,28.6,False
+2026-06-01,South Korea,Lee Tae-seok,Austria Wien,DEF,68.0,3.0,,True,23.8,False
+2026-06-01,South Korea,Cho Wi-je,Jeonbuk Hyundai Motors,DEF,67.0,8.0,,True,24.8,False
+2026-06-01,South Korea,Kim Moon-hwan,Daejeon Hana Citizen,DEF,68.0,3.0,,True,30.8,False
+2026-06-01,South Korea,Park Jin-seob,Zhejiang,DEF,72.0,3.0,,True,30.6,True
+2026-06-01,South Korea,Bae Jun-ho,Stoke City,MID,71.0,3.0,,True,22.8,False
+2026-06-01,South Korea,Oh Hyeon-gyu,Beşiktaş,FWD,69.0,3.0,,True,25.1,False
+2026-06-01,South Korea,Lee Kang-in,Paris Saint-Germain,MID,79.0,3.0,,True,25.3,True
+2026-06-01,South Korea,Yang Hyun-jun,Celtic,MID,69.0,3.0,,True,24.0,False
+2026-06-01,South Korea,Jo Hyeon-woo,Ulsan HD,GK,75.0,3.0,,True,34.7,True
+2026-06-01,South Korea,Seol Young-woo,Red Star Belgrade,DEF,67.0,8.0,,True,27.5,False
+2026-06-01,South Korea,Jens Castrop,Borussia Mönchengladbach,DEF,70.0,4.0,,True,22.8,False
+2026-06-01,South Korea,Kim Jin-gyu,Jeonbuk Hyundai Motors,MID,68.0,3.0,,True,29.3,False
+2026-06-01,South Korea,Eom Ji-sung,Swansea City,MID,72.0,3.0,,True,24.1,True
+2026-06-01,South Korea,Lee Dong-gyeong,Ulsan HD,MID,74.0,3.0,,True,28.7,True
+2026-06-01,Spain,David Raya,Arsenal,GK,83.0,3.0,,True,30.7,False
+2026-06-01,Spain,Marc Pubill,Atlético Madrid,DEF,70.0,4.0,,True,22.9,False
+2026-06-01,Spain,Álex Grimaldo,Bayer Leverkusen,DEF,86.0,3.0,,True,30.7,True
+2026-06-01,Spain,Eric García,Barcelona,DEF,78.0,3.0,,True,25.4,False
+2026-06-01,Spain,Marcos Llorente,Atlético Madrid,DEF,83.0,3.0,,True,31.3,True
+2026-06-01,Spain,Mikel Merino,Arsenal,MID,85.0,3.0,,True,29.9,True
+2026-06-01,Spain,Ferran Torres,Barcelona,FWD,80.0,3.0,,True,26.3,False
+2026-06-01,Spain,Fabián Ruiz,Paris Saint-Germain,MID,82.0,3.0,,True,30.2,False
+2026-06-01,Spain,Gavi,Barcelona,MID,83.0,3.0,,True,21.8,True
+2026-06-01,Spain,Dani Olmo,Barcelona,FWD,84.0,3.0,,True,28.1,True
+2026-06-01,Spain,Yéremy Pino,Crystal Palace,FWD,79.0,3.0,,True,23.6,False
+2026-06-01,Spain,Pedro Porro,Tottenham Hotspur,DEF,83.0,3.0,,True,26.7,True
+2026-06-01,Spain,Joan Garcia,Barcelona,GK,76.0,3.0,,True,25.1,False
+2026-06-01,Spain,Aymeric Laporte,Athletic Bilbao,DEF,83.0,3.0,,True,32.0,True
+2026-06-01,Spain,Álex Baena,Atlético Madrid,MID,79.0,3.0,,True,24.9,False
+2026-06-01,Spain,Rodri,Manchester City,MID,91.0,3.0,,True,29.9,True
+2026-06-01,Spain,Nico Williams,Athletic Bilbao,FWD,85.0,3.0,,True,23.9,True
+2026-06-01,Spain,Martín Zubimendi,Arsenal,MID,81.0,4.0,,True,27.3,False
+2026-06-01,Spain,Lamine Yamal,Barcelona,FWD,81.0,3.0,,True,18.9,False
+2026-06-01,Spain,Pedri,Barcelona,MID,86.0,3.0,,True,23.5,True
+2026-06-01,Spain,Mikel Oyarzabal,Real Sociedad,FWD,82.0,4.0,,True,29.1,False
+2026-06-01,Spain,Pau Cubarsí,Barcelona,DEF,72.0,3.0,,True,19.4,False
+2026-06-01,Spain,Unai Simón,Athletic Bilbao,GK,86.0,3.0,,True,29.0,True
+2026-06-01,Spain,Marc Cucurella,Chelsea,DEF,82.0,3.0,,True,27.9,False
+2026-06-01,Spain,Víctor Muñoz,Osasuna,FWD,73.8417695725708,4.0,,True,22.9,False
+2026-06-01,Spain,Borja Iglesias,Celta Vigo,FWD,78.0,3.0,,True,33.4,False
+2026-06-01,Sweden,Jacob Widell Zetterström,Derby County,GK,71.0,3.0,,True,27.9,False
+2026-06-01,Sweden,Gustaf Lagerbielke,Braga,DEF,67.0,3.0,,True,26.1,False
+2026-06-01,Sweden,Victor Lindelöf,Aston Villa,DEF,78.0,3.0,,True,31.9,True
+2026-06-01,Sweden,Isak Hien,Atalanta,DEF,78.0,3.0,,True,27.4,True
+2026-06-01,Sweden,Gabriel Gudmundsson,Leeds United,DEF,74.0,3.0,,True,27.1,True
+2026-06-01,Sweden,Herman Johansson,FC Dallas,DEF,63.0,3.0,,True,28.6,False
+2026-06-01,Sweden,Lucas Bergvall,Tottenham Hotspur,MID,68.0,3.0,,True,20.3,False
+2026-06-01,Sweden,Daniel Svensson,Borussia Dortmund,DEF,70.0,3.0,,True,24.3,False
+2026-06-01,Sweden,Alexander Isak,Liverpool,FWD,85.0,3.0,,True,26.7,True
+2026-06-01,Sweden,Benjamin Nygren,Celtic,MID,68.0,3.0,,True,24.9,False
+2026-06-01,Sweden,Anthony Elanga,Newcastle United,FWD,76.0,3.0,,True,24.1,True
+2026-06-01,Sweden,Viktor Johansson,Stoke City,GK,74.0,3.0,,True,27.7,True
+2026-06-01,Sweden,Ken Sema,Pafos,MID,70.0,3.0,,True,32.7,False
+2026-06-01,Sweden,Hjalmar Ekdal,Burnley,DEF,72.0,3.0,,True,27.6,False
+2026-06-01,Sweden,Carl Starfelt,Celta Vigo,DEF,74.0,3.0,,True,31.0,True
+2026-06-01,Sweden,Jesper Karlström,Udinese,MID,70.0,3.0,,True,30.9,False
+2026-06-01,Sweden,Viktor Gyökeres,Arsenal,FWD,84.0,3.0,,True,28.0,True
+2026-06-01,Sweden,Yasin Ayari,Brighton & Hove Albion,MID,66.0,3.0,,True,22.7,False
+2026-06-01,Sweden,Mattias Svanberg,VfL Wolfsburg,MID,77.0,3.0,,True,27.4,True
+2026-06-01,Sweden,Eric Smith,FC St. Pauli,DEF,73.0,3.0,,True,29.4,True
+2026-06-01,Sweden,Alexander Bernhardsson,Holstein Kiel,DEF,68.0,3.0,,True,27.7,False
+2026-06-01,Sweden,Besfort Zeneli,Union Saint-Gilloise,MID,58.0,3.0,,True,23.5,False
+2026-06-01,Sweden,Kristoffer Nordfeldt,AIK,GK,68.0,3.0,,True,36.9,False
+2026-06-01,Sweden,Elliot Stroud,Mjällby AIF,DEF,65.0,3.0,,True,23.9,False
+2026-06-01,Sweden,Gustaf Nilsson,Club Brugge,FWD,73.0,3.0,,True,29.0,True
+2026-06-01,Sweden,Taha Ali,Malmö FF,FWD,68.0,4.0,,True,27.9,False
+2026-06-01,Switzerland,Gregor Kobel,Borussia Dortmund,GK,88.0,3.0,,True,28.5,True
+2026-06-01,Switzerland,Miro Muheim,Hamburger SV,DEF,72.0,3.0,,True,28.2,False
+2026-06-01,Switzerland,Silvan Widmer,Mainz 05,DEF,74.0,3.0,,True,33.2,False
+2026-06-01,Switzerland,Nico Elvedi,Borussia Mönchengladbach,DEF,76.0,3.0,,True,29.7,True
+2026-06-01,Switzerland,Manuel Akanji,Inter Milan,DEF,84.0,3.0,,True,30.9,True
+2026-06-01,Switzerland,Denis Zakaria,Monaco,MID,79.0,3.0,,True,29.5,True
+2026-06-01,Switzerland,Breel Embolo,Rennes,FWD,77.0,3.0,,True,29.3,True
+2026-06-01,Switzerland,Remo Freuler,Bologna,MID,81.0,3.0,,True,34.1,True
+2026-06-01,Switzerland,Johan Manzambi,SC Freiburg,MID,58.0,3.0,,True,20.6,False
+2026-06-01,Switzerland,Granit Xhaka,Sunderland,MID,86.0,3.0,,True,33.7,True
+2026-06-01,Switzerland,Dan Ndoye,Nottingham Forest,FWD,75.0,3.0,,True,25.6,False
+2026-06-01,Switzerland,Yvon Mvogo,Lorient,GK,77.0,3.0,,True,32.0,False
+2026-06-01,Switzerland,Ricardo Rodriguez,Real Betis,DEF,77.0,3.0,,True,33.8,True
+2026-06-01,Switzerland,Ardon Jashari,Milan,MID,73.0,3.0,,True,23.8,False
+2026-06-01,Switzerland,Djibril Sow,Sevilla,MID,78.0,3.0,,True,29.3,True
+2026-06-01,Switzerland,Christian Fassnacht,Young Boys,FWD,71.0,3.0,,True,32.6,False
+2026-06-01,Switzerland,Rubén Vargas,Sevilla,FWD,75.0,3.0,,True,27.8,False
+2026-06-01,Switzerland,Eray Cömert,Valencia,DEF,73.0,3.0,,True,28.3,False
+2026-06-01,Switzerland,Noah Okafor,Leeds United,FWD,78.0,3.0,,True,26.0,True
+2026-06-01,Switzerland,Michel Aebischer,Pisa,MID,76.0,3.0,,True,29.4,True
+2026-06-01,Switzerland,Marvin Keller,Young Boys,GK,70.0,3.0,,True,23.9,False
+2026-06-01,Switzerland,Fabian Rieder,FC Augsburg,MID,74.0,3.0,,True,24.3,False
+2026-06-01,Switzerland,Zeki Amdouni,Burnley,FWD,73.0,3.0,,True,25.5,False
+2026-06-01,Switzerland,Aurèle Amenda,Eintracht Frankfurt,DEF,70.0,3.0,,True,22.8,False
+2026-06-01,Switzerland,Luca Jaquez,VfB Stuttgart,DEF,65.0,3.0,,True,23.0,False
+2026-06-01,Switzerland,Cedric Itten,Fortuna Düsseldorf,FWD,73.0,3.0,,True,29.4,False
+2026-06-01,Tunisia,Mouhib Chamakh,Club Africain,GK,62.50338615360332,4.0,,True,24.8,False
+2026-06-01,Tunisia,Ali Abdi,Nice,DEF,71.0,3.0,,True,32.4,True
+2026-06-01,Tunisia,Montassar Talbi,Lorient,DEF,73.0,3.0,,True,28.0,True
+2026-06-01,Tunisia,Omar Rekik,Maribor,DEF,64.0,3.0,,True,24.4,False
+2026-06-01,Tunisia,Adem Arous,Kasımpaşa,DEF,64.97990004783651,4.0,,True,21.9,False
+2026-06-01,Tunisia,Dylan Bronn,Servette,DEF,70.0,3.0,,True,31.0,True
+2026-06-01,Tunisia,Elias Achouri,Copenhagen,FWD,73.0,3.0,,True,27.3,True
+2026-06-01,Tunisia,Elias Saad,Hannover 96,FWD,71.0,3.0,,True,26.4,True
+2026-06-01,Tunisia,Hazem Mastouri,Dynamo Makhachkala,FWD,68.17437860891309,4.0,,True,29.0,False
+2026-06-01,Tunisia,Hannibal Mejbri,Burnley,MID,69.0,3.0,,True,23.4,True
+2026-06-01,Tunisia,Ismaël Gharbi,FC Augsburg,MID,68.0,4.0,,True,22.1,False
+2026-06-01,Tunisia,Mortadha Ben Ouanes,Kasımpaşa,DEF,69.0,3.0,,True,31.9,True
+2026-06-01,Tunisia,Rani Khedira,Union Berlin,MID,75.0,4.0,,True,32.3,True
+2026-06-01,Tunisia,Khalil Ayari,Paris Saint-Germain,MID,58.14864011521859,4.0,,True,21.3,False
+2026-06-01,Tunisia,Hadj Mahmoud,Lugano,MID,65.0,3.0,,True,26.1,False
+2026-06-01,Tunisia,Aymen Dahmen,CS Sfaxien,GK,68.10234534581227,4.0,,True,29.3,True
+2026-06-01,Tunisia,Ellyes Skhiri,Eintracht Frankfurt,MID,81.0,3.0,,True,31.1,True
+2026-06-01,Tunisia,Rayan Elloumi,Vancouver Whitecaps FC,FWD,54.91368591527566,4.0,,True,18.7,False
+2026-06-01,Tunisia,Firas Chaouat,Club Africain,FWD,70.63064019945836,4.0,,True,30.1,False
+2026-06-01,Tunisia,Yan Valery,Young Boys,DEF,71.0,3.0,,True,27.3,True
+2026-06-01,Tunisia,Mohamed Amine Ben Hamida,Espérance de Tunis,DEF,70.43903026687397,4.0,,True,30.5,False
+2026-06-01,Tunisia,Sabri Ben Hessen,Étoile du Sahel,GK,67.55670729684425,4.0,,True,30.0,False
+2026-06-01,Tunisia,Moutaz Neffati,IFK Norrköping,DEF,58.0,4.0,,True,21.7,False
+2026-06-01,Tunisia,Raed Chikhaoui,US Monastir,DEF,57.93196220155691,4.0,,True,22.0,False
+2026-06-01,Tunisia,Anis Ben Slimane,Norwich City,MID,67.0,3.0,,True,25.2,False
+2026-06-01,Tunisia,Sebastian Tounekti,Celtic,MID,62.0,3.0,,True,23.9,False
+2026-06-01,Turkey,Mert Günok,Fenerbahçe,GK,77.0,3.0,,True,37.3,False
+2026-06-01,Turkey,Zeki Çelik,Roma,DEF,75.0,3.0,,True,29.3,False
+2026-06-01,Turkey,Merih Demiral,Al-Ahli,DEF,76.0,3.0,,True,28.2,False
+2026-06-01,Turkey,Çağlar Söyüncü,Fenerbahçe,DEF,78.0,3.0,,True,30.0,True
+2026-06-01,Turkey,Salih Özcan,Borussia Dortmund,MID,76.0,3.0,,True,28.4,False
+2026-06-01,Turkey,Orkun Kökçü,Beşiktaş,MID,81.0,3.0,,True,25.4,True
+2026-06-01,Turkey,Kerem Aktürkoğlu,Fenerbahçe,FWD,77.0,3.0,,True,27.6,True
+2026-06-01,Turkey,Arda Güler,Real Madrid,FWD,78.0,3.0,,True,21.3,True
+2026-06-01,Turkey,Deniz Gül,Porto,FWD,62.0,4.0,,True,21.9,False
+2026-06-01,Turkey,Hakan Çalhanoğlu,Inter Milan,MID,86.0,3.0,,True,32.3,True
+2026-06-01,Turkey,Kenan Yıldız,Juventus,FWD,70.0,3.0,,True,21.1,False
+2026-06-01,Turkey,Altay Bayındır,Manchester United,GK,76.0,3.0,,True,28.1,False
+2026-06-01,Turkey,Eren Elmalı,Galatasaray,DEF,71.0,3.0,,True,25.9,False
+2026-06-01,Turkey,Abdülkerim Bardakcı,Galatasaray,DEF,79.0,3.0,,True,31.7,True
+2026-06-01,Turkey,Ozan Kabak,TSG Hoffenheim,DEF,76.0,3.0,,True,26.2,False
+2026-06-01,Turkey,İsmail Yüksek,Fenerbahçe,MID,77.0,3.0,,True,27.3,True
+2026-06-01,Turkey,İrfan Can Kahveci,Kasımpaşa,FWD,79.0,3.0,,True,30.9,True
+2026-06-01,Turkey,Mert Müldür,Fenerbahçe,DEF,74.0,3.0,,True,27.2,False
+2026-06-01,Turkey,Yunus Akgün,Galatasaray,FWD,72.0,3.0,,True,25.9,False
+2026-06-01,Turkey,Ferdi Kadıoğlu,Brighton & Hove Albion,DEF,81.0,3.0,,True,26.7,True
+2026-06-01,Turkey,Barış Alper Yılmaz,Galatasaray,FWD,80.0,3.0,,True,26.0,True
+2026-06-01,Turkey,Kaan Ayhan,Galatasaray,MID,75.0,3.0,,True,31.6,False
+2026-06-01,Turkey,Uğurcan Çakır,Galatasaray,GK,77.0,3.0,,True,30.2,True
+2026-06-01,Turkey,Oğuz Aydın,Fenerbahçe,FWD,73.0,3.0,,True,25.6,False
+2026-06-01,Turkey,Samet Akaydin,Çaykur Rizespor,DEF,69.0,3.0,,True,32.2,False
+2026-06-01,Turkey,Can Uzun,Eintracht Frankfurt,FWD,72.0,3.0,,True,20.6,False
+2026-06-01,United States,Matt Turner,New England Revolution,GK,74.0,3.0,,True,31.9,True
+2026-06-01,United States,Sergiño Dest,PSV Eindhoven,DEF,79.0,3.0,,True,25.6,True
+2026-06-01,United States,Chris Richards,Crystal Palace,DEF,76.0,3.0,,True,26.2,True
+2026-06-01,United States,Tyler Adams,Bournemouth,MID,77.0,3.0,,True,27.3,True
+2026-06-01,United States,Antonee Robinson,Fulham,DEF,79.0,3.0,,True,28.8,True
+2026-06-01,United States,Auston Trusty,Celtic,DEF,72.0,3.0,,True,27.8,False
+2026-06-01,United States,Giovanni Reyna,Borussia Mönchengladbach,MID,75.0,3.0,,True,23.5,True
+2026-06-01,United States,Weston McKennie,Juventus,MID,78.0,3.0,,True,27.8,True
+2026-06-01,United States,Ricardo Pepi,PSV Eindhoven,FWD,73.0,3.0,,True,23.4,False
+2026-06-01,United States,Christian Pulisic,Milan,FWD,83.0,3.0,,True,27.7,True
+2026-06-01,United States,Brenden Aaronson,Leeds United,FWD,73.0,3.0,,True,25.6,False
+2026-06-01,United States,Miles Robinson,FC Cincinnati,DEF,72.0,3.0,,True,29.2,False
+2026-06-01,United States,Tim Ream,Charlotte FC,DEF,73.0,3.0,,True,38.7,False
+2026-06-01,United States,Sebastian Berhalter,Vancouver Whitecaps FC,MID,63.0,3.0,,True,25.1,False
+2026-06-01,United States,Cristian Roldan,Seattle Sounders FC,MID,73.0,3.0,,True,31.0,False
+2026-06-01,United States,Alex Freeman,Villarreal,DEF,52.0,3.0,,True,21.8,False
+2026-06-01,United States,Malik Tillman,Bayer Leverkusen,MID,77.0,3.0,,True,24.0,True
+2026-06-01,United States,Max Arfsten,Columbus Crew,DEF,63.0,3.0,,True,25.1,False
+2026-06-01,United States,Haji Wright,Coventry City,FWD,73.0,3.0,,True,28.2,False
+2026-06-01,United States,Folarin Balogun,Monaco,FWD,77.0,3.0,,True,24.9,True
+2026-06-01,United States,Timothy Weah,Marseille,FWD,74.0,3.0,,True,26.3,True
+2026-06-01,United States,Mark McKenzie,Toulouse,DEF,74.0,3.0,,True,27.3,False
+2026-06-01,United States,Joe Scally,Borussia Mönchengladbach,DEF,74.0,3.0,,True,23.4,False
+2026-06-01,United States,Matt Freese,New York City FC,GK,67.0,3.0,,True,27.7,False
+2026-06-01,United States,Chris Brady,Chicago Fire FC,GK,68.0,3.0,,True,22.2,False
+2026-06-01,United States,Alejandro Zendejas,América,FWD,76.40704482070944,4.0,,True,28.3,False
+2026-06-01,Uruguay,Sergio Rochet,Internacional,GK,76.02062530690011,4.0,,True,33.2,False
+2026-06-01,Uruguay,José María Giménez,Atlético Madrid,DEF,83.0,3.0,,True,31.4,True
+2026-06-01,Uruguay,Sebastián Cáceres,América,DEF,71.5218417108232,4.0,,True,26.8,False
+2026-06-01,Uruguay,Ronald Araújo,Barcelona,DEF,85.0,3.0,,True,27.2,True
+2026-06-01,Uruguay,Manuel Ugarte,Manchester United,MID,81.0,3.0,,True,25.1,True
+2026-06-01,Uruguay,Rodrigo Bentancur,Tottenham Hotspur,MID,81.0,3.0,,True,28.9,True
+2026-06-01,Uruguay,Nicolás de la Cruz,Flamengo,MID,76.43436489191376,4.0,,True,29.0,False
+2026-06-01,Uruguay,Federico Valverde,Real Madrid,MID,88.0,3.0,,True,27.9,True
+2026-06-01,Uruguay,Darwin Núñez,Al-Hilal,FWD,82.0,3.0,,True,26.9,True
+2026-06-01,Uruguay,Giorgian de Arrascaeta,Flamengo,MID,82.28271946660351,4.0,,True,32.0,True
+2026-06-01,Uruguay,Facundo Pellistri,Panathinaikos,FWD,72.0,3.0,,True,24.4,False
+2026-06-01,Uruguay,Santiago Mele,Monterrey,GK,73.0,3.0,,True,28.7,False
+2026-06-01,Uruguay,Guillermo Varela,Flamengo,DEF,73.79840578219932,4.0,,True,33.2,False
+2026-06-01,Uruguay,Agustín Canobbio,Fluminense,MID,74.81688779194226,4.0,,True,27.7,False
+2026-06-01,Uruguay,Emiliano Martínez,Palmeiras,MID,73.0,3.0,,True,26.8,False
+2026-06-01,Uruguay,Mathías Olivera,Napoli,DEF,77.0,3.0,,True,28.6,True
+2026-06-01,Uruguay,Matías Viña,River Plate,DEF,72.81129183975048,4.0,,True,28.6,True
+2026-06-01,Uruguay,Brian Rodríguez,América,FWD,72.70172543044112,4.0,,True,26.0,False
+2026-06-01,Uruguay,Rodrigo Aguirre,UANL,FWD,75.08102941103382,4.0,,True,31.7,False
+2026-06-01,Uruguay,Maximiliano Araújo,Sporting CP,MID,78.65488507820353,4.0,,True,26.3,False
+2026-06-01,Uruguay,Federico Viñas,Oviedo,FWD,72.44517897078174,4.0,,True,27.9,False
+2026-06-01,Uruguay,Joaquín Piquerez,Palmeiras,MID,76.47423343791141,4.0,,True,27.8,False
+2026-06-01,Uruguay,Fernando Muslera,Estudiantes,GK,81.0,3.0,,True,40.0,True
+2026-06-01,Uruguay,Santiago Bueno,Wolverhampton Wanderers,DEF,77.0,3.0,,True,27.6,True
+2026-06-01,Uruguay,Juan Manuel Sanabria,Real Salt Lake,MID,70.33001660928059,4.0,,True,26.2,False
+2026-06-01,Uruguay,Rodrigo Zalazar,Braga,MID,76.0,3.0,,True,26.8,False
+2026-06-01,Uzbekistan,Utkir Yusupov,Navbahor Namangan,GK,73.91512326868721,4.0,,True,35.4,True
+2026-06-01,Uzbekistan,Abdukodir Khusanov,Manchester City,DEF,72.0,3.0,,True,22.3,True
+2026-06-01,Uzbekistan,Khojiakbar Alijonov,Pakhtakor,DEF,62.0,8.0,,True,29.1,True
+2026-06-01,Uzbekistan,Farrukh Sayfiev,Neftchi Fergana,DEF,70.89623988953727,4.0,,True,35.4,True
+2026-06-01,Uzbekistan,Rustam Ashurmatov,Esteghlal,DEF,68.60487525324078,4.0,,True,29.9,True
+2026-06-01,Uzbekistan,Akmal Mozgovoy,Pakhtakor,MID,67.60521283599857,4.0,,True,27.2,False
+2026-06-01,Uzbekistan,Otabek Shukurov,Baniyas,MID,69.0,3.0,,True,29.9,True
+2026-06-01,Uzbekistan,Jamshid Iskanderov,Neftchi Fergana,MID,73.0518778899048,4.0,,True,32.6,False
+2026-06-01,Uzbekistan,Odiljon Hamrobekov,Tractor,MID,62.0,8.0,,True,30.3,True
+2026-06-01,Uzbekistan,Jaloliddin Masharipov,Esteghlal,MID,73.17629920528722,4.0,,True,32.7,True
+2026-06-01,Uzbekistan,Oston Urunov,Persepolis,MID,66.71409463429586,4.0,,True,25.4,True
+2026-06-01,Uzbekistan,Abduvohid Nematov,Nasaf,GK,62.0,8.0,,True,25.2,False
+2026-06-01,Uzbekistan,Sherzod Nasrullaev,Nasaf,DEF,67.8933712610451,4.0,,True,27.9,False
+2026-06-01,Uzbekistan,Eldor Shomurodov,İstanbul Başakşehir,FWD,72.0,3.0,,True,30.9,True
+2026-06-01,Uzbekistan,Umar Eshmurodov,Nasaf,DEF,71.15278634919665,4.0,,True,33.5,False
+2026-06-01,Uzbekistan,Botirali Ergashev,Neftchi Fergana,GK,68.31616407647829,4.0,,True,30.9,False
+2026-06-01,Uzbekistan,Dostonbek Khamdamov,Pakhtakor,MID,69.29417044735487,4.0,,True,29.9,False
+2026-06-01,Uzbekistan,Abdulla Abdullaev,Dibba,DEF,65.57889513806501,4.0,,True,28.7,False
+2026-06-01,Uzbekistan,Azizjon Ganiev,Al Bataeh,MID,70.32231278038606,4.0,,True,28.3,False
+2026-06-01,Uzbekistan,Azizbek Amonov,Dinamo Samarqand,FWD,62.0,8.0,,True,28.6,False
+2026-06-01,Uzbekistan,Igor Sergeev,Persepolis,FWD,74.36327966093097,4.0,,True,33.1,True
+2026-06-01,Uzbekistan,Abbosbek Fayzullaev,İstanbul Başakşehir,MID,68.09098568411301,4.0,,True,22.7,False
+2026-06-01,Uzbekistan,Sherzod Esanov,Bukhara,MID,58.46181218018972,4.0,,True,23.3,False
+2026-06-01,Uzbekistan,Bekhruz Karimov,Surkhon Termiz,DEF,51.912719440024496,4.0,,True,18.8,False
+2026-06-01,Uzbekistan,Avazbek Ulmasaliev,AGMK,DEF,62.46836225350449,4.0,,True,26.2,False
+2026-06-01,Uzbekistan,Jakhongir Urozov,Dinamo Samarqand,DEF,58.42964746308659,4.0,,True,22.4,False

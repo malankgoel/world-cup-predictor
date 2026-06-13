@@ -1,0 +1,18 @@
+calibration: talent = 8.71*log10(value) + 1.244*age + -19.74
+overlap (EA-rated with market value): 853 players, R^2 = 0.695, residual std = 3.75
+imputed players re-estimated from market value: 342 (new talent_se = 4.0)
+imputed players with no market value, kept on EA floor: 25
+
+most-affected squads:
+  South Africa: 23 replaced, mean talent now 67.5
+  Qatar: 22 replaced, mean talent now 66.1
+  Iran: 20 replaced, mean talent now 69.2
+  Uzbekistan: 19 replaced, mean talent now 67.4
+  Egypt: 19 replaced, mean talent now 69.6
+  Iraq: 18 replaced, mean talent now 64.5
+  Jordan: 18 replaced, mean talent now 63.8
+  Mexico: 17 replaced, mean talent now 72.8
+  Cape Verde: 17 replaced, mean talent now 68.6
+  Panama: 15 replaced, mean talent now 67.9
+  Haiti: 14 replaced, mean talent now 61.0
+  Uruguay: 13 replaced, mean talent now 74.9

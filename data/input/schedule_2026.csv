@@ -1,0 +1,105 @@
+match_id,date,time,utc_offset,stage,group,home_team,away_team,home_source,away_source,venue,venue_country,neutral
+1,2026-06-11,13:00,-6,group,A,Mexico,South Africa,Mexico,South Africa,Mexico City,Mexico,False
+2,2026-06-11,20:00,-6,group,A,South Korea,Czech Republic,South Korea,Czech Republic,Guadalajara (Zapopan),Mexico,True
+3,2026-06-12,15:00,-4,group,B,Canada,Bosnia and Herzegovina,Canada,Bosnia and Herzegovina,Toronto,Canada,False
+4,2026-06-12,18:00,-7,group,D,United States,Paraguay,United States,Paraguay,Los Angeles (Inglewood),United States,False
+5,2026-06-13,12:00,-7,group,B,Qatar,Switzerland,Qatar,Switzerland,San Francisco Bay Area (Santa Clara),United States,True
+6,2026-06-13,18:00,-4,group,C,Brazil,Morocco,Brazil,Morocco,New York/New Jersey (East Rutherford),United States,True
+7,2026-06-13,21:00,-4,group,C,Haiti,Scotland,Haiti,Scotland,Boston (Foxborough),United States,True
+8,2026-06-13,21:00,-7,group,D,Australia,Turkey,Australia,Turkey,Vancouver,Canada,True
+9,2026-06-14,12:00,-5,group,E,Germany,Curaçao,Germany,Curaçao,Houston,United States,True
+10,2026-06-14,15:00,-5,group,F,Netherlands,Japan,Netherlands,Japan,Dallas (Arlington),United States,True
+11,2026-06-14,19:00,-4,group,E,Ivory Coast,Ecuador,Ivory Coast,Ecuador,Philadelphia,United States,True
+12,2026-06-14,20:00,-6,group,F,Sweden,Tunisia,Sweden,Tunisia,Monterrey (Guadalupe),Mexico,True
+13,2026-06-15,12:00,-4,group,H,Spain,Cape Verde,Spain,Cape Verde,Atlanta,United States,True
+14,2026-06-15,12:00,-7,group,G,Belgium,Egypt,Belgium,Egypt,Seattle,United States,True
+15,2026-06-15,18:00,-4,group,H,Saudi Arabia,Uruguay,Saudi Arabia,Uruguay,Miami (Miami Gardens),United States,True
+16,2026-06-15,18:00,-7,group,G,Iran,New Zealand,Iran,New Zealand,Los Angeles (Inglewood),United States,True
+17,2026-06-16,15:00,-4,group,I,France,Senegal,France,Senegal,New York/New Jersey (East Rutherford),United States,True
+18,2026-06-16,18:00,-4,group,I,Iraq,Norway,Iraq,Norway,Boston (Foxborough),United States,True
+19,2026-06-16,20:00,-5,group,J,Argentina,Algeria,Argentina,Algeria,Kansas City,United States,True
+20,2026-06-16,21:00,-7,group,J,Austria,Jordan,Austria,Jordan,San Francisco Bay Area (Santa Clara),United States,True
+21,2026-06-17,12:00,-5,group,K,Portugal,DR Congo,Portugal,DR Congo,Houston,United States,True
+22,2026-06-17,15:00,-5,group,L,England,Croatia,England,Croatia,Dallas (Arlington),United States,True
+23,2026-06-17,19:00,-4,group,L,Ghana,Panama,Ghana,Panama,Toronto,Canada,True
+24,2026-06-17,20:00,-6,group,K,Uzbekistan,Colombia,Uzbekistan,Colombia,Mexico City,Mexico,True
+25,2026-06-18,12:00,-4,group,A,Czech Republic,South Africa,Czech Republic,South Africa,Atlanta,United States,True
+26,2026-06-18,12:00,-7,group,B,Switzerland,Bosnia and Herzegovina,Switzerland,Bosnia and Herzegovina,Los Angeles (Inglewood),United States,True
+27,2026-06-18,15:00,-7,group,B,Canada,Qatar,Canada,Qatar,Vancouver,Canada,False
+28,2026-06-18,19:00,-6,group,A,Mexico,South Korea,Mexico,South Korea,Guadalajara (Zapopan),Mexico,False
+29,2026-06-19,12:00,-7,group,D,United States,Australia,United States,Australia,Seattle,United States,False
+30,2026-06-19,18:00,-4,group,C,Scotland,Morocco,Scotland,Morocco,Boston (Foxborough),United States,True
+31,2026-06-19,20:30,-4,group,C,Brazil,Haiti,Brazil,Haiti,Philadelphia,United States,True
+32,2026-06-19,20:00,-7,group,D,Turkey,Paraguay,Turkey,Paraguay,San Francisco Bay Area (Santa Clara),United States,True
+33,2026-06-20,12:00,-5,group,F,Netherlands,Sweden,Netherlands,Sweden,Houston,United States,True
+34,2026-06-20,16:00,-4,group,E,Germany,Ivory Coast,Germany,Ivory Coast,Toronto,Canada,True
+35,2026-06-20,19:00,-5,group,E,Ecuador,Curaçao,Ecuador,Curaçao,Kansas City,United States,True
+36,2026-06-20,22:00,-6,group,F,Tunisia,Japan,Tunisia,Japan,Monterrey (Guadalupe),Mexico,True
+37,2026-06-21,12:00,-4,group,H,Spain,Saudi Arabia,Spain,Saudi Arabia,Atlanta,United States,True
+38,2026-06-21,12:00,-7,group,G,Belgium,Iran,Belgium,Iran,Los Angeles (Inglewood),United States,True
+39,2026-06-21,18:00,-4,group,H,Uruguay,Cape Verde,Uruguay,Cape Verde,Miami (Miami Gardens),United States,True
+40,2026-06-21,18:00,-7,group,G,New Zealand,Egypt,New Zealand,Egypt,Vancouver,Canada,True
+41,2026-06-22,12:00,-5,group,J,Argentina,Austria,Argentina,Austria,Dallas (Arlington),United States,True
+42,2026-06-22,17:00,-4,group,I,France,Iraq,France,Iraq,Philadelphia,United States,True
+43,2026-06-22,20:00,-4,group,I,Norway,Senegal,Norway,Senegal,New York/New Jersey (East Rutherford),United States,True
+44,2026-06-22,20:00,-7,group,J,Jordan,Algeria,Jordan,Algeria,San Francisco Bay Area (Santa Clara),United States,True
+45,2026-06-23,12:00,-5,group,K,Portugal,Uzbekistan,Portugal,Uzbekistan,Houston,United States,True
+46,2026-06-23,16:00,-4,group,L,England,Ghana,England,Ghana,Boston (Foxborough),United States,True
+47,2026-06-23,19:00,-4,group,L,Panama,Croatia,Panama,Croatia,Toronto,Canada,True
+48,2026-06-23,20:00,-6,group,K,Colombia,DR Congo,Colombia,DR Congo,Guadalajara (Zapopan),Mexico,True
+49,2026-06-24,12:00,-7,group,B,Switzerland,Canada,Switzerland,Canada,Vancouver,Canada,False
+50,2026-06-24,12:00,-7,group,B,Bosnia and Herzegovina,Qatar,Bosnia and Herzegovina,Qatar,Seattle,United States,True
+51,2026-06-24,18:00,-4,group,C,Morocco,Haiti,Morocco,Haiti,Atlanta,United States,True
+52,2026-06-24,18:00,-4,group,C,Scotland,Brazil,Scotland,Brazil,Miami (Miami Gardens),United States,True
+53,2026-06-24,19:00,-6,group,A,South Africa,South Korea,South Africa,South Korea,Monterrey (Guadalupe),Mexico,True
+54,2026-06-24,19:00,-6,group,A,Czech Republic,Mexico,Czech Republic,Mexico,Mexico City,Mexico,False
+55,2026-06-25,16:00,-4,group,E,Curaçao,Ivory Coast,Curaçao,Ivory Coast,Philadelphia,United States,True
+56,2026-06-25,16:00,-4,group,E,Ecuador,Germany,Ecuador,Germany,New York/New Jersey (East Rutherford),United States,True
+57,2026-06-25,18:00,-5,group,F,Tunisia,Netherlands,Tunisia,Netherlands,Kansas City,United States,True
+58,2026-06-25,18:00,-5,group,F,Japan,Sweden,Japan,Sweden,Dallas (Arlington),United States,True
+59,2026-06-25,19:00,-7,group,D,Paraguay,Australia,Paraguay,Australia,San Francisco Bay Area (Santa Clara),United States,True
+60,2026-06-25,19:00,-7,group,D,Turkey,United States,Turkey,United States,Los Angeles (Inglewood),United States,False
+61,2026-06-26,15:00,-4,group,I,Norway,France,Norway,France,Boston (Foxborough),United States,True
+62,2026-06-26,15:00,-4,group,I,Senegal,Iraq,Senegal,Iraq,Toronto,Canada,True
+63,2026-06-26,18:00,-6,group,H,Uruguay,Spain,Uruguay,Spain,Guadalajara (Zapopan),Mexico,True
+64,2026-06-26,19:00,-5,group,H,Cape Verde,Saudi Arabia,Cape Verde,Saudi Arabia,Houston,United States,True
+65,2026-06-26,20:00,-7,group,G,New Zealand,Belgium,New Zealand,Belgium,Vancouver,Canada,True
+66,2026-06-26,20:00,-7,group,G,Egypt,Iran,Egypt,Iran,Seattle,United States,True
+67,2026-06-27,17:00,-4,group,L,Panama,England,Panama,England,New York/New Jersey (East Rutherford),United States,True
+68,2026-06-27,17:00,-4,group,L,Croatia,Ghana,Croatia,Ghana,Philadelphia,United States,True
+69,2026-06-27,19:30,-4,group,K,Colombia,Portugal,Colombia,Portugal,Miami (Miami Gardens),United States,True
+70,2026-06-27,19:30,-4,group,K,DR Congo,Uzbekistan,DR Congo,Uzbekistan,Atlanta,United States,True
+71,2026-06-27,21:00,-5,group,J,Algeria,Austria,Algeria,Austria,Kansas City,United States,True
+72,2026-06-27,21:00,-5,group,J,Jordan,Argentina,Jordan,Argentina,Dallas (Arlington),United States,True
+73,2026-06-28,12:00,-7,round_of_32,,,,2A,2B,Los Angeles (Inglewood),United States,True
+74,2026-06-29,16:30,-4,round_of_32,,,,1E,3A/B/C/D/F,Boston (Foxborough),United States,True
+75,2026-06-29,19:00,-6,round_of_32,,,,1F,2C,Monterrey (Guadalupe),Mexico,True
+76,2026-06-29,12:00,-5,round_of_32,,,,1C,2F,Houston,United States,True
+77,2026-06-30,17:00,-4,round_of_32,,,,1I,3C/D/F/G/H,New York/New Jersey (East Rutherford),United States,True
+78,2026-06-30,12:00,-5,round_of_32,,,,2E,2I,Dallas (Arlington),United States,True
+79,2026-06-30,19:00,-6,round_of_32,,,,1A,3C/E/F/H/I,Mexico City,Mexico,True
+80,2026-07-01,12:00,-4,round_of_32,,,,1L,3E/H/I/J/K,Atlanta,United States,True
+81,2026-07-01,17:00,-7,round_of_32,,,,1D,3B/E/F/I/J,San Francisco Bay Area (Santa Clara),United States,True
+82,2026-07-01,13:00,-7,round_of_32,,,,1G,3A/E/H/I/J,Seattle,United States,True
+83,2026-07-02,19:00,-4,round_of_32,,,,2K,2L,Toronto,Canada,True
+84,2026-07-02,12:00,-7,round_of_32,,,,1H,2J,Los Angeles (Inglewood),United States,True
+85,2026-07-02,20:00,-7,round_of_32,,,,1B,3E/F/G/I/J,Vancouver,Canada,True
+86,2026-07-03,18:00,-4,round_of_32,,,,1J,2H,Miami (Miami Gardens),United States,True
+87,2026-07-03,20:30,-5,round_of_32,,,,1K,3D/E/I/J/L,Kansas City,United States,True
+88,2026-07-03,13:00,-5,round_of_32,,,,2D,2G,Dallas (Arlington),United States,True
+89,2026-07-04,17:00,-4,round_of_16,,,,W74,W77,Philadelphia,United States,True
+90,2026-07-04,12:00,-5,round_of_16,,,,W73,W75,Houston,United States,True
+91,2026-07-05,16:00,-4,round_of_16,,,,W76,W78,New York/New Jersey (East Rutherford),United States,True
+92,2026-07-05,18:00,-6,round_of_16,,,,W79,W80,Mexico City,Mexico,True
+93,2026-07-06,14:00,-5,round_of_16,,,,W83,W84,Dallas (Arlington),United States,True
+94,2026-07-06,17:00,-7,round_of_16,,,,W81,W82,Seattle,United States,True
+95,2026-07-07,12:00,-4,round_of_16,,,,W86,W88,Atlanta,United States,True
+96,2026-07-07,13:00,-7,round_of_16,,,,W85,W87,Vancouver,Canada,True
+97,2026-07-09,16:00,-4,quarter_final,,,,W89,W90,Boston (Foxborough),United States,True
+98,2026-07-10,12:00,-7,quarter_final,,,,W93,W94,Los Angeles (Inglewood),United States,True
+99,2026-07-11,17:00,-4,quarter_final,,,,W91,W92,Miami (Miami Gardens),United States,True
+100,2026-07-11,20:00,-5,quarter_final,,,,W95,W96,Kansas City,United States,True
+101,2026-07-14,14:00,-5,semi_final,,,,W97,W98,Dallas (Arlington),United States,True
+102,2026-07-15,15:00,-4,semi_final,,,,W99,W100,Atlanta,United States,True
+103,2026-07-18,17:00,-4,third_place,,,,L101,L102,Miami (Miami Gardens),United States,True
+104,2026-07-19,15:00,-4,final,,,,W101,W102,New York/New Jersey (East Rutherford),United States,True

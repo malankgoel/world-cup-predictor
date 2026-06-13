@@ -1,0 +1,480 @@
+1248 players across 48 teams; 881 matched to EA ratings (70.6%), 367 imputed
+
+Algeria: IMPUTED 70 for Melvin Mastil (GK, Stade Nyonnais)
+Algeria: IMPUTED 70 for Achref Abada (DEF, USM Alger)
+Algeria: IMPUTED 70 for Mohamed Amine Tougai (DEF, Espérance de Tunis)
+Algeria: IMPUTED 70 for Nadhir Benbouali (FWD, Győri ETO)
+Algeria: IMPUTED 70 for Oussama Benbot (GK, USM Alger)
+Algeria: IMPUTED 70 for Adil Boulbina (FWD, Al-Duhail)
+Algeria: global-exact Ibrahim Maza
+Algeria: global-exact Luca Zidane
+Algeria: IMPUTED 70 for Farès Ghedjemis (FWD, Frosinone)
+Algeria: global-exact Samir Chergui
+Argentina: IMPUTED 76 for Thiago Almada (FWD, Atlético Madrid)
+Argentina: IMPUTED 76 for José Manuel López (FWD, Palmeiras)
+Australia: IMPUTED 64 for Miloš Degenek (DEF, APOEL)
+Australia: birthdate Cammy Devlin
+Australia: global-exact Cristian Volpato
+Australia: IMPUTED 64 for Paul Okon-Engstler (MID, Sydney FC)
+Australia: IMPUTED 64 for Lucas Herrington (DEF, Colorado Rapids)
+Australia: IMPUTED 64 for Tete Yengi (FWD, Machida Zelvia)
+Austria: IMPUTED 71 for David Affengruber (DEF, Elche)
+Austria: IMPUTED 71 for Florian Wiegele (GK, Viktoria Plzeň)
+Austria: global-exact Carney Chukwuemeka
+Austria: global-exact Paul Wanner
+Belgium: global-exact Diego Moreira
+Bosnia and Herzegovina: IMPUTED 65 for Nihad Mujakić (DEF, Gaziantep)
+Bosnia and Herzegovina: IMPUTED 65 for Tarik Muharemović (DEF, Sassuolo)
+Bosnia and Herzegovina: IMPUTED 65 for Samed Baždar (FWD, Jagiellonia Białystok)
+Bosnia and Herzegovina: IMPUTED 65 for Mladen Jurkas (GK, Borac Banja Luka)
+Bosnia and Herzegovina: IMPUTED 65 for Ivan Bašić (MID, Astana)
+Bosnia and Herzegovina: IMPUTED 65 for Ivan Šunjić (MID, Pafos)
+Bosnia and Herzegovina: IMPUTED 65 for Amar Memić (MID, Viktoria Plzeň)
+Bosnia and Herzegovina: global-exact Dženis Burnić
+Bosnia and Herzegovina: global-exact Nikola Katić
+Bosnia and Herzegovina: IMPUTED 65 for Kerim Alajbegović (FWD, Red Bull Salzburg)
+Bosnia and Herzegovina: global-exact Esmir Bajraktarević
+Bosnia and Herzegovina: IMPUTED 65 for Stjepan Radeljić (DEF, Rijeka)
+Bosnia and Herzegovina: IMPUTED 65 for Martin Zlomislić (GK, Rijeka)
+Bosnia and Herzegovina: global-exact Arjan Malić
+Bosnia and Herzegovina: IMPUTED 65 for Jovo Lukić (FWD, Universitatea Cluj)
+Bosnia and Herzegovina: IMPUTED 65 for Ermin Mahmić (MID, Slovan Liberec)
+Brazil: birthdate Éderson Silva
+Brazil: tokens Gabriel Magalhães
+Brazil: fuzzy(0.95) Alex Sandro
+Brazil: tokens Vinícius Júnior
+Brazil: birthdate Neymar
+Brazil: fuzzy(0.88) Weverton
+Brazil: tokens Danilo Luiz
+Brazil: IMPUTED 76 for Léo Pereira (DEF, Flamengo)
+Brazil: IMPUTED 76 for Douglas Santos (DEF, Zenit Saint Petersburg)
+Brazil: tokens Danilo Santos
+Brazil: fuzzy(0.92) Luiz Henrique
+Brazil: tokens Ederson Moraes
+Brazil: tokens Roger Ibañez
+Brazil: IMPUTED 76 for Rayan (FWD, Bournemouth)
+Canada: global-exact Alfie Jones
+Canada: global-exact Tani Oluwaseyi
+Canada: global-exact Owen Goodman
+Canada: tokens Nathan Saliba
+Cape Verde: IMPUTED 62 for Vozinha (GK, Chaves)
+Cape Verde: IMPUTED 62 for Stopira (DEF, Torreense)
+Cape Verde: IMPUTED 62 for Diney (DEF, Al Bataeh)
+Cape Verde: IMPUTED 62 for Kevin Pina (MID, Krasnodar)
+Cape Verde: IMPUTED 62 for Jovane Cabral (MID, Estrela Amadora)
+Cape Verde: global-exact João Paulo
+Cape Verde: IMPUTED 62 for Gilson Benchimol (FWD, Akron Tolyatti)
+Cape Verde: IMPUTED 62 for Jamiro Monteiro (MID, PEC Zwolle)
+Cape Verde: IMPUTED 62 for Garry Rodrigues (MID, Apollon Limassol)
+Cape Verde: IMPUTED 62 for Márcio Rosa (GK, Montana)
+Cape Verde: IMPUTED 62 for Sidny Lopes Cabral (DEF, Benfica)
+Cape Verde: IMPUTED 62 for Deroy Duarte (MID, Ludogorets Razgrad)
+Cape Verde: IMPUTED 62 for Laros Duarte (MID, Puskás Akadémia)
+Cape Verde: IMPUTED 62 for Yannick Semedo (MID, Farense)
+Cape Verde: IMPUTED 62 for Willy Semedo (MID, Omonia)
+Cape Verde: tokens Dailon Livramento
+Cape Verde: IMPUTED 62 for Ryan Mendes (FWD, Iğdır)
+Cape Verde: global-exact CJ dos Santos
+Cape Verde: IMPUTED 62 for Kelvin Pires (DEF, SJK)
+Cape Verde: IMPUTED 62 for Hélio Varela (MID, Maccabi Tel Aviv)
+Colombia: IMPUTED 72 for Santiago Arias (DEF, Independiente)
+Colombia: IMPUTED 72 for Kevin Castaño (MID, River Plate)
+Colombia: IMPUTED 72 for Richard Ríos (MID, Benfica)
+Colombia: IMPUTED 72 for Jorge Carrascal (MID, Flamengo)
+Colombia: IMPUTED 72 for Jhon Córdoba (FWD, Krasnodar)
+Colombia: IMPUTED 72 for James Rodríguez (MID, Minnesota United FC)
+Colombia: IMPUTED 72 for Jhon Arias (MID, Palmeiras)
+Colombia: IMPUTED 72 for Camilo Vargas (GK, Atlas)
+Colombia: tokens Juan Portilla
+Colombia: IMPUTED 72 for Willer Ditta (DEF, Cruz Azul)
+Colombia: tokens Luis Suárez
+Croatia: IMPUTED 71 for Ivan Perišić (FWD, PSV Eindhoven)
+Croatia: IMPUTED 71 for Toni Fruk (MID, Rijeka)
+Croatia: fuzzy(0.92) Marco Pašalić
+Curaçao: IMPUTED 63 for Eloy Room (GK, Miami FC)
+Curaçao: global-exact Shurandy Sambo
+Curaçao: IMPUTED 63 for Juriën Gaari (DEF, Abha)
+Curaçao: IMPUTED 63 for Livano Comenencia (MID, Zürich)
+Curaçao: IMPUTED 63 for Jürgen Locadia (FWD, Miami FC)
+Curaçao: global-exact Sontje Hansen
+Curaçao: IMPUTED 63 for Tyrese Noslin (FWD, Telstar)
+Curaçao: IMPUTED 63 for Kenji Gorré (FWD, Maccabi Haifa)
+Curaçao: IMPUTED 63 for Jearl Margaritha (FWD, Beveren)
+Curaçao: IMPUTED 63 for Brandley Kuwas (FWD, Volendam)
+Curaçao: global-exact Armando Obispo
+Curaçao: IMPUTED 63 for Gervane Kastaneer (FWD, Terengganu)
+Curaçao: IMPUTED 63 for Joshua Brenet (DEF, Kayserispor)
+Curaçao: global-exact Tahith Chong
+Curaçao: global-exact Riechedly Bazoer
+Curaçao: IMPUTED 63 for Deveron Fonville (DEF, NEC)
+Curaçao: IMPUTED 63 for Tyrick Bodak (GK, Telstar)
+Curaçao: IMPUTED 63 for Trevor Doornbusch (GK, VVV-Venlo)
+Czech Republic: IMPUTED 70 for Vladimír Darida (MID, Hradec Králové)
+Czech Republic: IMPUTED 70 for Alexandr Sojka (MID, Viktoria Plzeň)
+Czech Republic: IMPUTED 70 for Hugo Sochůrek (MID, Sparta Prague)
+Czech Republic: IMPUTED 70 for Denis Višinský (FWD, Viktoria Plzeň)
+DR Congo: global-exact Aaron Wan-Bissaka
+DR Congo: global-exact Steve Kapuadi
+DR Congo: global-exact Axel Tuanzebe
+DR Congo: global-exact Nathanaël Mbuku
+DR Congo: IMPUTED 66 for Samuel Moutoussamy (MID, Atromitos)
+DR Congo: IMPUTED 66 for Théo Bongonda (MID, Spartak Moscow)
+DR Congo: IMPUTED 66 for Gaël Kakuta (FWD, AEL)
+DR Congo: birthdate Meschak Elia
+DR Congo: IMPUTED 66 for Aaron Tshibola (MID, Kilmarnock)
+DR Congo: IMPUTED 66 for Fiston Mayele (FWD, Pyramids)
+DR Congo: global-exact Matthieu Epolo
+Ecuador: IMPUTED 64 for Félix Torres (DEF, Internacional)
+Ecuador: IMPUTED 64 for Jordy Alcívar (MID, Independiente del Valle)
+Ecuador: IMPUTED 64 for Enner Valencia (FWD, Pachuca)
+Ecuador: IMPUTED 64 for Gonzalo Plata (FWD, Flamengo)
+Ecuador: IMPUTED 64 for Alan Franco (MID, Atlético Mineiro)
+Ecuador: global-birthdate Jeremy Arévalo
+Egypt: IMPUTED 70 for Mohamed El Shenawy (GK, Al Ahly)
+Egypt: IMPUTED 70 for Yasser Ibrahim (DEF, Al Ahly)
+Egypt: IMPUTED 70 for Mohamed Hany (DEF, Al Ahly)
+Egypt: IMPUTED 70 for Hossam Abdelmaguid (DEF, Zamalek)
+Egypt: IMPUTED 70 for Ramy Rabia (DEF, Al Ain)
+Egypt: IMPUTED 70 for Mohamed Abdelmonem (DEF, Nice)
+Egypt: IMPUTED 70 for Trézéguet (FWD, Al Ahly)
+Egypt: IMPUTED 70 for Emam Ashour (MID, Al Ahly)
+Egypt: IMPUTED 70 for Hamza Abdelkarim (FWD, Barcelona B)
+Egypt: IMPUTED 70 for Mostafa Ziko (MID, Pyramids)
+Egypt: global-exact Haissem Hassan
+Egypt: IMPUTED 70 for Ahmed Fatouh (DEF, Zamalek)
+Egypt: IMPUTED 70 for Hamdy Fathy (MID, Al-Wakrah)
+Egypt: IMPUTED 70 for Karim Hafez (DEF, Pyramids)
+Egypt: IMPUTED 70 for El Mahdy Soliman (GK, Zamalek)
+Egypt: IMPUTED 70 for Mohanad Lasheen (MID, Pyramids)
+Egypt: IMPUTED 70 for Nabil Emad (MID, Al-Najma)
+Egypt: IMPUTED 70 for Marwan Attia (MID, Al Ahly)
+Egypt: IMPUTED 70 for Ibrahim Adel (FWD, Nordsjælland)
+Egypt: IMPUTED 70 for Mahmoud Saber (MID, ZED)
+Egypt: IMPUTED 70 for Mostafa Shobeir (GK, Al Ahly)
+Egypt: IMPUTED 70 for Tarek Alaa (DEF, ZED)
+Egypt: IMPUTED 70 for Zizo (FWD, Al Ahly)
+Egypt: fuzzy(0.88) Mohamed Alaa
+England: IMPUTED 76 for Nico O'Reilly (DEF, Manchester City)
+France: tokens Manu Koné
+France: IMPUTED 76 for Adrien Rabiot (MID, Milan)
+Ghana: IMPUTED 66 for Caleb Yirenkyi (MID, Nordsjælland)
+Ghana: global-exact Joseph Anang
+Ghana: IMPUTED 66 for Benjamin Asare (GK, Hearts of Oak)
+Ghana: birthdate Abdul Rahman Baba
+Ghana: IMPUTED 66 for Kojo Peprah Oppong (DEF, Nice)
+Ghana: IMPUTED 66 for Derrick Luckassen (DEF, Pafos)
+Ghana: IMPUTED 66 for Prince Kwabena Adu (FWD, Viktoria Plzeň)
+Ghana: global-exact Marvin Senaya
+Haiti: IMPUTED 62 for Keeto Thermoncy (DEF, Young Boys)
+Haiti: IMPUTED 62 for Ricardo Adé (DEF, LDU Quito)
+Haiti: global-exact Hannes Delcroix
+Haiti: IMPUTED 62 for Carl Sainté (MID, El Paso Locomotive FC)
+Haiti: IMPUTED 62 for Martin Expérience (DEF, Nancy)
+Haiti: global-exact Jean-Ricner Bellegarde
+Haiti: IMPUTED 62 for Louicius Deedson (FWD, FC Dallas)
+Haiti: IMPUTED 62 for Alexandre Pierre (GK, Sochaux)
+Haiti: IMPUTED 62 for Duke Lacroix (DEF, Colorado Springs Switchbacks FC)
+Haiti: IMPUTED 62 for Garven Metusala (DEF, Colorado Springs Switchbacks FC)
+Haiti: global-exact Ruben Providence
+Haiti: global-exact Lenny Joseph
+Haiti: IMPUTED 62 for Wilson Isidor (FWD, Sunderland)
+Haiti: IMPUTED 62 for Yassin Fortuné (FWD, Vizela)
+Haiti: fuzzy(0.93) Frantzdy Pierrot
+Haiti: global-exact Josué Casimir
+Haiti: IMPUTED 62 for Josué Duverger (GK, Cosmos Koblenz)
+Haiti: IMPUTED 62 for Wilguens Paugain (DEF, Zulte Waregem)
+Haiti: IMPUTED 62 for Dominique Simon (MID, Tatran Prešov)
+Haiti: IMPUTED 62 for Woodensky Pierre (MID, Violette)
+Iran: IMPUTED 62 for Alireza Beiranvand (GK, Tractor)
+Iran: IMPUTED 62 for Saleh Hardani (DEF, Esteghlal)
+Iran: birthdate Ehsan Hajsafi
+Iran: IMPUTED 62 for Shojae Khalilzadeh (DEF, Tractor)
+Iran: IMPUTED 62 for Milad Mohammadi (DEF, Persepolis)
+Iran: IMPUTED 62 for Saeid Ezatolahi (MID, Shabab Al Ahli)
+Iran: IMPUTED 62 for Alireza Jahanbakhsh (MID, Dender)
+Iran: IMPUTED 62 for Mohammad Mohebi (MID, Rostov)
+Iran: IMPUTED 62 for Mehdi Ghayedi (FWD, Al Nasr)
+Iran: IMPUTED 62 for Ali Alipour (FWD, Persepolis)
+Iran: IMPUTED 62 for Payam Niazmand (GK, Persepolis)
+Iran: IMPUTED 62 for Hossein Kanaanizadegan (DEF, Persepolis)
+Iran: IMPUTED 62 for Saman Ghoddos (MID, Kalba)
+Iran: IMPUTED 62 for Rouzbeh Cheshmi (MID, Esteghlal)
+Iran: IMPUTED 62 for Mehdi Torabi (MID, Tractor)
+Iran: IMPUTED 62 for Aria Yousefi (DEF, Sepahan)
+Iran: IMPUTED 62 for Amirhossein Hosseinzadeh (FWD, Tractor)
+Iran: IMPUTED 62 for Ali Nemati (DEF, Foolad)
+Iran: IMPUTED 62 for Shahriyar Moghanlou (FWD, Kalba)
+Iran: IMPUTED 62 for Mohammad Ghorbani (MID, Al Wahda)
+Iran: IMPUTED 62 for Hossein Hosseini (GK, Sepahan)
+Iran: IMPUTED 62 for Ramin Rezaeian (DEF, Foolad)
+Iran: global-birthdate Dennis Eckert
+Iran: IMPUTED 62 for Danial Eiri (DEF, Malavan)
+Iran: IMPUTED 62 for Amirmohammad Razzaghinia (MID, Esteghlal)
+Iraq: IMPUTED 62 for Fahad Talib (GK, Al-Talaba)
+Iraq: IMPUTED 62 for Rebin Sulaka (DEF, Port)
+Iraq: IMPUTED 62 for Zaid Tahseen (DEF, Pakhtakor)
+Iraq: IMPUTED 62 for Akam Hashim (DEF, Al-Zawraa)
+Iraq: IMPUTED 62 for Manaf Younis (DEF, Al-Shorta)
+Iraq: IMPUTED 62 for Ibrahim Bayesh (MID, Al Dhafra)
+Iraq: IMPUTED 62 for Mohanad Ali (FWD, Dibba)
+Iraq: global-exact Ahmed Qasem
+Iraq: IMPUTED 62 for Jalal Hassan (GK, Al-Zawraa)
+Iraq: IMPUTED 62 for Ali Yousif (FWD, Al-Talaba)
+Iraq: IMPUTED 62 for Ahmed Maknzi (DEF, Al-Karma)
+Iraq: IMPUTED 62 for Ali Jasim (FWD, Al-Najma)
+Iraq: IMPUTED 62 for Aymen Hussein (FWD, Al-Karma)
+Iraq: global-exact Aimar Sher
+Iraq: IMPUTED 62 for Marko Farji (FWD, Venezia)
+Iraq: IMPUTED 62 for Ahmed Basil (GK, Al-Shorta)
+Iraq: IMPUTED 62 for Merchas Doski (DEF, Viktoria Plzeň)
+Iraq: IMPUTED 62 for Zaid Ismail (MID, Al-Talaba)
+Iraq: IMPUTED 62 for Mustafa Saadoon (DEF, Al-Shorta)
+Iraq: IMPUTED 62 for Frans Putros (DEF, Persib)
+Ivory Coast: IMPUTED 71 for Ghislain Konan (DEF, Gil Vicente)
+Ivory Coast: tokens Franck Kessié
+Ivory Coast: global-birthdate Ange-Yoan Bonny
+Ivory Coast: IMPUTED 71 for Yan Diomande (FWD, RB Leipzig)
+Ivory Coast: global-exact Elye Wahi
+Ivory Coast: global-exact Alban Lafont
+Ivory Coast: IMPUTED 71 for Bazoumana Touré (FWD, TSG Hoffenheim)
+Ivory Coast: IMPUTED 71 for Christ Inao Oulaï (MID, Trabzonspor)
+Japan: IMPUTED 69 for Yūto Nagatomo (DEF, FC Tokyo)
+Japan: IMPUTED 69 for Keisuke Gotō (FWD, Sint-Truiden)
+Japan: IMPUTED 69 for Keisuke Ōsako (GK, Sanfrecce Hiroshima)
+Japan: IMPUTED 69 for Tomoki Hayakawa (GK, Kashima Antlers)
+Japan: IMPUTED 69 for Junnosuke Suzuki (DEF, Copenhagen)
+Japan: IMPUTED 69 for Kento Shiogai (FWD, VfL Wolfsburg)
+Jordan: IMPUTED 62 for Yazeed Abulaila (GK, Al-Hussein)
+Jordan: IMPUTED 62 for Mohammad Abu Hashish (DEF, Al-Karma)
+Jordan: IMPUTED 62 for Abdallah Nasib (DEF, Al-Zawraa)
+Jordan: IMPUTED 62 for Husam Abu Dahab (DEF, Al-Faisaly)
+Jordan: IMPUTED 62 for Amer Jamous (MID, Al-Zawraa)
+Jordan: IMPUTED 62 for Mohammad Abu Zrayq (FWD, Raja Casablanca)
+Jordan: IMPUTED 62 for Noor Al-Rawabdeh (MID, Selangor)
+Jordan: IMPUTED 62 for Ali Olwan (FWD, Al-Sailiya)
+Jordan: birthdate Musa Al-Taamari
+Jordan: IMPUTED 62 for Odeh Al-Fakhouri (FWD, Pyramids)
+Jordan: IMPUTED 62 for Nour Bani Attiah (GK, Al-Faisaly)
+Jordan: IMPUTED 62 for Mahmoud Al-Mardi (FWD, Al-Hussein)
+Jordan: IMPUTED 62 for Rajaei Ayed (MID, Al-Hussein)
+Jordan: IMPUTED 62 for Ibrahim Sadeh (MID, Al-Karma)
+Jordan: IMPUTED 62 for Mo Abualnadi (DEF, Selangor)
+Jordan: IMPUTED 62 for Salim Obaid (DEF, Al-Hussein)
+Jordan: IMPUTED 62 for Mohammad Taha (MID, Al-Hussein)
+Jordan: IMPUTED 62 for Saed Al-Rosan (DEF, Al-Hussein)
+Jordan: IMPUTED 62 for Mohannad Abu Taha (MID, Al-Quwa Al-Jawiya)
+Jordan: IMPUTED 62 for Nizar Al-Rashdan (MID, Qatar SC)
+Jordan: IMPUTED 62 for Abdallah Al-Fakhouri (GK, Al-Wehdat)
+Jordan: IMPUTED 62 for Ihsan Haddad (DEF, Al-Hussein)
+Jordan: IMPUTED 62 for Ali Azaizeh (FWD, Al-Shabab)
+Jordan: IMPUTED 62 for Mohammad Al-Dawoud (MID, Al-Wehdat)
+Jordan: IMPUTED 62 for Anas Badawi (DEF, Al-Faisaly)
+Mexico: IMPUTED 65 for Raúl Rangel (GK, Guadalajara)
+Mexico: IMPUTED 65 for Jorge Sánchez (DEF, PAOK)
+Mexico: IMPUTED 65 for Érik Lira (MID, Cruz Azul)
+Mexico: IMPUTED 65 for Luis Romo (MID, Guadalajara)
+Mexico: IMPUTED 65 for Álvaro Fidalgo (MID, Real Betis)
+Mexico: IMPUTED 65 for Alexis Vega (FWD, Toluca)
+Mexico: IMPUTED 65 for Carlos Acevedo (GK, Santos Laguna)
+Mexico: IMPUTED 65 for Guillermo Ochoa (GK, AEL Limassol)
+Mexico: IMPUTED 65 for Armando González (FWD, Guadalajara)
+Mexico: IMPUTED 65 for Israel Reyes (DEF, América)
+Mexico: IMPUTED 65 for Gilberto Mora (MID, Tijuana)
+Mexico: IMPUTED 65 for Mateo Chávez (DEF, AZ)
+Mexico: IMPUTED 65 for César Huerta (FWD, Anderlecht)
+Mexico: IMPUTED 65 for Guillermo Martínez (FWD, Pumas)
+Mexico: IMPUTED 65 for Jesús Gallardo (DEF, Toluca)
+Mexico: IMPUTED 65 for Luis Chávez (MID, Dynamo Moscow)
+Mexico: IMPUTED 65 for Roberto Alvarado (FWD, Guadalajara)
+Mexico: global-exact Brian Gutiérrez
+Morocco: IMPUTED 71 for Ayyoub Bouaddi (MID, Lille)
+Morocco: global-exact Chemsdine Talbi
+Morocco: IMPUTED 71 for Munir Mohamedi (GK, RS Berkane)
+Morocco: global-exact Issa Diop
+Morocco: IMPUTED 71 for Samir El Mourabet (MID, Strasbourg)
+Morocco: IMPUTED 71 for Gessime Yassine (MID, Strasbourg)
+Morocco: IMPUTED 71 for Youssef Belammari (DEF, Al Ahly)
+Morocco: IMPUTED 71 for Ayoube Amaimouni (FWD, Eintracht Frankfurt)
+Morocco: IMPUTED 71 for Ahmed Reda Tagnaouti (GK, AS FAR)
+Morocco: IMPUTED 71 for Redouane Halhal (DEF, Mechelen)
+Morocco: global-exact Anass Salah-Eddine
+Netherlands: IMPUTED 74 for Memphis Depay (FWD, Corinthians)
+New Zealand: IMPUTED 62 for Sarpreet Singh (MID, Wellington Phoenix)
+New Zealand: IMPUTED 62 for Elijah Just (MID, Motherwell)
+New Zealand: IMPUTED 62 for Jesse Randall (FWD, Auckland FC)
+Norway: tokens Torbjørn Heggem
+Norway: IMPUTED 68 for Henrik Falchener (DEF, Viking)
+Panama: IMPUTED 63 for César Blackman (DEF, Slovan Bratislava)
+Panama: IMPUTED 63 for Fidel Escobar (DEF, Saprissa)
+Panama: IMPUTED 63 for Edgardo Fariña (DEF, Pari Nizhny Novgorod)
+Panama: global-exact Cristian Martínez
+Panama: IMPUTED 63 for José Luis Rodríguez (MID, Juárez)
+Panama: IMPUTED 63 for Tomás Rodríguez (FWD, Saprissa)
+Panama: IMPUTED 63 for Yoel Bárcenas (MID, Mazatlán)
+Panama: IMPUTED 63 for César Samudio (GK, Marathón)
+Panama: IMPUTED 63 for Eric Davis (DEF, Plaza Amador)
+Panama: IMPUTED 63 for Cecilio Waterman (FWD, Universidad de Concepción)
+Panama: IMPUTED 63 for Alberto Quintero (MID, Plaza Amador)
+Panama: IMPUTED 63 for César Yanis (MID, Cobresal)
+Panama: IMPUTED 63 for Orlando Mosquera (GK, Al-Fayha)
+Panama: birthdate Michael Amir Murillo
+Panama: IMPUTED 63 for Azarias Londoño (FWD, Universidad Católica)
+Panama: IMPUTED 63 for Roderick Miller (DEF, Turan Tovuz)
+Panama: IMPUTED 63 for Jorge Gutiérrez (DEF, Deportivo La Guaira)
+Paraguay: IMPUTED 68 for Gatito Fernández (GK, Cerro Porteño)
+Paraguay: IMPUTED 68 for Fabián Balbuena (DEF, Grêmio)
+Paraguay: IMPUTED 68 for Júnior Alonso (DEF, Atlético Mineiro)
+Paraguay: IMPUTED 68 for Maurício (MID, Palmeiras)
+Paraguay: IMPUTED 68 for Orlando Gill (GK, San Lorenzo)
+Paraguay: IMPUTED 68 for José Canale (DEF, Lanús)
+Paraguay: IMPUTED 68 for Gustavo Gómez (DEF, Palmeiras)
+Paraguay: IMPUTED 68 for Damián Bobadilla (MID, São Paulo)
+Paraguay: tokens Julio Enciso
+Paraguay: global-exact Gastón Olveira
+Paraguay: IMPUTED 68 for Isidro Pitta (FWD, Red Bull Bragantino)
+Paraguay: IMPUTED 68 for Alexandro Maidana (DEF, Talleres)
+!! Qatar: no EA players under nationality 'Qatar'
+Qatar: IMPUTED 62 for Mahmud Abunada (GK, Al-Rayyan)
+Qatar: IMPUTED 62 for Pedro Miguel (DEF, Al-Sadd)
+Qatar: IMPUTED 62 for Lucas Mendes (DEF, Al-Wakrah)
+Qatar: IMPUTED 62 for Issa Laye (DEF, Al-Arabi)
+Qatar: IMPUTED 62 for Jassem Gaber (DEF, Al-Rayyan)
+Qatar: IMPUTED 62 for Abdulaziz Hatem (MID, Al-Rayyan)
+Qatar: IMPUTED 62 for Ahmed Alaaeldin (FWD, Al-Rayyan)
+Qatar: IMPUTED 62 for Edmilson Junior (FWD, Al-Duhail)
+Qatar: IMPUTED 62 for Mohammed Muntari (FWD, Al-Gharafa)
+Qatar: IMPUTED 62 for Hassan Al-Haydos (FWD, Al-Sadd)
+Qatar: IMPUTED 62 for Akram Afif (FWD, Al-Sadd)
+Qatar: IMPUTED 62 for Karim Boudiaf (MID, Al-Duhail)
+Qatar: IMPUTED 62 for Ayoub Al-Oui (DEF, Al-Gharafa)
+Qatar: IMPUTED 62 for Homam Ahmed (DEF, Cultural Leonesa)
+Qatar: IMPUTED 62 for Yusuf Abdurisag (FWD, Al-Wakrah)
+Qatar: IMPUTED 62 for Boualem Khoukhi (DEF, Al-Sadd)
+Qatar: IMPUTED 62 for Ahmed Al-Ganehi (MID, Al-Gharafa)
+Qatar: IMPUTED 62 for Sultan Al-Brake (DEF, Al-Duhail)
+Qatar: IMPUTED 62 for Almoez Ali (FWD, Al-Duhail)
+Qatar: IMPUTED 62 for Ahmed Fathy (MID, Al-Arabi)
+Qatar: IMPUTED 62 for Salah Zakaria (GK, Al-Duhail)
+Qatar: IMPUTED 62 for Meshaal Barsham (GK, Al-Sadd)
+Qatar: IMPUTED 62 for Assim Madibo (MID, Al-Wakrah)
+Qatar: IMPUTED 62 for Tahsin Jamshid (FWD, Al-Duhail)
+Qatar: IMPUTED 62 for Al-Hashmi Al-Hussain (DEF, Al-Arabi)
+Qatar: IMPUTED 62 for Mohamed Manai (FWD, Al-Shamal)
+Saudi Arabia: birthdate Hassan Al-Tambakti
+Saudi Arabia: birthdate Musab Al-Juwayr
+Saudi Arabia: birthdate Firas Al-Buraikan
+Saudi Arabia: birthdate Hassan Kadesh
+Saudi Arabia: birthdate Alaa Al-Hejji
+Saudi Arabia: birthdate Mohamed Kanno
+Saudi Arabia: birthdate Moteb Al-Harbi
+Saudi Arabia: IMPUTED 63 for Jehad Thakri (DEF, Al-Qadsiah)
+Saudi Arabia: IMPUTED 63 for Mohammed Abu Al-Shamat (DEF, Al-Qadsiah)
+Scotland: birthdate Andy Robertson
+Scotland: IMPUTED 68 for Tyler Fletcher (MID, Manchester United)
+Scotland: birthdate Ben Gannon-Doak
+Scotland: global-exact George Hirst
+Scotland: IMPUTED 68 for Findlay Curtis (FWD, Kilmarnock)
+Senegal: global-exact Yehvann Diouf
+Senegal: fuzzy(0.89) Mamadou Sarr
+Senegal: IMPUTED 70 for Abdoulaye Seck (DEF, Maccabi Haifa)
+Senegal: global-birthdate Assane Diao
+Senegal: IMPUTED 70 for Cherif Ndiaye (FWD, Samsunspor)
+Senegal: IMPUTED 70 for Ibrahim Mbaye (FWD, Paris Saint-Germain)
+Senegal: IMPUTED 70 for Bara Sapoko Ndiaye (MID, Bayern Munich)
+Senegal: global-exact Antoine Mendy
+South Africa: IMPUTED 62 for Ronwen Williams (GK, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Thabang Matuludi (DEF, Polokwane City)
+South Africa: IMPUTED 62 for Khulumani Ndamane (DEF, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Teboho Mokoena (MID, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Thalente Mbatha (MID, Orlando Pirates)
+South Africa: IMPUTED 62 for Aubrey Modiba (DEF, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Oswin Appollis (FWD, Orlando Pirates)
+South Africa: IMPUTED 62 for Tshepang Moremi (FWD, Orlando Pirates)
+South Africa: IMPUTED 62 for Relebohile Mofokeng (FWD, Orlando Pirates)
+South Africa: IMPUTED 62 for Themba Zwane (MID, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Thapelo Maseko (FWD, AEL Limassol)
+South Africa: IMPUTED 62 for Mbekezeli Mbokazi (DEF, Chicago Fire FC)
+South Africa: IMPUTED 62 for Iqraam Rayners (FWD, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Sipho Chaine (GK, Orlando Pirates)
+South Africa: IMPUTED 62 for Evidence Makgopa (FWD, Orlando Pirates)
+South Africa: IMPUTED 62 for Samukele Kabini (DEF, Molde)
+South Africa: IMPUTED 62 for Nkosinathi Sibisi (DEF, Orlando Pirates)
+South Africa: IMPUTED 62 for Khuliso Mudau (DEF, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Ime Okon (DEF, Hannover 96)
+South Africa: IMPUTED 62 for Ricardo Goss (GK, Siwelele)
+South Africa: IMPUTED 62 for Jayden Adams (MID, Mamelodi Sundowns)
+South Africa: IMPUTED 62 for Kamogelo Sebelebele (FWD, Orlando Pirates)
+South Africa: IMPUTED 62 for Bradley Cross (DEF, Kaizer Chiefs)
+South Korea: birthdate Lee Gi-hyuk
+South Korea: fuzzy(0.92) Kim Tae-hyeon
+South Korea: IMPUTED 67 for Hwang In-beom (MID, Feyenoord)
+South Korea: tokens Son Heung-min
+South Korea: IMPUTED 67 for Song Bum-keun (GK, Jeonbuk Hyundai Motors)
+South Korea: birthdate Lee Tae-seok
+South Korea: IMPUTED 67 for Cho Wi-je (DEF, Jeonbuk Hyundai Motors)
+South Korea: IMPUTED 67 for Seol Young-woo (DEF, Red Star Belgrade)
+South Korea: global-exact Jens Castrop
+South Korea: birthdate Kim Jin-gyu
+South Korea: birthdate Lee Dong-gyeong
+Spain: tokens Marc Pubill
+Spain: birthdate Álex Grimaldo
+Spain: tokens Martín Zubimendi
+Spain: tokens Mikel Oyarzabal
+Spain: IMPUTED 76 for Víctor Muñoz (FWD, Osasuna)
+Sweden: tokens Taha Ali
+Tunisia: IMPUTED 64 for Mouhib Chamakh (GK, Club Africain)
+Tunisia: IMPUTED 64 for Adem Arous (DEF, Kasımpaşa)
+Tunisia: IMPUTED 64 for Hazem Mastouri (FWD, Dynamo Makhachkala)
+Tunisia: global-exact Ismaël Gharbi
+Tunisia: global-exact Rani Khedira
+Tunisia: IMPUTED 64 for Khalil Ayari (MID, Paris Saint-Germain)
+Tunisia: birthdate Hadj Mahmoud
+Tunisia: IMPUTED 64 for Aymen Dahmen (GK, CS Sfaxien)
+Tunisia: IMPUTED 64 for Rayan Elloumi (FWD, Vancouver Whitecaps FC)
+Tunisia: IMPUTED 64 for Firas Chaouat (FWD, Club Africain)
+Tunisia: IMPUTED 64 for Mohamed Amine Ben Hamida (DEF, Espérance de Tunis)
+Tunisia: IMPUTED 64 for Sabri Ben Hessen (GK, Étoile du Sahel)
+Tunisia: global-exact Moutaz Neffati
+Tunisia: IMPUTED 64 for Raed Chikhaoui (DEF, US Monastir)
+Tunisia: birthdate Anis Ben Slimane
+Turkey: global-exact Deniz Gül
+Turkey: birthdate Samet Akaydin
+United States: birthdate Alex Freeman
+United States: birthdate Max Arfsten
+United States: IMPUTED 69 for Alejandro Zendejas (FWD, América)
+Uruguay: IMPUTED 76 for Sergio Rochet (GK, Internacional)
+Uruguay: IMPUTED 76 for Sebastián Cáceres (DEF, América)
+Uruguay: IMPUTED 76 for Nicolás de la Cruz (MID, Flamengo)
+Uruguay: IMPUTED 76 for Giorgian de Arrascaeta (MID, Flamengo)
+Uruguay: IMPUTED 76 for Guillermo Varela (DEF, Flamengo)
+Uruguay: IMPUTED 76 for Agustín Canobbio (MID, Fluminense)
+Uruguay: IMPUTED 76 for Matías Viña (DEF, River Plate)
+Uruguay: IMPUTED 76 for Brian Rodríguez (FWD, América)
+Uruguay: IMPUTED 76 for Rodrigo Aguirre (FWD, UANL)
+Uruguay: IMPUTED 76 for Maximiliano Araújo (MID, Sporting CP)
+Uruguay: IMPUTED 76 for Federico Viñas (FWD, Oviedo)
+Uruguay: IMPUTED 76 for Joaquín Piquerez (MID, Palmeiras)
+Uruguay: IMPUTED 76 for Juan Manuel Sanabria (MID, Real Salt Lake)
+Uzbekistan: IMPUTED 62 for Utkir Yusupov (GK, Navbahor Namangan)
+Uzbekistan: IMPUTED 62 for Khojiakbar Alijonov (DEF, Pakhtakor)
+Uzbekistan: IMPUTED 62 for Farrukh Sayfiev (DEF, Neftchi Fergana)
+Uzbekistan: IMPUTED 62 for Rustam Ashurmatov (DEF, Esteghlal)
+Uzbekistan: IMPUTED 62 for Akmal Mozgovoy (MID, Pakhtakor)
+Uzbekistan: IMPUTED 62 for Jamshid Iskanderov (MID, Neftchi Fergana)
+Uzbekistan: IMPUTED 62 for Odiljon Hamrobekov (MID, Tractor)
+Uzbekistan: IMPUTED 62 for Jaloliddin Masharipov (MID, Esteghlal)
+Uzbekistan: IMPUTED 62 for Oston Urunov (MID, Persepolis)
+Uzbekistan: IMPUTED 62 for Abduvohid Nematov (GK, Nasaf)
+Uzbekistan: IMPUTED 62 for Sherzod Nasrullaev (DEF, Nasaf)
+Uzbekistan: IMPUTED 62 for Umar Eshmurodov (DEF, Nasaf)
+Uzbekistan: IMPUTED 62 for Botirali Ergashev (GK, Neftchi Fergana)
+Uzbekistan: IMPUTED 62 for Dostonbek Khamdamov (MID, Pakhtakor)
+Uzbekistan: IMPUTED 62 for Abdulla Abdullaev (DEF, Dibba)
+Uzbekistan: IMPUTED 62 for Azizjon Ganiev (MID, Al Bataeh)
+Uzbekistan: IMPUTED 62 for Azizbek Amonov (FWD, Dinamo Samarqand)
+Uzbekistan: IMPUTED 62 for Igor Sergeev (FWD, Persepolis)
+Uzbekistan: IMPUTED 62 for Abbosbek Fayzullaev (MID, İstanbul Başakşehir)
+Uzbekistan: IMPUTED 62 for Sherzod Esanov (MID, Bukhara)
+Uzbekistan: IMPUTED 62 for Bekhruz Karimov (DEF, Surkhon Termiz)
+Uzbekistan: IMPUTED 62 for Avazbek Ulmasaliev (DEF, AGMK)
+Uzbekistan: IMPUTED 62 for Jakhongir Urozov (DEF, Dinamo Samarqand)
