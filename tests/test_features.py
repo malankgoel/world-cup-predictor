@@ -2,10 +2,41 @@ import numpy as np
 import pandas as pd
 
 from worldcup_predictor.features import (
+    HOME_ADVANTAGE_LOG,
+    NEUTRAL_BASE_LOG,
     FeatureBuilder,
     RankingLookup,
     SquadLookup,
 )
+
+
+def test_neutral_base_reparametrization_matches_old_non_neutral_rates():
+    # On non-neutral matches the new (neutral_base, advantage) split must be
+    # numerically identical to the old fixed log(1.25)/log(1.10) intercepts.
+    assert np.isclose(NEUTRAL_BASE_LOG + HOME_ADVANTAGE_LOG, np.log(1.25) + 0.15)
+    assert np.isclose(NEUTRAL_BASE_LOG - HOME_ADVANTAGE_LOG, np.log(1.10) - 0.15)
+
+
+def test_neutral_match_updates_both_teams_symmetrically():
+    builder = FeatureBuilder(pd.DataFrame(), pd.DataFrame())
+    states = {}
+    match = pd.Series(
+        {
+            "date": pd.Timestamp("2026-06-01"),
+            "home_team": "A",
+            "away_team": "B",
+            "home_score": 1,
+            "away_score": 1,
+            "neutral": True,
+            "tournament": "World Cup",
+        }
+    )
+    builder.apply_result(match, states)
+    # Identical fresh teams + symmetric neutral baseline + a draw => identical
+    # latent-state updates, with no home/away label advantage.
+    assert np.isclose(states["A"].attack_mean, states["B"].attack_mean)
+    assert np.isclose(states["A"].defense_mean, states["B"].defense_mean)
+    assert np.isclose(states["A"].elo, states["B"].elo)
 
 
 def test_features_are_created_before_result_is_applied():

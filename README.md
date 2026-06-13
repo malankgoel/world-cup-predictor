@@ -194,7 +194,14 @@ Simulation uses actual completed World Cup results as fixed observations and
 samples only remaining matches. It implements group standings, head-to-head
 tiebreaking, randomized resolution after unavailable fair-play criteria, the
 eight best third-place teams, the 48-team bracket, extra time, and penalties.
-Current posterior uncertainty modestly perturbs scoring rates.
+
+Each simulated tournament draws one latent strength offset per team, held fixed
+across all of that team's matches in that run and scaled by the team's
+posterior uncertainty. This keeps a team that is randomly stronger than its
+point estimate consistently stronger all tournament, so advancement and title
+spreads are realistically wide rather than artificially concentrated by
+independent per-match noise. Penalty shootouts are shrunk toward a coin flip
+rather than decided by the full strength gap.
 
 Rates for feasible bracket matchups are predicted in batches before Monte Carlo,
 so thousands of runs remain practical.
@@ -207,9 +214,14 @@ worldcup simulate --runs 10000 --seed 42
 
 `worldcup train` uses a chronological 80/20 split. Feature generation itself is
 walk-forward: no match result enters its own or an earlier match's features.
+Alongside the 1X2 metrics, `metrics.json` now also reports Brier score and
+calibration error for the over/under 2.5 and both-teams-to-score markets, so the
+secondary outputs are checked rather than assumed. The Elo baseline is a
+multinomial logistic on the Elo gap and venue advantage, fit on the same
+recency/importance weights (a fairer comparison than the old fixed-goal mapping).
 
-Current run on 25,343 completed matches from January 1, 2000 through June 10,
-2026:
+The numbers below are from an earlier training run, on 25,343 completed matches
+from January 1, 2000 through June 10, 2026, and are kept only as a rough guide:
 
 | Metric | Model | Elo baseline |
 |---|---:|---:|
@@ -221,7 +233,23 @@ Current run on 25,343 completed matches from January 1, 2000 through June 10,
 | Away-goal MAE | 0.8365 | - |
 
 Lower is better. These results are a temporal holdout, not evidence that the
-model will beat bookmaker closing odds.
+model will beat bookmaker closing odds. Recent changes to the latent-state
+update and the evaluation metrics mean you should re-run `worldcup train` to
+regenerate `model.joblib` and `metrics.json` before trusting these figures.
+
+### Backtesting
+
+A single split can be noisy. `worldcup backtest` trains on everything before
+each fold boundary and evaluates on the next window, reusing the same
+walk-forward features so a test fold never sees its own or later results:
+
+```bash
+worldcup backtest --cutoffs 2022-01-01,2023-01-01,2024-01-01,2025-01-01
+```
+
+It writes per-fold metrics to `outputs/backtest.csv` and prints the mean across
+folds. With no `--cutoffs`, it defaults to January 1 of each of the last four
+seasons.
 
 Run tests with:
 
@@ -244,6 +272,7 @@ implementation lives in [docs/build-spec-coverage.md](docs/build-spec-coverage.m
 │   │   └── squads.csv
 │   └── raw/results.csv
 ├── src/worldcup_predictor/
+│   ├── backtest.py
 │   ├── cli.py
 │   ├── data.py
 │   ├── features.py

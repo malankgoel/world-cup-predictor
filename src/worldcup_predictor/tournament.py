@@ -19,6 +19,18 @@ STAGE_OUTPUT = {
     "final": "reach_final",
 }
 
+# Per-team latent strength, drawn once per simulated tournament and held fixed
+# across all of that team's matches in the run. This restores the between-match
+# correlation that independent per-match noise washes out: a team that is
+# (randomly) stronger than its point estimate stays stronger all tournament,
+# which widens advancement/title spreads to realistic levels. Scaled by each
+# team's posterior uncertainty, so well-established teams move less.
+TEAM_STRENGTH_SCALE = 0.10
+
+# Penalty shootouts are far closer to a coin flip than open play. Only this
+# fraction of the Elo win-probability edge is kept; the rest shrinks toward 0.5.
+PENALTY_SKILL_WEIGHT = 0.5
+
 
 def assign_third_place_teams(
     sources: list[str], qualified: dict[str, str]
@@ -183,6 +195,31 @@ class TournamentSimulator:
         )
         return row
 
+    @staticmethod
+    def _apply_team_shock(
+        home_rate: float,
+        away_rate: float,
+        home_shock: tuple[float, float],
+        away_shock: tuple[float, float],
+    ) -> tuple[float, float]:
+        """Apply a zero-sum, per-run relative-strength tilt to both rates.
+
+        The correction term keeps each rate's expectation unbiased over runs,
+        and a shared shock for both teams leaves the matchup unchanged.
+        """
+        home_z, home_sigma = home_shock
+        away_z, away_sigma = away_shock
+        correction = 0.5 * (home_sigma**2 + away_sigma**2)
+        home_rate = home_rate * np.exp((home_z - away_z) - correction)
+        away_rate = away_rate * np.exp((away_z - home_z) - correction)
+        return home_rate, away_rate
+
+    @staticmethod
+    def _shootout_probability(elo_diff: float) -> float:
+        """Home win probability in a shootout, shrunk toward 0.5 from Elo."""
+        elo_home = 1.0 / (1.0 + np.exp(-elo_diff / 400.0))
+        return 0.5 + PENALTY_SKILL_WEIGHT * (elo_home - 0.5)
+
     def _play(
         self,
         row,
@@ -190,6 +227,7 @@ class TournamentSimulator:
         away: str,
         rng,
         knockout=False,
+        shock: dict[str, tuple[float, float]] | None = None,
     ):
         match = self._match_row(row, home, away)
         observed = self.completed.get((match["date"].date(), home, away))
@@ -204,6 +242,10 @@ class TournamentSimulator:
             away_rate *= np.exp(
                 rng.normal(-0.5 * sigma**2, sigma)
             )
+            if shock is not None:
+                home_rate, away_rate = self._apply_team_shock(
+                    home_rate, away_rate, shock[home], shock[away]
+                )
             home_goals = int(rng.poisson(home_rate))
             away_goals = int(rng.poisson(away_rate))
             if knockout and home_goals == away_goals:
@@ -216,7 +258,7 @@ class TournamentSimulator:
             if observed is not None and observed_winner:
                 winner = observed_winner
             else:
-                penalty_home = 1.0 / (1.0 + np.exp(-elo_diff / 400.0))
+                penalty_home = self._shootout_probability(elo_diff)
                 winner = home if rng.random() < penalty_home else away
         else:
             winner = home if home_goals > away_goals else away
@@ -245,6 +287,15 @@ class TournamentSimulator:
         return source
 
     def _one_run(self, rng) -> dict[str, set[str] | str]:
+        # One latent strength draw per team for this whole tournament run.
+        shock: dict[str, tuple[float, float]] = {}
+        for team in self.teams:
+            state = self.base_states.get(team)
+            variance = (
+                state.attack_var + state.defense_var if state is not None else 0.70
+            )
+            sigma = TEAM_STRENGTH_SCALE * float(np.sqrt(variance))
+            shock[team] = (float(rng.normal(0.0, sigma)), sigma)
         table = defaultdict(
             lambda: defaultdict(lambda: {"points": 0, "gf": 0, "ga": 0})
         )
@@ -252,7 +303,7 @@ class TournamentSimulator:
         group_rows = self.schedule[self.schedule["stage"] == "group"]
         for _, row in group_rows.iterrows():
             home, away = row["home_team"], row["away_team"]
-            hg, ag, _, _ = self._play(row, home, away, rng)
+            hg, ag, _, _ = self._play(row, home, away, rng, shock=shock)
             group = row["group"]
             table[group][home]["gf"] += hg
             table[group][home]["ga"] += ag
@@ -312,7 +363,7 @@ class TournamentSimulator:
             if output_stage:
                 reached[output_stage].update((home, away))
             _, _, winner, loser = self._play(
-                row, home, away, rng, knockout=True
+                row, home, away, rng, knockout=True, shock=shock
             )
             winners[int(row["match_id"])] = winner
             losers[int(row["match_id"])] = loser

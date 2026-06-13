@@ -33,6 +33,30 @@ def test_flip_features_is_an_involution_and_swaps_sides():
     pd.testing.assert_frame_equal(flip_features(flipped), frame)
 
 
+def test_prior_adjustment_coefficients_are_configurable():
+    base = WorldCupModel()
+    custom = WorldCupModel(adjustments={"chemistry_coef": 0.0})
+    assert base.adjustments["chemistry_coef"] == 0.08
+    assert custom.adjustments["chemistry_coef"] == 0.0
+
+    class Stub:
+        def predict(self, frame):
+            return np.full(len(frame), 1.2)
+
+    frame = pd.DataFrame([dict.fromkeys(FEATURE_COLUMNS, 0.0)])
+    frame["chemistry_diff"] = 0.4
+    rates = {}
+    for name, model in (("base", base), ("custom", custom)):
+        model.home_model = Stub()
+        model.away_model = Stub()
+        # Drop chemistry from the learned set so the prior-nudge path runs.
+        model.feature_columns = [c for c in FEATURE_COLUMNS if c != "home_chemistry"]
+        rates[name] = float(model._rates(frame)[0][0])
+    # The default coefficient lifts the rate; zeroing it leaves the base rate.
+    assert rates["base"] > rates["custom"]
+    assert np.isclose(rates["custom"], 1.2)
+
+
 def test_rates_do_not_depend_on_home_away_label():
     class Stub:
         def __init__(self, intercept, slope):

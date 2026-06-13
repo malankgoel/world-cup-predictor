@@ -8,10 +8,34 @@ from worldcup_predictor.data import load_schedule
 from worldcup_predictor.features import FeatureBuilder
 from worldcup_predictor.model import WorldCupModel
 from worldcup_predictor.tournament import (
+    PENALTY_SKILL_WEIGHT,
     STAGE_OUTPUT,
     TournamentSimulator,
     assign_third_place_teams,
 )
+
+
+def test_shootout_probability_shrinks_favorite_toward_coin_flip():
+    # No edge -> exactly 50/50.
+    assert TournamentSimulator._shootout_probability(0.0) == 0.5
+    # A favorite keeps only PENALTY_SKILL_WEIGHT of its open-play edge.
+    elo_diff = 400.0
+    full_edge = 1.0 / (1.0 + np.exp(-elo_diff / 400.0))
+    shrunk = TournamentSimulator._shootout_probability(elo_diff)
+    assert 0.5 < shrunk < full_edge
+    assert np.isclose(shrunk - 0.5, PENALTY_SKILL_WEIGHT * (full_edge - 0.5))
+
+
+def test_team_shock_tilts_rates_and_is_neutral_when_shared():
+    strong, weak = (0.3, 0.1), (-0.3, 0.1)
+    home_rate, away_rate = TournamentSimulator._apply_team_shock(
+        1.5, 1.5, strong, weak
+    )
+    assert home_rate > away_rate  # the stronger draw scores more, concedes less
+    # A shared shock cancels: the matchup is unchanged up to the unbiasing term.
+    same = (0.2, 0.1)
+    h2, a2 = TournamentSimulator._apply_team_shock(1.5, 1.2, same, same)
+    assert abs(h2 / a2 - 1.5 / 1.2) < 1e-9
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEDULE = ROOT / "data" / "input" / "schedule_2026.csv"

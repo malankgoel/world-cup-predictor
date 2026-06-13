@@ -66,6 +66,18 @@ POSITION_WEIGHTS = {
     "FWD": (1.0, 0.2),
 }
 
+# Baseline scoring rates for the latent-state update. Historically this used a
+# fixed home/away intercept of log(1.25)/log(1.10); that asymmetry doubled as a
+# second home-advantage term and leaked into neutral matches, where the "home"
+# label is arbitrary. We instead use a symmetric neutral baseline plus a single
+# advantage tilt, chosen so the rates are IDENTICAL to the old ones on
+# non-neutral matches (home_adv=1, away_adv=0) while staying symmetric when the
+# venue is neutral (home_adv=away_adv=0).
+_LOG_125 = float(np.log(1.25))
+_LOG_110 = float(np.log(1.10))
+NEUTRAL_BASE_LOG = 0.5 * (_LOG_125 + _LOG_110)
+HOME_ADVANTAGE_LOG = 0.5 * (_LOG_125 - _LOG_110) + 0.15
+
 
 def match_importance(tournament: str) -> float:
     name = str(tournament).lower()
@@ -381,16 +393,16 @@ class FeatureBuilder:
                 state.attack_var = min(0.60, state.attack_var + drift)
                 state.defense_var = min(0.60, state.defense_var + drift)
         home_rate = np.exp(
-            np.log(1.25)
+            NEUTRAL_BASE_LOG
             + home_state.attack_mean
             - away_state.defense_mean
-            + 0.15 * (home_adv - away_adv)
+            + HOME_ADVANTAGE_LOG * (home_adv - away_adv)
         )
         away_rate = np.exp(
-            np.log(1.10)
+            NEUTRAL_BASE_LOG
             + away_state.attack_mean
             - home_state.defense_mean
-            + 0.15 * (away_adv - home_adv)
+            + HOME_ADVANTAGE_LOG * (away_adv - home_adv)
         )
 
         def bayes_update(

@@ -216,6 +216,33 @@ def simulate(config, runs: int | None, seed: int | None) -> pd.DataFrame:
     return output
 
 
+def backtest(config, cutoffs: str | None, out: str | None):
+    from .backtest import expanding_window_backtest, summarize_backtest
+
+    results, builder = inputs(config)
+    cutoff = cutoff_date(config)
+    if cutoff is not None:
+        results = results[results["date"] < cutoff].reset_index(drop=True)
+    features = builder.training_frame(results)
+    if cutoffs:
+        fold_cutoffs = [value.strip() for value in cutoffs.split(",")]
+    else:
+        last_year = int(features["date"].max().year)
+        fold_cutoffs = [f"{year}-01-01" for year in range(last_year - 3, last_year + 1)]
+    parameters = dict(config["model"])
+    parameters["random_state"] = config["training"]["random_state"]
+    table = expanding_window_backtest(
+        features,
+        cutoffs=fold_cutoffs,
+        model_parameters=parameters,
+        half_life_years=config["training"]["recency_half_life_years"],
+    )
+    path = Path(out or "outputs/backtest.csv")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    table.round(4).to_csv(path, index=False)
+    return table, summarize_backtest(table)
+
+
 def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(prog="worldcup")
     root.add_argument("--config", default="config.toml")
@@ -226,6 +253,13 @@ def parser() -> argparse.ArgumentParser:
     simulation = commands.add_parser("simulate")
     simulation.add_argument("--runs", type=int)
     simulation.add_argument("--seed", type=int)
+    backtest_command = commands.add_parser("backtest")
+    backtest_command.add_argument(
+        "--cutoffs",
+        help="Comma-separated fold-boundary dates, e.g. 2023-01-01,2024-01-01. "
+        "Defaults to January 1 of each of the last four seasons.",
+    )
+    backtest_command.add_argument("--out", help="CSV output path for per-fold metrics")
     update = commands.add_parser("update")
     update.add_argument("--date", required=True)
     update.add_argument("--home", required=True)
@@ -264,6 +298,11 @@ def main() -> None:
         print(json.dumps(update_result(config, args), indent=2))
     elif args.command == "simulate":
         print(simulate(config, args.runs, args.seed).head(20).to_string(index=False))
+    elif args.command == "backtest":
+        table, summary = backtest(config, args.cutoffs, args.out)
+        print(table.round(4).to_string(index=False))
+        print("\nmean across folds:")
+        print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":
