@@ -28,6 +28,18 @@ from pathlib import Path
 import pandas as pd
 
 
+def _local_timestamp() -> str:
+    """Local wall-clock time of the current run, e.g. ``2026-06-14 13:48:27 EDT``.
+
+    Uses the machine's local timezone so the logbook reads in the operator's
+    own time. Falls back to an offset (``+00:00``) when no zone abbreviation is
+    available.
+    """
+    now = datetime.now().astimezone()
+    label = now.strftime("%Z") or now.strftime("%z")
+    return f"{now.strftime('%Y-%m-%d %H:%M:%S')} {label}".rstrip()
+
+
 def _git_commit(root: Path) -> str | None:
     try:
         completed = subprocess.run(
@@ -88,6 +100,10 @@ def record(
         output.to_csv(snapshot_dir / filename, index=False)
 
         recorded_at = datetime.now(UTC).isoformat(timespec="seconds")
+        # Human-readable local wall-clock time of this run, e.g.
+        # "2026-06-14 13:48:27 EDT". Stored alongside the UTC ``recorded_at`` so
+        # the logbook plainly shows when a snapshot was last produced.
+        last_run_at = _local_timestamp()
         model_through = None
         metrics_path = root / config["paths"].get("metrics", "")
         if metrics_path.is_file():
@@ -111,7 +127,9 @@ def record(
                 "played_matches": int(len(results)),
                 "model_training_through": model_through,
                 "git_commit": _git_commit(root),
+                "last_run_at": last_run_at,
                 f"{kind}_recorded_at": recorded_at,
+                f"{kind}_last_run_at": last_run_at,
                 f"{kind}_file": filename,
             }
         )
@@ -121,6 +139,7 @@ def record(
 
         entry = {
             "recorded_at": recorded_at,
+            "last_run_at": last_run_at,
             "kind": kind,
             "results_through": through,
             "played_matches": int(len(results)),

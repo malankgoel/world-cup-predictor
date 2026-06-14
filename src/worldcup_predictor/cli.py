@@ -208,6 +208,47 @@ def predict_schedule(config) -> pd.DataFrame:
     return output
 
 
+def record_match_xg(config, args) -> bool:
+    """Upsert this match's xG into the match-features file. No-op without xG."""
+    if args.home_xg is None or args.away_xg is None:
+        return False
+    mf_path = Path(config["paths"].get("match_features", ""))
+    if not str(mf_path):
+        return False
+    columns = ["date", "home_team", "away_team", "home_xg", "away_xg"]
+    if mf_path.is_file() and mf_path.stat().st_size:
+        frame = pd.read_csv(mf_path)
+    else:
+        frame = pd.DataFrame(columns=columns)
+    home = normalize_team(args.home)
+    away = normalize_team(args.away)
+    key = (
+        (frame["date"].astype(str) == str(args.date))
+        & (frame["home_team"].map(normalize_team) == home)
+        & (frame["away_team"].map(normalize_team) == away)
+    )
+    if key.any():
+        frame.loc[key, "home_xg"] = args.home_xg
+        frame.loc[key, "away_xg"] = args.away_xg
+    else:
+        new_row = {
+            "date": args.date,
+            "home_team": home,
+            "away_team": away,
+            "home_xg": args.home_xg,
+            "away_xg": args.away_xg,
+        }
+        new_frame = pd.DataFrame([new_row])
+        frame = (
+            new_frame
+            if frame.empty
+            else pd.concat([frame, new_frame], ignore_index=True)
+        )
+    mf_path.parent.mkdir(parents=True, exist_ok=True)
+    frame.sort_values("date").to_csv(mf_path, index=False)
+    return True
+
+
 def update_result(config, args) -> dict:
     path = Path(config["paths"]["results"])
     frame = pd.read_csv(path)
@@ -237,14 +278,18 @@ def update_result(config, args) -> dict:
     else:
         frame = pd.concat([frame, pd.DataFrame([row])], ignore_index=True)
     frame.sort_values("date").to_csv(path, index=False)
+    xg_recorded = record_match_xg(config, args)
     if args.retrain:
-        return train(config)
+        metrics = train(config)
+        metrics["xg_recorded"] = xg_recorded
+        return metrics
     results, builder = inputs(config)
     save_team_state(config, results, builder)
     return {
         "result_saved": True,
         "model_retrained": False,
         "team_state_updated": True,
+        "xg_recorded": xg_recorded,
         "latest_result_date": args.date,
     }
 
@@ -287,8 +332,9 @@ def show_log(config) -> list[dict]:
         print("No forecasts logged yet. Run `worldcup predict` or `simulate`.")
         return entries
     for entry in entries:
+        when = entry.get("last_run_at") or entry.get("recorded_at")
         line = (
-            f"{entry['recorded_at']}  {entry['kind']:8s} "
+            f"{when}  {entry['kind']:8s} "
             f"through={entry['results_through']}  "
             f"played={entry['played_matches']}"
         )
@@ -355,6 +401,17 @@ def parser() -> argparse.ArgumentParser:
     update.add_argument("--away", required=True)
     update.add_argument("--home-score", required=True, type=int)
     update.add_argument("--away-score", required=True, type=int)
+    update.add_argument(
+        "--home-xg",
+        type=float,
+        help="Home expected goals for this match; recorded so the team-state "
+        "update reflects performance, not just the scoreline",
+    )
+    update.add_argument(
+        "--away-xg",
+        type=float,
+        help="Away expected goals for this match (see --home-xg)",
+    )
     update.add_argument("--tournament", default="FIFA World Cup")
     update.add_argument("--city", default="")
     update.add_argument("--country", default="")

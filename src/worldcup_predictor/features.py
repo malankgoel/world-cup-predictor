@@ -543,6 +543,17 @@ class FeatureBuilder:
         away = normalize_team(match["away_team"])
         home_score = float(match["home_score"])
         away_score = float(match["away_score"])
+        # Expected goals, when present, are a less luck-driven signal of how a
+        # match actually went. Fall back to the scoreline when xG is missing
+        # (the vast majority of historical matches), so this is a no-op there.
+        home_xg = pd.to_numeric(match.get("home_xg"), errors="coerce")
+        away_xg = pd.to_numeric(match.get("away_xg"), errors="coerce")
+        if not np.isfinite(home_xg):
+            home_xg = home_score
+        if not np.isfinite(away_xg):
+            away_xg = away_score
+        home_xg = float(home_xg)
+        away_xg = float(away_xg)
         home_state = self._state(states, home)
         away_state = self._state(states, away)
         home_adv, away_adv = self._advantages(match, home, away)
@@ -607,8 +618,14 @@ class FeatureBuilder:
             attack.attack_var = (1 - attack_gain) * attack.attack_var
             defense.defense_var = (1 - defense_gain) * defense.defense_var
 
-        bayes_update(home_state, away_state, home_score, home_rate)
-        bayes_update(away_state, home_state, away_score, away_rate)
+        # The latent attack/defense state tracks performance, so update it on a
+        # blend of xG and goals rather than the raw scoreline. xg_weight=0 keeps
+        # the original goals-only behaviour; it defaults to 0.6 (mostly xG).
+        xg_weight = float(state_parameters.get("xg_weight", 0.6))
+        home_observed = xg_weight * home_xg + (1.0 - xg_weight) * home_score
+        away_observed = xg_weight * away_xg + (1.0 - xg_weight) * away_score
+        bayes_update(home_state, away_state, home_observed, home_rate)
+        bayes_update(away_state, home_state, away_observed, away_rate)
         adjusted_home = home_state.elo + self.elo_parameters[
             "home_advantage_points"
         ] * (home_adv - away_adv)
@@ -625,17 +642,11 @@ class FeatureBuilder:
         away_state.elo -= change
         home_points = 3.0 if home_score > away_score else 1.0 if home_score == away_score else 0.0
         away_points = 3.0 if away_score > home_score else 1.0 if home_score == away_score else 0.0
-        home_xg = pd.to_numeric(match.get("home_xg"), errors="coerce")
-        away_xg = pd.to_numeric(match.get("away_xg"), errors="coerce")
-        if not np.isfinite(home_xg):
-            home_xg = home_score
-        if not np.isfinite(away_xg):
-            away_xg = away_score
         home_state.history.append(
-            (home_points, home_score, away_score, float(home_xg), float(away_xg))
+            (home_points, home_score, away_score, home_xg, away_xg)
         )
         away_state.history.append(
-            (away_points, away_score, home_score, float(away_xg), float(home_xg))
+            (away_points, away_score, home_score, away_xg, home_xg)
         )
         home_state.played += 1
         away_state.played += 1

@@ -305,9 +305,14 @@ def _parse_schedule(text: str, knockout: bool) -> list[dict]:
         r"^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) "
         r"(?:June|Jun|July|Jul) \d{1,2}$"
     )
-    match_re = re.compile(
+    fixture_re = re.compile(
         r"^\s*(?:\((\d+)\)\s*)?"
         r"(\d{1,2}:\d{2})\s+UTC([+-]\d+)\s+(.+?)\s+v\s+(.+?)\s+@\s+(.+?)\s*$"
+    )
+    scored_match_re = re.compile(
+        r"^\s*(?:\((\d+)\)\s*)?"
+        r"(\d{1,2}:\d{2})\s+UTC([+-]\d+)\s+(.+?)\s+"
+        r"\d+\s*-\s*\d+(?:\s+\([^)]*\))?\s+(.+?)\s+@\s+(.+?)\s*$"
     )
 
     for raw_line in text.splitlines():
@@ -330,7 +335,7 @@ def _parse_schedule(text: str, knockout: bool) -> list[dict]:
         elif date_re.match(line):
             current_date = pd.to_datetime(f"{line} 2026").date().isoformat()
         else:
-            match = match_re.match(line)
+            match = fixture_re.match(line) or scored_match_re.match(line)
             if not match or not current_date:
                 continue
             match_id, time, utc_offset, home, away, venue = match.groups()
