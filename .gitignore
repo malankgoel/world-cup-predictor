@@ -1,8 +1,12 @@
 .DS_Store
 .pytest_cache/
+.ruff_cache/
 .venv/
 __pycache__/
 *.py[cod]
 *.egg-info/
 artifacts/
 outputs/
+
+# Superseded by predictions_log/ (the tracked forecast logbook). Safe to delete.
+results_archive/
