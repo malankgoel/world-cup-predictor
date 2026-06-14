@@ -21,15 +21,14 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from worldcup_predictor.data import load_results, load_schedule  # noqa: E402
-from worldcup_predictor.features import FeatureBuilder  # noqa: E402
+from worldcup_predictor.cli import inputs, load_config  # noqa: E402
+from worldcup_predictor.data import load_schedule  # noqa: E402
 from worldcup_predictor.model import WorldCupModel  # noqa: E402
 from worldcup_predictor.tournament import TournamentSimulator  # noqa: E402
 
 START_DATE = "2010-01-01"
 KICKOFF = pd.Timestamp("2022-11-20")
 TOURNAMENT_END = pd.Timestamp("2022-12-20")
-MAX_ITER = 150
 RUNS = int(sys.argv[1]) if len(sys.argv) > 1 else 4000
 SEED = 42
 
@@ -61,11 +60,12 @@ def binary_log_loss(prob: np.ndarray, actual: np.ndarray) -> float:
 
 def main() -> None:
     log(f"loading results since {START_DATE}")
-    results = load_results(ROOT / "data" / "raw" / "results.csv", start_date=START_DATE)
+    config = load_config(ROOT / "config.toml")
+    results, builder = inputs(config)
+    results = results[results["date"] >= pd.Timestamp(START_DATE)]
     results = results[results["date"] < TOURNAMENT_END].reset_index(drop=True)
     schedule = load_schedule(ROOT / "data" / "input" / "schedule_2022.csv")
 
-    builder = FeatureBuilder(pd.DataFrame(), pd.DataFrame())
     ordered = results.sort_values("date").reset_index(drop=True)
     log(f"building walk-forward features for {len(ordered)} matches")
     frame = builder.training_frame(ordered)
@@ -77,8 +77,17 @@ def main() -> None:
     ]
     log(f"train matches: {len(train)} | 2022 WC test matches: {len(test)}")
 
-    parameters = {"max_iter": MAX_ITER, "random_state": SEED}
-    model = WorldCupModel(parameters)
+    parameters = {
+        **config["model"],
+        "random_state": SEED,
+    }
+    model = WorldCupModel(
+        parameters,
+        adjustments=config.get("priors"),
+        calibration_temperature=config.get("calibration", {}).get(
+            "temperature"
+        ),
+    )
     log("fitting pre-2022 goal models")
     model.fit_window(train, half_life_years=4.0)
 
@@ -87,7 +96,14 @@ def main() -> None:
 
     log(f"simulating the bracket ({RUNS} runs)")
     results_pre = results[results["date"] < KICKOFF].reset_index(drop=True)
-    simulator = TournamentSimulator(model, builder, results_pre, schedule)
+    simulator = TournamentSimulator(
+        model,
+        builder,
+        results_pre,
+        schedule,
+        team_strength_scale=config["simulation"]["team_strength_scale"],
+        penalty_skill_weight=config["simulation"]["penalty_skill_weight"],
+    )
     table = simulator.simulate(runs=RUNS, seed=SEED).reset_index(drop=True)
 
     # Score the tournament-level probabilities against what happened.
@@ -109,7 +125,7 @@ def main() -> None:
     report = {
         "config": {
             "start_date": START_DATE,
-            "max_iter": MAX_ITER,
+            "max_iter": parameters["max_iter"],
             "runs": RUNS,
             "train_matches": int(len(train)),
             "test_matches": int(len(test)),
