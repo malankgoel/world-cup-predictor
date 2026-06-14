@@ -3,6 +3,7 @@ from __future__ import annotations
 import itertools
 import re
 from collections import defaultdict
+from copy import deepcopy
 
 import numpy as np
 import pandas as pd
@@ -24,12 +25,13 @@ STAGE_OUTPUT = {
 # correlation that independent per-match noise washes out: a team that is
 # (randomly) stronger than its point estimate stays stronger all tournament,
 # which widens advancement/title spreads to realistic levels. Scaled by each
-# team's posterior uncertainty, so well-established teams move less.
-TEAM_STRENGTH_SCALE = 0.10
+# team's posterior uncertainty, so well-established teams move less. The value
+# was selected by 2022 World Cup advancement Brier score.
+TEAM_STRENGTH_SCALE = 0.20
 
-# Penalty shootouts are far closer to a coin flip than open play. Only this
-# fraction of the Elo win-probability edge is kept; the rest shrinks toward 0.5.
-PENALTY_SKILL_WEIGHT = 0.5
+# Fraction of the Elo win-probability edge retained in shootouts, fitted on 415
+# pre-cutoff international shootouts.
+PENALTY_SKILL_WEIGHT = 0.8927
 
 
 def assign_third_place_teams(
@@ -117,10 +119,14 @@ class TournamentSimulator:
         results: pd.DataFrame,
         schedule: pd.DataFrame,
         include_tournament: bool = False,
+        team_strength_scale: float = TEAM_STRENGTH_SCALE,
+        penalty_skill_weight: float = PENALTY_SKILL_WEIGHT,
     ):
         self.model = model
         self.builder = builder
         self.schedule = schedule.sort_values(["date", "match_id"])
+        self.team_strength_scale = team_strength_scale
+        self.penalty_skill_weight = penalty_skill_weight
         tournament_start = self.schedule["date"].min()
         # Team strengths are always frozen at the tournament kickoff so the
         # match-rate baseline never leaks results we are trying to predict.
@@ -169,17 +175,21 @@ class TournamentSimulator:
     def _build_rate_cache(self):
         keys = []
         feature_rows = []
-        for _, row in self.schedule.iterrows():
-            pairs = (
-                [(row["home_team"], row["away_team"])]
-                if row["stage"] == "group"
-                else itertools.permutations(self.teams, 2)
-            )
-            for home, away in pairs:
+        context_states = deepcopy(self.base_states)
+        group_rows = self.schedule[self.schedule["stage"] == "group"]
+        for _, row in group_rows.iterrows():
+            home, away = row["home_team"], row["away_team"]
+            match = self._match_row(row, home, away)
+            keys.append((int(row["match_id"]), home, away))
+            feature_rows.append(self.builder.make_features(match, context_states))
+            self.builder.apply_fixture_context(match, context_states)
+        knockout_rows = self.schedule[self.schedule["stage"] != "group"]
+        for _, row in knockout_rows.iterrows():
+            for home, away in itertools.permutations(self.teams, 2):
                 match = self._match_row(row, home, away)
                 keys.append((int(row["match_id"]), home, away))
                 feature_rows.append(
-                    self.builder.make_features(match, self.base_states)
+                    self.builder.make_features(match, context_states)
                 )
         feature_frame = pd.DataFrame(feature_rows)
         home_rates, away_rates = self.model._rates(feature_frame)
@@ -232,10 +242,19 @@ class TournamentSimulator:
         return home_rate, away_rate
 
     @staticmethod
-    def _shootout_probability(elo_diff: float) -> float:
+    def _shootout_probability(
+        elo_diff: float,
+        skill_weight: float = PENALTY_SKILL_WEIGHT,
+    ) -> float:
         """Home win probability in a shootout, shrunk toward 0.5 from Elo."""
         elo_home = 1.0 / (1.0 + np.exp(-elo_diff / 400.0))
-        return 0.5 + PENALTY_SKILL_WEIGHT * (elo_home - 0.5)
+        return 0.5 + skill_weight * (elo_home - 0.5)
+
+    def _sample_score(self, home_rate: float, away_rate: float, rng) -> tuple[int, int]:
+        matrix = self.model.outcome_probabilities(home_rate, away_rate)[3]
+        flat_index = int(rng.choice(matrix.size, p=matrix.ravel()))
+        home_goals, away_goals = np.unravel_index(flat_index, matrix.shape)
+        return int(home_goals), int(away_goals)
 
     def _play(
         self,
@@ -263,11 +282,19 @@ class TournamentSimulator:
                 home_rate, away_rate = self._apply_team_shock(
                     home_rate, away_rate, shock[home], shock[away]
                 )
-            home_goals = int(rng.poisson(home_rate))
-            away_goals = int(rng.poisson(away_rate))
+            home_goals, away_goals = self._sample_score(
+                home_rate,
+                away_rate,
+                rng,
+            )
             if knockout and home_goals == away_goals:
-                home_goals += int(rng.poisson(home_rate / 3))
-                away_goals += int(rng.poisson(away_rate / 3))
+                extra_home, extra_away = self._sample_score(
+                    home_rate / 3,
+                    away_rate / 3,
+                    rng,
+                )
+                home_goals += extra_home
+                away_goals += extra_away
         else:
             home_goals, away_goals, observed_winner = observed
             elo_diff = self.rates[(int(row["match_id"]), home, away)][2]
@@ -275,7 +302,10 @@ class TournamentSimulator:
             if observed is not None and observed_winner:
                 winner = observed_winner
             else:
-                penalty_home = self._shootout_probability(elo_diff)
+                penalty_home = self._shootout_probability(
+                    elo_diff,
+                    self.penalty_skill_weight,
+                )
                 winner = home if rng.random() < penalty_home else away
         else:
             winner = home if home_goals > away_goals else away
@@ -311,7 +341,7 @@ class TournamentSimulator:
             variance = (
                 state.attack_var + state.defense_var if state is not None else 0.70
             )
-            sigma = TEAM_STRENGTH_SCALE * float(np.sqrt(variance))
+            sigma = self.team_strength_scale * float(np.sqrt(variance))
             shock[team] = (float(rng.normal(0.0, sigma)), sigma)
         table = defaultdict(
             lambda: defaultdict(lambda: {"points": 0, "gf": 0, "ga": 0})

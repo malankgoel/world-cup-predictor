@@ -7,10 +7,12 @@ from pathlib import Path
 
 import pandas as pd
 
+from . import logbook, report
 from .data import (
     RESULT_COLUMNS,
     download_results,
     download_schedule,
+    download_shootouts,
     load_optional,
     load_results,
     load_schedule,
@@ -60,10 +62,53 @@ def inputs(config):
     results = load_results(
         paths["results"], start_date=config["training"]["start_date"]
     )
+    feature_path = Path(paths.get("match_features", ""))
+    if feature_path.is_file() and feature_path.stat().st_size:
+        external = pd.read_csv(feature_path)
+        keys = ["date", "home_team", "away_team"]
+        missing = set(keys) - set(external.columns)
+        if missing:
+            raise ValueError(
+                f"{feature_path} is missing match keys: {sorted(missing)}"
+            )
+        external["date"] = pd.to_datetime(external["date"])
+        external["home_team"] = external["home_team"].map(normalize_team)
+        external["away_team"] = external["away_team"].map(normalize_team)
+        value_columns = [
+            column
+            for column in (
+                "home_xg",
+                "away_xg",
+                "home_odds",
+                "draw_odds",
+                "away_odds",
+            )
+            if column in external
+        ]
+        results = results.merge(
+            external[keys + value_columns],
+            on=keys,
+            how="left",
+            suffixes=("", "_external"),
+        )
+        for column in value_columns:
+            external_column = f"{column}_external"
+            if external_column in results:
+                if column in results:
+                    results[column] = results[column].fillna(
+                        results[external_column]
+                    )
+                else:
+                    results[column] = results[external_column]
+                results = results.drop(columns=external_column)
     rankings = load_optional(paths["rankings"], RANKING_COLUMNS)
     squads = load_optional(paths["squads"], SQUAD_COLUMNS)
     builder = FeatureBuilder(
-        rankings, squads, form_matches=config["training"]["form_matches"]
+        rankings,
+        squads,
+        form_matches=config["training"]["form_matches"],
+        state_parameters=config.get("state"),
+        elo_parameters=config.get("elo"),
     )
     return results, builder
 
@@ -97,7 +142,13 @@ def train(config) -> dict:
     frame = builder.training_frame(results)
     parameters = dict(config["model"])
     parameters["random_state"] = config["training"]["random_state"]
-    model = WorldCupModel(parameters)
+    model = WorldCupModel(
+        parameters,
+        adjustments=config.get("priors"),
+        calibration_temperature=config.get("calibration", {}).get(
+            "temperature"
+        ),
+    )
     metrics = model.fit(
         frame,
         validation_fraction=config["training"]["validation_fraction"],
@@ -147,10 +198,13 @@ def predict_schedule(config) -> pd.DataFrame:
                 **prediction.__dict__,
             }
         )
+        builder.apply_fixture_context(match, states)
     output = pd.DataFrame(rows).round(3)
     path = Path(config["paths"]["predictions"])
     path.parent.mkdir(parents=True, exist_ok=True)
     output.to_csv(path, index=False)
+    logbook.record(config, results, "predict", output)
+    report.write_report(config, logbook.latest_result_date(results))
     return output
 
 
@@ -205,6 +259,14 @@ def simulate(config, runs: int | None, seed: int | None) -> pd.DataFrame:
         results,
         schedule,
         include_tournament=config["training"].get("include_tournament", False),
+        team_strength_scale=config["simulation"].get(
+            "team_strength_scale",
+            0.20,
+        ),
+        penalty_skill_weight=config["simulation"].get(
+            "penalty_skill_weight",
+            0.8927,
+        ),
     )
     output = simulator.simulate(
         runs or config["simulation"]["runs"],
@@ -213,7 +275,28 @@ def simulate(config, runs: int | None, seed: int | None) -> pd.DataFrame:
     path = Path(config["paths"]["simulation"])
     path.parent.mkdir(parents=True, exist_ok=True)
     output.to_csv(path, index=False)
+    logbook.record(config, results, "simulate", output)
+    report.write_report(config, logbook.latest_result_date(results))
     return output
+
+
+def show_log(config) -> list[dict]:
+    """Print the recorded forecast history, oldest first."""
+    entries = logbook.history(config)
+    if not entries:
+        print("No forecasts logged yet. Run `worldcup predict` or `simulate`.")
+        return entries
+    for entry in entries:
+        line = (
+            f"{entry['recorded_at']}  {entry['kind']:8s} "
+            f"through={entry['results_through']}  "
+            f"played={entry['played_matches']}"
+        )
+        if entry.get("top_champions"):
+            leader = entry["top_champions"][0]
+            line += f"  top={leader['team']} ({leader['champion']:.3f})"
+        print(line)
+    return entries
 
 
 def backtest(config, cutoffs: str | None, out: str | None):
@@ -235,6 +318,10 @@ def backtest(config, cutoffs: str | None, out: str | None):
         features,
         cutoffs=fold_cutoffs,
         model_parameters=parameters,
+        model_adjustments=config.get("priors"),
+        calibration_temperature=config.get("calibration", {}).get(
+            "temperature"
+        ),
         half_life_years=config["training"]["recency_half_life_years"],
     )
     path = Path(out or "outputs/backtest.csv")
@@ -260,6 +347,8 @@ def parser() -> argparse.ArgumentParser:
         "Defaults to January 1 of each of the last four seasons.",
     )
     backtest_command.add_argument("--out", help="CSV output path for per-fold metrics")
+    commands.add_parser("log")
+    commands.add_parser("report")
     update = commands.add_parser("update")
     update.add_argument("--date", required=True)
     update.add_argument("--home", required=True)
@@ -290,6 +379,8 @@ def main() -> None:
     if args.command == "download-data":
         print(download_results(config["paths"]["results"]))
         print(download_schedule(config["paths"]["schedule"]))
+        if config["paths"].get("shootouts"):
+            print(download_shootouts(config["paths"]["shootouts"]))
     elif args.command == "train":
         print(json.dumps(train(config), indent=2))
     elif args.command == "predict":
@@ -303,6 +394,12 @@ def main() -> None:
         print(table.round(4).to_string(index=False))
         print("\nmean across folds:")
         print(json.dumps(summary, indent=2))
+    elif args.command == "log":
+        show_log(config)
+    elif args.command == "report":
+        results, _ = inputs(config)
+        path = report.write_report(config, logbook.latest_result_date(results))
+        print(f"wrote {path}")
 
 
 if __name__ == "__main__":

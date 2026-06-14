@@ -11,25 +11,22 @@ import joblib
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize_scalar
-from scipy.stats import poisson
+from scipy.stats import nbinom, poisson
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss, mean_absolute_error
 
 from .features import FEATURE_COLUMNS
 
-# Hand-set multiplicative priors applied in `_rates` ONLY for signals that were
-# all-NaN during training and therefore never learned by the goal models (e.g.
-# squad talent or FIFA ranking points, when only a current snapshot exists).
-# These coefficients are deliberate priors, NOT learned or cross-validated, so
-# they are centralized here to be easy to find, tune, and document. Supply
-# historical snapshots instead if you want the effect learned and validated.
+# Optional fallback priors for deployments without historical squad/ranking
+# data. They default to zero because the shipped historical snapshots let the
+# model learn these effects in backtests instead of applying manual nudges.
 DEFAULT_PRIOR_ADJUSTMENTS = {
-    "squad_coef": 0.025,
+    "squad_coef": 0.0,
     "squad_clip": 0.25,
-    "rank_coef": 0.001,
+    "rank_coef": 0.0,
     "rank_clip": 0.25,
-    "chemistry_coef": 0.08,
+    "chemistry_coef": 0.0,
     "chemistry_clip": 0.5,
 }
 
@@ -67,6 +64,7 @@ class WorldCupModel:
         self,
         parameters: dict | None = None,
         adjustments: dict | None = None,
+        calibration_temperature: float | None = None,
     ):
         parameters = parameters or {}
         defaults = {
@@ -75,17 +73,20 @@ class WorldCupModel:
             "max_iter": 250,
             "max_leaf_nodes": 15,
             "l2_regularization": 1.0,
-            "early_stopping": False,
+            "early_stopping": True,
             "random_state": 42,
         }
         defaults.update(parameters)
         self.parameters = defaults
         self.adjustments = {**DEFAULT_PRIOR_ADJUSTMENTS, **(adjustments or {})}
+        self.fixed_temperature = calibration_temperature
         self.rho = 0.0
+        self.dispersion = 0.0
+        self.temperature = calibration_temperature or 1.0
         self.elo_baseline: LogisticRegression | None = None
         self.feature_columns = FEATURE_COLUMNS.copy()
-        self.home_model = self._new_model()
-        self.away_model = self._new_model()
+        self.learned_features: set[str] = set()
+        self.goal_model = self._new_model()
 
     def _new_model(self):
         return HistGradientBoostingRegressor(**self.parameters)
@@ -96,9 +97,17 @@ class WorldCupModel:
         away_rate: float,
         max_goals: int = 10,
         rho: float = 0.0,
+        dispersion: float = 0.0,
     ):
         goals = np.arange(max_goals + 1)
-        matrix = np.outer(poisson.pmf(goals, home_rate), poisson.pmf(goals, away_rate))
+        if dispersion <= 1e-8:
+            home_pmf = poisson.pmf(goals, home_rate)
+            away_pmf = poisson.pmf(goals, away_rate)
+        else:
+            shape = 1.0 / dispersion
+            home_pmf = nbinom.pmf(goals, shape, shape / (shape + home_rate))
+            away_pmf = nbinom.pmf(goals, shape, shape / (shape + away_rate))
+        matrix = np.outer(home_pmf, away_pmf)
         matrix[0, 0] *= 1 - home_rate * away_rate * rho
         matrix[0, 1] *= 1 + home_rate * rho
         matrix[1, 0] *= 1 + away_rate * rho
@@ -106,8 +115,37 @@ class WorldCupModel:
         matrix = np.clip(matrix, 0, None)
         return matrix / matrix.sum()
 
+    @staticmethod
+    def _temperature_scale(probabilities: np.ndarray, temperature: float) -> np.ndarray:
+        logits = np.log(np.clip(probabilities, 1e-12, 1.0)) / temperature
+        logits -= logits.max()
+        scaled = np.exp(logits)
+        return scaled / scaled.sum()
+
+    def _calibrate_matrix(self, matrix: np.ndarray) -> np.ndarray:
+        if np.isclose(self.temperature, 1.0):
+            return matrix
+        masks = (
+            np.tril(np.ones_like(matrix, dtype=bool), -1),
+            np.eye(matrix.shape[0], dtype=bool),
+            np.triu(np.ones_like(matrix, dtype=bool), 1),
+        )
+        raw = np.asarray([matrix[mask].sum() for mask in masks])
+        calibrated = self._temperature_scale(raw, self.temperature)
+        adjusted = matrix.copy()
+        for mask, before, after in zip(masks, raw, calibrated, strict=False):
+            if before > 0:
+                adjusted[mask] *= after / before
+        return adjusted / adjusted.sum()
+
     def outcome_probabilities(self, home_rate: float, away_rate: float):
-        matrix = self.score_matrix(home_rate, away_rate, rho=self.rho)
+        matrix = self.score_matrix(
+            home_rate,
+            away_rate,
+            rho=self.rho,
+            dispersion=self.dispersion,
+        )
+        matrix = self._calibrate_matrix(matrix)
         home_win = float(np.tril(matrix, -1).sum())
         draw = float(np.trace(matrix))
         away_win = float(np.triu(matrix, 1).sum())
@@ -161,21 +199,21 @@ class WorldCupModel:
         )
 
     def _rates(self, features: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-        # Two separately fitted goal models make predictions depend on which
-        # team carries the arbitrary "home" label, which matters on neutral
-        # venues; averaging both orientations removes the label dependence
-        # (venue advantage is preserved because flipping swaps it too).
         flipped = flip_features(features)
-        home = 0.5 * (
-            self.home_model.predict(features[self.feature_columns])
-            + self.away_model.predict(flipped[self.feature_columns])
-        )
-        away = 0.5 * (
-            self.away_model.predict(features[self.feature_columns])
-            + self.home_model.predict(flipped[self.feature_columns])
-        )
+        # One model sees every training match from both team perspectives.
+        # Predicting the original and flipped rows therefore enforces exact
+        # home/away-label symmetry without averaging two independently fit models.
+        home_design = features[self.feature_columns].copy()
+        away_design = flipped[self.feature_columns].copy()
+        learned = getattr(self, "learned_features", set(self.feature_columns))
+        inactive = set(self.feature_columns) - set(learned)
+        if inactive:
+            home_design[list(inactive)] = 0.0
+            away_design[list(inactive)] = 0.0
+        home = self.goal_model.predict(home_design)
+        away = self.goal_model.predict(away_design)
         adjustments = getattr(self, "adjustments", DEFAULT_PRIOR_ADJUSTMENTS)
-        if "home_squad_attack" not in self.feature_columns:
+        if "home_squad_attack" not in learned:
             coef, clip = adjustments["squad_coef"], adjustments["squad_clip"]
             home_edge = (
                 features["home_squad_attack"] - features["away_squad_defense"]
@@ -185,13 +223,13 @@ class WorldCupModel:
             ).fillna(0)
             home *= np.exp(np.clip(coef * home_edge, -clip, clip))
             away *= np.exp(np.clip(coef * away_edge, -clip, clip))
-        if "home_rank_points" not in self.feature_columns:
+        if "home_rank_points" not in learned:
             coef, clip = adjustments["rank_coef"], adjustments["rank_clip"]
             rank_edge = features["rank_points_diff"].fillna(0)
             rank_adjustment = np.clip(coef * rank_edge, -clip, clip)
             home *= np.exp(rank_adjustment)
             away *= np.exp(-rank_adjustment)
-        if "home_chemistry" not in self.feature_columns:
+        if "home_chemistry" not in learned:
             coef, clip = adjustments["chemistry_coef"], adjustments["chemistry_clip"]
             chemistry_edge = features["chemistry_diff"].fillna(0).clip(-clip, clip)
             home *= np.exp(coef * chemistry_edge)
@@ -199,6 +237,96 @@ class WorldCupModel:
         home = np.clip(home, 0.05, 6.0)
         away = np.clip(away, 0.05, 6.0)
         return home, away
+
+    def _fit_goal_model(
+        self,
+        frame: pd.DataFrame,
+        weights: pd.Series,
+    ) -> None:
+        self.feature_columns = FEATURE_COLUMNS.copy()
+        minimum_observations = max(100, int(np.ceil(0.01 * len(frame))))
+        self.learned_features = {
+            column
+            for column in FEATURE_COLUMNS
+            if frame[column].notna().sum() >= minimum_observations
+        }
+        original = frame[self.feature_columns].copy()
+        inactive = set(self.feature_columns) - self.learned_features
+        if inactive:
+            original[list(inactive)] = 0.0
+        flipped = flip_features(original)
+        design = pd.concat(
+            [original, flipped],
+            ignore_index=True,
+        )
+        target = pd.concat(
+            [frame["home_score"], frame["away_score"]],
+            ignore_index=True,
+        )
+        stacked_weights = np.concatenate([weights.to_numpy(), weights.to_numpy()])
+        self.goal_model = self._new_model()
+        self.goal_model.fit(design, target, sample_weight=stacked_weights)
+
+    def _fit_dispersion(
+        self,
+        frame: pd.DataFrame,
+        home_rates: np.ndarray,
+        away_rates: np.ndarray,
+        weights: np.ndarray,
+    ) -> float:
+        home_goals = frame["home_score"].to_numpy(int)
+        away_goals = frame["away_score"].to_numpy(int)
+
+        def objective(dispersion):
+            shape = 1.0 / dispersion
+            home_probability = shape / (shape + home_rates)
+            away_probability = shape / (shape + away_rates)
+            log_probability = nbinom.logpmf(
+                home_goals,
+                shape,
+                home_probability,
+            ) + nbinom.logpmf(
+                away_goals,
+                shape,
+                away_probability,
+            )
+            return float(-np.sum(weights * log_probability))
+
+        result = minimize_scalar(
+            objective,
+            bounds=(1e-4, 1.0),
+            method="bounded",
+        )
+        return float(result.x)
+
+    def _fit_temperature(self, frame: pd.DataFrame) -> float:
+        home_rates, away_rates = self._rates(frame)
+        outcomes = self._outcome_classes(frame)
+        raw = []
+        previous = self.temperature
+        self.temperature = self.fixed_temperature or 1.0
+        for home_rate, away_rate in zip(home_rates, away_rates, strict=False):
+            home, draw, away, _ = self.outcome_probabilities(home_rate, away_rate)
+            raw.append((home, draw, away))
+        self.temperature = previous
+        raw = np.asarray(raw)
+
+        def objective(temperature):
+            probabilities = np.asarray(
+                [
+                    self._temperature_scale(row, temperature)
+                    for row in raw
+                ]
+            )
+            return float(log_loss(outcomes, probabilities, labels=[0, 1, 2]))
+
+        return float(
+            minimize_scalar(
+                objective,
+                bounds=(0.5, 3.0),
+                method="bounded",
+            ).x
+        )
 
     @staticmethod
     def _sample_weights(frame: pd.DataFrame, half_life_years: float) -> pd.Series:
@@ -217,20 +345,23 @@ class WorldCupModel:
         window backtest.
         """
         frame = frame.sort_values("date").reset_index(drop=True)
-        self.feature_columns = [
-            column for column in FEATURE_COLUMNS if frame[column].notna().any()
-        ]
         weights = self._sample_weights(frame, half_life_years)
-        self.home_model = self._new_model()
-        self.away_model = self._new_model()
-        self.home_model.fit(
-            frame[self.feature_columns], frame["home_score"], sample_weight=weights
-        )
-        self.away_model.fit(
-            frame[self.feature_columns], frame["away_score"], sample_weight=weights
-        )
+        self._fit_goal_model(frame, weights)
         home_rates, away_rates = self._rates(frame)
+        self.dispersion = self._fit_dispersion(
+            frame,
+            home_rates,
+            away_rates,
+            weights.to_numpy(),
+        )
         self.rho = self._fit_rho(frame, home_rates, away_rates, weights.to_numpy())
+        # Honor a pre-fitted temperature when one is supplied (e.g. the value in
+        # config.toml calibrated on a held-out tournament). fit_window has no
+        # internal validation split of its own to fit temperature against, so it
+        # would otherwise leave the model uncalibrated (temperature 1.0).
+        self.temperature = (
+            self.fixed_temperature if self.fixed_temperature is not None else 1.0
+        )
         self.elo_baseline = LogisticRegression(max_iter=1000)
         self.elo_baseline.fit(
             self._elo_baseline_features(frame),
@@ -250,17 +381,15 @@ class WorldCupModel:
         frame = frame.sort_values("date").reset_index(drop=True)
         split = int(len(frame) * (1.0 - validation_fraction))
         train, valid = frame.iloc[:split], frame.iloc[split:]
-        self.feature_columns = [
-            column for column in FEATURE_COLUMNS if train[column].notna().any()
-        ]
         weights = self._sample_weights(train, half_life_years)
-        self.home_model.fit(
-            train[self.feature_columns], train["home_score"], sample_weight=weights
-        )
-        self.away_model.fit(
-            train[self.feature_columns], train["away_score"], sample_weight=weights
-        )
+        self._fit_goal_model(train, weights)
         train_home_rates, train_away_rates = self._rates(train)
+        self.dispersion = self._fit_dispersion(
+            train,
+            train_home_rates,
+            train_away_rates,
+            weights.to_numpy(),
+        )
         self.rho = self._fit_rho(
             train, train_home_rates, train_away_rates, weights.to_numpy()
         )
@@ -273,26 +402,35 @@ class WorldCupModel:
             self._outcome_classes(train),
             sample_weight=weights.to_numpy(),
         )
+        self.temperature = (
+            self.fixed_temperature
+            if self.fixed_temperature is not None
+            else self._fit_temperature(valid)
+        )
         metrics = self.evaluate(valid)
 
         full_weights = self._sample_weights(frame, half_life_years)
-        self.home_model = self._new_model()
-        self.away_model = self._new_model()
-        self.home_model.fit(
-            frame[self.feature_columns], frame["home_score"], sample_weight=full_weights
-        )
-        self.away_model.fit(
-            frame[self.feature_columns], frame["away_score"], sample_weight=full_weights
-        )
+        calibrated_temperature = self.temperature
+        self._fit_goal_model(frame, full_weights)
         full_home_rates, full_away_rates = self._rates(frame)
+        self.dispersion = self._fit_dispersion(
+            frame,
+            full_home_rates,
+            full_away_rates,
+            full_weights.to_numpy(),
+        )
         self.rho = self._fit_rho(
             frame, full_home_rates, full_away_rates, full_weights.to_numpy()
         )
+        self.temperature = calibrated_temperature
         metrics["training_matches"] = int(len(frame))
         metrics["validation_matches"] = int(len(valid))
         metrics["training_through"] = frame["date"].max().date().isoformat()
         metrics["dixon_coles_rho"] = self.rho
-        metrics["active_features"] = self.feature_columns
+        metrics["goal_dispersion"] = self.dispersion
+        metrics["calibration_temperature"] = self.temperature
+        metrics["active_features"] = sorted(self.learned_features)
+        metrics["model_features"] = self.feature_columns
         return metrics
 
     @staticmethod

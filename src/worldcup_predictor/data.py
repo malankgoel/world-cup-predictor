@@ -10,6 +10,10 @@ RESULTS_URL = (
     "https://raw.githubusercontent.com/martj42/"
     "international_results/master/results.csv"
 )
+SHOOTOUTS_URL = (
+    "https://raw.githubusercontent.com/martj42/"
+    "international_results/master/shootouts.csv"
+)
 CUP_URL = (
     "https://raw.githubusercontent.com/openfootball/"
     "worldcup/master/2026--usa/cup.txt"
@@ -38,6 +42,152 @@ HOST_COUNTRY = {
     "United States": "United States",
 }
 
+# Approximate venue attributes used for 2026 schedule features. Coordinates and
+# altitude are intentionally coarse: the model needs the material differences
+# (Mexico City altitude and cross-continent travel), not stadium-survey precision.
+VENUE_ATTRIBUTES = {
+    "Atlanta": (33.76, -84.40, 320.0, 29.0, 68.0),
+    "Boston": (42.09, -71.26, 50.0, 25.0, 66.0),
+    "Boston (Foxborough)": (42.09, -71.26, 50.0, 25.0, 66.0),
+    "Dallas": (32.75, -97.09, 190.0, 32.0, 61.0),
+    "Dallas (Arlington)": (32.75, -97.09, 190.0, 32.0, 61.0),
+    "East Rutherford": (40.81, -74.07, 2.0, 27.0, 65.0),
+    "Guadalajara": (20.66, -103.35, 1560.0, 29.0, 55.0),
+    "Guadalajara (Zapopan)": (20.68, -103.46, 1570.0, 29.0, 55.0),
+    "Houston": (29.68, -95.41, 15.0, 32.0, 75.0),
+    "Kansas City": (39.05, -94.48, 270.0, 29.0, 67.0),
+    "Los Angeles": (33.95, -118.34, 40.0, 25.0, 62.0),
+    "Los Angeles (Inglewood)": (33.95, -118.34, 40.0, 25.0, 62.0),
+    "Mexico City": (19.30, -99.15, 2240.0, 24.0, 55.0),
+    "Miami": (25.96, -80.24, 2.0, 31.0, 75.0),
+    "Miami (Miami Gardens)": (25.96, -80.24, 2.0, 31.0, 75.0),
+    "Monterrey": (25.67, -100.24, 540.0, 34.0, 58.0),
+    "Monterrey (Guadalupe)": (25.67, -100.24, 540.0, 34.0, 58.0),
+    "Philadelphia": (39.90, -75.17, 12.0, 28.0, 67.0),
+    "San Francisco": (37.40, -121.97, 12.0, 23.0, 62.0),
+    "San Francisco Bay Area (Santa Clara)": (
+        37.40,
+        -121.97,
+        12.0,
+        23.0,
+        62.0,
+    ),
+    "Seattle": (47.60, -122.33, 20.0, 22.0, 65.0),
+    "Toronto": (43.63, -79.42, 75.0, 25.0, 65.0),
+    "Vancouver": (49.28, -123.11, 5.0, 21.0, 68.0),
+    "New York/New Jersey (East Rutherford)": (
+        40.81,
+        -74.07,
+        2.0,
+        27.0,
+        65.0,
+    ),
+}
+
+# Current national-team confederations. Historical aliases are normalized
+# before lookup. Unknown teams remain missing rather than being guessed.
+CONFEDERATION = {
+    # AFC
+    **{
+        team: "AFC"
+        for team in (
+            "Australia",
+            "China PR",
+            "Iran",
+            "Iraq",
+            "Japan",
+            "Jordan",
+            "North Korea",
+            "Qatar",
+            "Saudi Arabia",
+            "South Korea",
+            "United Arab Emirates",
+            "Uzbekistan",
+        )
+    },
+    # CAF
+    **{
+        team: "CAF"
+        for team in (
+            "Algeria",
+            "Cameroon",
+            "Cape Verde",
+            "DR Congo",
+            "Egypt",
+            "Ghana",
+            "Ivory Coast",
+            "Mali",
+            "Morocco",
+            "Nigeria",
+            "Senegal",
+            "South Africa",
+            "Tunisia",
+        )
+    },
+    # Concacaf
+    **{
+        team: "CONCACAF"
+        for team in (
+            "Canada",
+            "Costa Rica",
+            "Curaçao",
+            "Haiti",
+            "Honduras",
+            "Jamaica",
+            "Mexico",
+            "Panama",
+            "Trinidad and Tobago",
+            "United States",
+        )
+    },
+    # CONMEBOL
+    **{
+        team: "CONMEBOL"
+        for team in (
+            "Argentina",
+            "Bolivia",
+            "Brazil",
+            "Chile",
+            "Colombia",
+            "Ecuador",
+            "Paraguay",
+            "Peru",
+            "Uruguay",
+            "Venezuela",
+        )
+    },
+    # OFC
+    **{team: "OFC" for team in ("New Caledonia", "New Zealand", "Tahiti")},
+    # UEFA
+    **{
+        team: "UEFA"
+        for team in (
+            "Austria",
+            "Belgium",
+            "Bosnia and Herzegovina",
+            "Croatia",
+            "Czech Republic",
+            "Denmark",
+            "England",
+            "France",
+            "Germany",
+            "Italy",
+            "Netherlands",
+            "Norway",
+            "Poland",
+            "Portugal",
+            "Scotland",
+            "Serbia",
+            "Spain",
+            "Sweden",
+            "Switzerland",
+            "Turkey",
+            "Ukraine",
+            "Wales",
+        )
+    },
+}
+
 CITY_COUNTRY = {
     "Mexico City": "Mexico",
     "Guadalajara (Zapopan)": "Mexico",
@@ -56,6 +206,16 @@ RESULT_COLUMNS = [
     "city",
     "country",
     "neutral",
+]
+
+OPTIONAL_RESULT_COLUMNS = [
+    "winner",
+    "stage",
+    "home_xg",
+    "away_xg",
+    "home_odds",
+    "draw_odds",
+    "away_odds",
 ]
 
 
@@ -79,6 +239,15 @@ def download_results(path: str | Path) -> Path:
     return path
 
 
+def download_shootouts(path: str | Path) -> Path:
+    response = requests.get(SHOOTOUTS_URL, timeout=30)
+    response.raise_for_status()
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(response.content)
+    return path
+
+
 def load_results(path: str | Path, start_date: str | None = None) -> pd.DataFrame:
     frame = pd.read_csv(path)
     missing = set(RESULT_COLUMNS) - set(frame.columns)
@@ -86,7 +255,10 @@ def load_results(path: str | Path, start_date: str | None = None) -> pd.DataFram
         raise ValueError(f"Results file is missing columns: {sorted(missing)}")
     if "winner" not in frame:
         frame["winner"] = ""
-    frame = frame[RESULT_COLUMNS + ["winner"]].copy()
+    keep = RESULT_COLUMNS + [
+        column for column in OPTIONAL_RESULT_COLUMNS if column in frame.columns
+    ]
+    frame = frame[keep].copy()
     frame["date"] = pd.to_datetime(frame["date"], errors="raise")
     frame["home_team"] = frame["home_team"].map(normalize_team)
     frame["away_team"] = frame["away_team"].map(normalize_team)
@@ -99,6 +271,9 @@ def load_results(path: str | Path, start_date: str | None = None) -> pd.DataFram
     frame["home_score"] = frame["home_score"].astype(int)
     frame["away_score"] = frame["away_score"].astype(int)
     frame["neutral"] = frame["neutral"].map(_bool)
+    for column in ("home_xg", "away_xg", "home_odds", "draw_odds", "away_odds"):
+        if column in frame:
+            frame[column] = pd.to_numeric(frame[column], errors="coerce")
     if start_date:
         frame = frame[frame["date"] >= pd.Timestamp(start_date)]
     return frame.sort_values("date").reset_index(drop=True)

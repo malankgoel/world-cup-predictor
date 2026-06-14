@@ -20,6 +20,8 @@ def expanding_window_backtest(
     *,
     cutoffs: list,
     model_parameters: dict | None = None,
+    model_adjustments: dict | None = None,
+    calibration_temperature: float | None = None,
     half_life_years: float = 4.0,
     min_train: int = 500,
 ) -> pd.DataFrame:
@@ -41,7 +43,11 @@ def expanding_window_backtest(
             test = features[(features["date"] >= start) & (features["date"] < end)]
         if len(train) < min_train or test.empty:
             continue
-        model = WorldCupModel(model_parameters)
+        model = WorldCupModel(
+            model_parameters,
+            adjustments=model_adjustments,
+            calibration_temperature=calibration_temperature,
+        )
         model.fit_window(train, half_life_years=half_life_years)
         metrics = model.evaluate(test)
         metrics["fold_start"] = start.date().isoformat()
