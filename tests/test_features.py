@@ -104,6 +104,87 @@ def test_squad_features_measure_same_club_chemistry():
     assert features["home_max_same_club"] == 4
     assert features["home_chemistry"] == 6 / 55
     assert features["home_squad_attack"] > 80
+    assert features["home_star_rating"] > features["home_xi_rating"]
+    assert features["home_top3_rating"] > features["home_xi_rating"]
+
+
+def test_market_odds_are_normalized_and_flip_with_team_labels():
+    builder = FeatureBuilder(pd.DataFrame(), pd.DataFrame())
+    match = pd.Series(
+        {
+            "date": pd.Timestamp("2026-06-01"),
+            "home_team": "A",
+            "away_team": "B",
+            "neutral": True,
+            "tournament": "World Cup",
+            "home_odds": 2.0,
+            "draw_odds": 4.0,
+            "away_odds": 5.0,
+        }
+    )
+    features = builder.make_features(match, {})
+    probabilities = [
+        features["home_market_probability"],
+        features["draw_market_probability"],
+        features["away_market_probability"],
+    ]
+    assert np.isclose(sum(probabilities), 1.0)
+    assert probabilities[0] > probabilities[2]
+
+
+def test_training_frame_infers_world_cup_knockout_context():
+    rows = []
+    for index in range(64):
+        rows.append(
+            {
+                "date": pd.Timestamp("2022-11-20") + pd.Timedelta(days=index // 4),
+                "home_team": f"H{index}",
+                "away_team": f"A{index}",
+                "home_score": 1,
+                "away_score": 0,
+                "tournament": "FIFA World Cup",
+                "country": "Qatar",
+                "neutral": True,
+            }
+        )
+    frame = FeatureBuilder(pd.DataFrame(), pd.DataFrame()).training_frame(
+        pd.DataFrame(rows)
+    )
+    assert frame["is_knockout"].sum() == 16
+
+
+def test_xg_form_uses_past_xg_without_leaking_current_match():
+    results = pd.DataFrame(
+        [
+            {
+                "date": pd.Timestamp("2022-11-20"),
+                "home_team": "A",
+                "away_team": "B",
+                "home_score": 1,
+                "away_score": 0,
+                "home_xg": 2.4,
+                "away_xg": 0.4,
+                "tournament": "FIFA World Cup",
+                "country": "Qatar",
+                "neutral": True,
+            },
+            {
+                "date": pd.Timestamp("2022-11-24"),
+                "home_team": "A",
+                "away_team": "B",
+                "home_score": 0,
+                "away_score": 0,
+                "home_xg": 0.1,
+                "away_xg": 0.2,
+                "tournament": "FIFA World Cup",
+                "country": "Qatar",
+                "neutral": True,
+            },
+        ]
+    )
+    frame = FeatureBuilder(pd.DataFrame(), pd.DataFrame()).training_frame(results)
+    assert frame.loc[0, "home_form_xgf"] == 1.2
+    assert frame.loc[1, "home_form_xgf"] == 2.4
 
 
 def test_result_updates_bayesian_attack_and_defense_state():

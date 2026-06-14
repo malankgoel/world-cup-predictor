@@ -37,6 +37,19 @@ def test_team_shock_tilts_rates_and_is_neutral_when_shared():
     h2, a2 = TournamentSimulator._apply_team_shock(1.5, 1.2, same, same)
     assert abs(h2 / a2 - 1.5 / 1.2) < 1e-9
 
+
+def test_simulation_samples_from_model_joint_score_grid():
+    class StubModel:
+        def outcome_probabilities(self, home_rate, away_rate):
+            matrix = np.zeros((3, 3))
+            matrix[0, 1] = 1.0
+            return 0.0, 0.0, 1.0, matrix
+
+    simulator = TournamentSimulator.__new__(TournamentSimulator)
+    simulator.model = StubModel()
+    home, away = simulator._sample_score(1.3, 1.1, np.random.default_rng(1))
+    assert (home, away) == (0, 1)
+
 ROOT = Path(__file__).resolve().parents[1]
 SCHEDULE = ROOT / "data" / "input" / "schedule_2026.csv"
 SCHEDULE_2022 = ROOT / "data" / "input" / "schedule_2022.csv"
