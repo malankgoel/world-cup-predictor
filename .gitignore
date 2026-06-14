@@ -10,3 +10,13 @@ outputs/
 
 # Superseded by predictions_log/ (the tracked forecast logbook). Safe to delete.
 results_archive/
+
+# Secrets / credentials -- never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+secrets.*
+*credentials*
+.secrets/
