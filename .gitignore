@@ -20,3 +20,9 @@ results_archive/
 secrets.*
 *credentials*
 .secrets/
+
+# Third-party proprietary data -- not redistributable. Rebuild from the
+# sources listed in data/input/*_sources.txt using scripts/.
+data/raw/ea_ratings.json
+data/raw/transfermarkt.json
+data/input/squads_ea.csv
