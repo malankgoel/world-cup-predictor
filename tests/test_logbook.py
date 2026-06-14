@@ -49,6 +49,25 @@ def test_record_snapshots_keyed_by_data_through(tmp_path):
     assert [entry["kind"] for entry in history] == ["predict", "simulate"]
 
 
+def test_record_stamps_local_run_time(tmp_path):
+    config = _config(tmp_path)
+    results = pd.DataFrame({"date": pd.to_datetime(["2026-06-10"])})
+    predict = pd.DataFrame({"home_team": ["Mexico"], "home_win": [0.74]})
+
+    snapshot = logbook.record(config, results, "predict", predict)
+
+    manifest = json.loads((snapshot / "manifest.json").read_text())
+    # Human-readable local date + time of day, e.g. "2026-06-14 13:48:27 EDT".
+    assert "last_run_at" in manifest
+    assert manifest["last_run_at"] == manifest["predict_last_run_at"]
+    stamp = manifest["last_run_at"]
+    assert stamp[:10] == manifest["predict_recorded_at"][:10]  # same date
+    assert ":" in stamp.split(" ")[1]  # includes a HH:MM:SS time
+
+    entry = logbook.history(config)[-1]
+    assert entry["last_run_at"] == stamp
+
+
 def test_record_is_best_effort_on_bad_config(tmp_path):
     # Missing the path key for the kind: must not raise, just return None.
     config = {"_root": str(tmp_path), "paths": {"predictions_log": "log"}}

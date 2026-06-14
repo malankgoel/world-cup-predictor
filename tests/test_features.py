@@ -187,6 +187,38 @@ def test_xg_form_uses_past_xg_without_leaking_current_match():
     assert frame.loc[1, "home_form_xgf"] == 2.4
 
 
+def test_xg_blend_pulls_state_toward_expected_goals():
+    # A team that wins 3-0 but was massively out-created (xG 0.4 vs 2.6) should,
+    # with the xG blend on, gain LESS attack credit than a goals-only update.
+    def attack_after(xg_weight, with_xg):
+        builder = FeatureBuilder(
+            pd.DataFrame(),
+            pd.DataFrame(),
+            state_parameters={"xg_weight": xg_weight},
+        )
+        states: dict = {}
+        match = pd.Series(
+            {
+                "date": pd.Timestamp("2026-06-01"),
+                "home_team": "A",
+                "away_team": "B",
+                "home_score": 3,
+                "away_score": 0,
+                "neutral": True,
+                "tournament": "World Cup",
+                **({"home_xg": 0.4, "away_xg": 2.6} if with_xg else {}),
+            }
+        )
+        builder.apply_result(match, states)
+        return states["A"].attack_mean
+
+    goals_only = attack_after(0.0, with_xg=True)
+    blended = attack_after(0.6, with_xg=True)
+    assert blended < goals_only  # xG tempers an over-performing scoreline
+    # With no xG supplied, the blend must be a no-op (falls back to the score).
+    assert np.isclose(attack_after(0.6, with_xg=False), attack_after(0.0, with_xg=False))
+
+
 def test_result_updates_bayesian_attack_and_defense_state():
     builder = FeatureBuilder(pd.DataFrame(), pd.DataFrame())
     states = {}
