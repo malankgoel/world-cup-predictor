@@ -22,7 +22,7 @@ start_date = "2000-01-01"
 # pre-tournament. Defaults to the 2026 World Cup kickoff. Set
 # include_tournament = true (phase 2) to fold tournament games back in.
 cutoff_date = "2026-06-11"
-include_tournament = false
+include_tournament = true
 validation_fraction = 0.20
 recency_half_life_years = 4.0
 form_matches = 8
@@ -44,6 +44,18 @@ chemistry_coef = 0.0
 chemistry_clip = 0.5
 
 [state]
+# Fraction of the attack/defense state update driven by expected goals rather
+# than the raw scoreline (0 = goals only, original behaviour; 1 = xG only).
+# Only affects matches that actually carry xG; everything else falls back to
+# the scoreline and is unchanged.
+#
+# Left OFF by default: on the 2022 World Cup out-of-sample backtest a 0.6 blend
+# was marginally WORSE on every metric (RPS 0.1948 vs 0.1911, log loss 0.9607
+# vs 0.9510), because only the 2018 World Cup carries real xG in the training
+# window -- too little coverage to help. Raise this only once broad per-match
+# xG is supplied (e.g. live 2026 games via `worldcup update --home-xg/--away-xg`)
+# AND a fresh backtest shows it helps.
+xg_weight = 0.0
 neutral_base_log = 0.1592268655592673
 home_advantage_log = 0.27
 observation_variance = 1.0
