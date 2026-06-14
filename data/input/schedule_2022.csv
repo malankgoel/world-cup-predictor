@@ -1,0 +1,65 @@
+match_id,date,stage,group,home_team,away_team,home_source,away_source,venue_country,neutral
+1,2022-11-20,group,A,Qatar,Ecuador,Qatar,Ecuador,Qatar,True
+2,2022-11-20,group,A,Senegal,Netherlands,Senegal,Netherlands,Qatar,True
+3,2022-11-20,group,A,Qatar,Senegal,Qatar,Senegal,Qatar,True
+4,2022-11-20,group,A,Ecuador,Netherlands,Ecuador,Netherlands,Qatar,True
+5,2022-11-21,group,A,Qatar,Netherlands,Qatar,Netherlands,Qatar,True
+6,2022-11-21,group,A,Ecuador,Senegal,Ecuador,Senegal,Qatar,True
+7,2022-11-21,group,B,England,Iran,England,Iran,Qatar,True
+8,2022-11-21,group,B,United States,Wales,United States,Wales,Qatar,True
+9,2022-11-22,group,B,England,United States,England,United States,Qatar,True
+10,2022-11-22,group,B,Iran,Wales,Iran,Wales,Qatar,True
+11,2022-11-22,group,B,England,Wales,England,Wales,Qatar,True
+12,2022-11-22,group,B,Iran,United States,Iran,United States,Qatar,True
+13,2022-11-23,group,C,Argentina,Saudi Arabia,Argentina,Saudi Arabia,Qatar,True
+14,2022-11-23,group,C,Mexico,Poland,Mexico,Poland,Qatar,True
+15,2022-11-23,group,C,Argentina,Mexico,Argentina,Mexico,Qatar,True
+16,2022-11-23,group,C,Saudi Arabia,Poland,Saudi Arabia,Poland,Qatar,True
+17,2022-11-24,group,C,Argentina,Poland,Argentina,Poland,Qatar,True
+18,2022-11-24,group,C,Saudi Arabia,Mexico,Saudi Arabia,Mexico,Qatar,True
+19,2022-11-24,group,D,France,Australia,France,Australia,Qatar,True
+20,2022-11-24,group,D,Denmark,Tunisia,Denmark,Tunisia,Qatar,True
+21,2022-11-25,group,D,France,Denmark,France,Denmark,Qatar,True
+22,2022-11-25,group,D,Australia,Tunisia,Australia,Tunisia,Qatar,True
+23,2022-11-25,group,D,France,Tunisia,France,Tunisia,Qatar,True
+24,2022-11-25,group,D,Australia,Denmark,Australia,Denmark,Qatar,True
+25,2022-11-26,group,E,Spain,Costa Rica,Spain,Costa Rica,Qatar,True
+26,2022-11-26,group,E,Germany,Japan,Germany,Japan,Qatar,True
+27,2022-11-26,group,E,Spain,Germany,Spain,Germany,Qatar,True
+28,2022-11-26,group,E,Costa Rica,Japan,Costa Rica,Japan,Qatar,True
+29,2022-11-27,group,E,Spain,Japan,Spain,Japan,Qatar,True
+30,2022-11-27,group,E,Costa Rica,Germany,Costa Rica,Germany,Qatar,True
+31,2022-11-27,group,F,Belgium,Canada,Belgium,Canada,Qatar,True
+32,2022-11-27,group,F,Morocco,Croatia,Morocco,Croatia,Qatar,True
+33,2022-11-28,group,F,Belgium,Morocco,Belgium,Morocco,Qatar,True
+34,2022-11-28,group,F,Canada,Croatia,Canada,Croatia,Qatar,True
+35,2022-11-28,group,F,Belgium,Croatia,Belgium,Croatia,Qatar,True
+36,2022-11-28,group,F,Canada,Morocco,Canada,Morocco,Qatar,True
+37,2022-11-29,group,G,Brazil,Serbia,Brazil,Serbia,Qatar,True
+38,2022-11-29,group,G,Switzerland,Cameroon,Switzerland,Cameroon,Qatar,True
+39,2022-11-29,group,G,Brazil,Switzerland,Brazil,Switzerland,Qatar,True
+40,2022-11-29,group,G,Serbia,Cameroon,Serbia,Cameroon,Qatar,True
+41,2022-11-30,group,G,Brazil,Cameroon,Brazil,Cameroon,Qatar,True
+42,2022-11-30,group,G,Serbia,Switzerland,Serbia,Switzerland,Qatar,True
+43,2022-11-30,group,H,Portugal,Ghana,Portugal,Ghana,Qatar,True
+44,2022-11-30,group,H,Uruguay,South Korea,Uruguay,South Korea,Qatar,True
+45,2022-12-01,group,H,Portugal,Uruguay,Portugal,Uruguay,Qatar,True
+46,2022-12-01,group,H,Ghana,South Korea,Ghana,South Korea,Qatar,True
+47,2022-12-01,group,H,Portugal,South Korea,Portugal,South Korea,Qatar,True
+48,2022-12-01,group,H,Ghana,Uruguay,Ghana,Uruguay,Qatar,True
+49,2022-12-03,round_of_16,,,,1A,2B,Qatar,True
+50,2022-12-04,round_of_16,,,,1C,2D,Qatar,True
+51,2022-12-05,round_of_16,,,,1D,2C,Qatar,True
+52,2022-12-06,round_of_16,,,,1B,2A,Qatar,True
+53,2022-12-07,round_of_16,,,,1E,2F,Qatar,True
+54,2022-12-08,round_of_16,,,,1G,2H,Qatar,True
+55,2022-12-09,round_of_16,,,,1F,2E,Qatar,True
+56,2022-12-10,round_of_16,,,,1H,2G,Qatar,True
+57,2022-12-11,quarter_final,,,,W49,W50,Qatar,True
+58,2022-12-12,quarter_final,,,,W53,W54,Qatar,True
+59,2022-12-13,quarter_final,,,,W55,W56,Qatar,True
+60,2022-12-14,quarter_final,,,,W51,W52,Qatar,True
+61,2022-12-15,semi_final,,,,W57,W58,Qatar,True
+62,2022-12-16,semi_final,,,,W59,W60,Qatar,True
+63,2022-12-17,third_place,,,,L61,L62,Qatar,True
+64,2022-12-18,final,,,,W61,W62,Qatar,True

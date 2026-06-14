@@ -147,6 +147,23 @@ class TournamentSimulator:
             set(self.schedule.loc[self.schedule["stage"] == "group", "home_team"])
             | set(self.schedule.loc[self.schedule["stage"] == "group", "away_team"])
         )
+        # Derive the bracket shape from the schedule rather than hardwiring the
+        # 2026 layout, so the same engine handles the 2022 (32-team) format too.
+        knockout = self.schedule[self.schedule["stage"] != "group"]
+        ordered_stages = list(
+            dict.fromkeys(knockout.sort_values("match_id")["stage"])
+        )
+        # Reaching the third-place match is a consolation, not progress.
+        self.stage_outputs = {
+            stage: f"reach_{stage}"
+            for stage in ordered_stages
+            if stage != "third_place"
+        }
+        self.final_match_id = int(
+            self.schedule.loc[self.schedule["stage"] == "final", "match_id"].max()
+        )
+        # The first knockout round is what every group qualifier "reaches".
+        self.first_knockout_stage = ordered_stages[0] if ordered_stages else None
         self.rates = self._build_rate_cache()
 
     def _build_rate_cache(self):
@@ -323,17 +340,6 @@ class TournamentSimulator:
             group_order[group] = _rank_group(
                 list(values), values, group_matches[group], rng
             )
-        third_order = sorted(
-            [(group, teams[2]) for group, teams in group_order.items()],
-            key=lambda item: (
-                table[item[0]][item[1]]["points"],
-                table[item[0]][item[1]]["gf"] - table[item[0]][item[1]]["ga"],
-                table[item[0]][item[1]]["gf"],
-                rng.random(),
-            ),
-            reverse=True,
-        )
-        qualified_thirds = dict(third_order[:8])
         knockout_rows = self.schedule[self.schedule["stage"] != "group"]
         third_sources = sorted(
             {
@@ -344,13 +350,29 @@ class TournamentSimulator:
                 if str(source).startswith("3")
             }
         )
-        third_assignments = assign_third_place_teams(
-            third_sources, qualified_thirds
-        )
-        reached = {column: set() for column in STAGE_OUTPUT.values()}
-        for teams in group_order.values():
-            reached["reach_round_of_32"].update(teams[:2])
-        reached["reach_round_of_32"].update(qualified_thirds.values())
+        # Best third-placed teams only exist in formats that use them (e.g.
+        # 2026). With top-two-only brackets (2022) this block is skipped.
+        if third_sources:
+            third_order = sorted(
+                [(group, teams[2]) for group, teams in group_order.items()],
+                key=lambda item: (
+                    table[item[0]][item[1]]["points"],
+                    table[item[0]][item[1]]["gf"] - table[item[0]][item[1]]["ga"],
+                    table[item[0]][item[1]]["gf"],
+                    rng.random(),
+                ),
+                reverse=True,
+            )
+            qualified_thirds = dict(third_order[: len(third_sources)])
+            third_assignments = assign_third_place_teams(
+                third_sources, qualified_thirds
+            )
+        else:
+            third_assignments = {}
+
+        # The first knockout round's participants (every group qualifier) are
+        # added when those matches are played, so no manual seeding is needed.
+        reached = {column: set() for column in self.stage_outputs.values()}
         winners, losers = {}, {}
         for _, row in knockout_rows.iterrows():
             home = self._source(
@@ -359,7 +381,7 @@ class TournamentSimulator:
             away = self._source(
                 row["away_source"], group_order, third_assignments, winners, losers
             )
-            output_stage = STAGE_OUTPUT.get(row["stage"])
+            output_stage = self.stage_outputs.get(row["stage"])
             if output_stage:
                 reached[output_stage].update((home, away))
             _, _, winner, loser = self._play(
@@ -367,18 +389,18 @@ class TournamentSimulator:
             )
             winners[int(row["match_id"])] = winner
             losers[int(row["match_id"])] = loser
-        reached["champion"] = winners[104]
+        reached["champion"] = winners[self.final_match_id]
         return reached
 
     def simulate(self, runs: int = 2000, seed: int = 42) -> pd.DataFrame:
         rng = np.random.default_rng(seed)
         counts = {
-            team: {**{column: 0 for column in STAGE_OUTPUT.values()}, "champion": 0}
+            team: {**{column: 0 for column in self.stage_outputs.values()}, "champion": 0}
             for team in self.teams
         }
         for _ in range(runs):
             reached = self._one_run(rng)
-            for column in STAGE_OUTPUT.values():
+            for column in self.stage_outputs.values():
                 for team in reached[column]:
                     counts[team][column] += 1
             counts[reached["champion"]]["champion"] += 1

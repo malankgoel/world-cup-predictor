@@ -39,6 +39,7 @@ def test_team_shock_tilts_rates_and_is_neutral_when_shared():
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEDULE = ROOT / "data" / "input" / "schedule_2026.csv"
+SCHEDULE_2022 = ROOT / "data" / "input" / "schedule_2022.csv"
 
 
 def test_third_place_assignment_uses_each_team_once():
@@ -94,3 +95,32 @@ def test_simulate_produces_a_valid_probability_table(monkeypatch):
     # Exactly one champion and 32 round-of-32 teams per run.
     assert np.isclose(table["champion"].sum(), 1.0)
     assert np.isclose(table["reach_round_of_32"].sum(), 32.0)
+
+
+@pytest.mark.skipif(not SCHEDULE_2022.exists(), reason="2022 schedule not present")
+def test_simulator_handles_the_2022_32_team_format(monkeypatch):
+    # The engine must derive the bracket from the schedule: 32 teams, a Round
+    # of 16 (not 32), no third-place qualifiers, final = match 64.
+    monkeypatch.setattr(
+        WorldCupModel,
+        "_rates",
+        lambda self, frame: (np.full(len(frame), 1.3), np.full(len(frame), 1.3)),
+    )
+    schedule = load_schedule(SCHEDULE_2022)
+    builder = FeatureBuilder(pd.DataFrame(), pd.DataFrame())
+    empty_results = pd.DataFrame(
+        columns=[
+            "date", "home_team", "away_team", "home_score",
+            "away_score", "tournament", "neutral", "winner",
+        ]
+    )
+    simulator = TournamentSimulator(WorldCupModel(), builder, empty_results, schedule)
+    assert simulator.final_match_id == 64
+    assert "round_of_16" in simulator.stage_outputs
+    assert "round_of_32" not in simulator.stage_outputs
+    table = simulator.simulate(runs=20, seed=1)
+    assert len(table) == 32
+    assert "reach_round_of_32" not in table.columns
+    assert np.isclose(table["champion"].sum(), 1.0)
+    assert np.isclose(table["reach_round_of_16"].sum(), 16.0)
+    assert np.isclose(table["reach_final"].sum(), 2.0)

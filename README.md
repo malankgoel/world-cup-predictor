@@ -251,6 +251,13 @@ It writes per-fold metrics to `outputs/backtest.csv` and prints the mean across
 folds. With no `--cutoffs`, it defaults to January 1 of each of the last four
 seasons.
 
+For a whole-tournament out-of-sample check, `scripts/backtest_2022.py` trains
+only on pre-2022 matches, scores the 64 actual 2022 World Cup results, and
+simulates the full 2022 bracket (`data/input/schedule_2022.csv`) to compare
+advancement and title probabilities against what happened. The simulator derives
+its structure from the schedule, so it runs the 2022 32-team format and the 2026
+48-team format from the same code.
+
 Run tests with:
 
 ```bash
