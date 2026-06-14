@@ -1,0 +1,32 @@
+{
+  "results_through": "2026-06-10",
+  "played_matches": 25343,
+  "model_training_through": "2026-06-10",
+  "git_commit": "0e5b86c",
+  "predict_recorded_at": "2026-06-14T15:42:58+00:00",
+  "predict_file": "match_predictions.csv",
+  "simulate_recorded_at": "2026-06-14T15:43:33+00:00",
+  "simulate_file": "tournament_probabilities.csv",
+  "top_champions": [
+    {
+      "team": "Argentina",
+      "champion": 0.155
+    },
+    {
+      "team": "France",
+      "champion": 0.115
+    },
+    {
+      "team": "Spain",
+      "champion": 0.105
+    },
+    {
+      "team": "England",
+      "champion": 0.09
+    },
+    {
+      "team": "Germany",
+      "champion": 0.085
+    }
+  ]
+}
