@@ -81,7 +81,10 @@ home_advantage_points = 80.0
 # temperature = 0.88
 
 [simulation]
-runs = 2000
+# 10,000 Monte Carlo runs keeps sampling noise low (champion SE ~0.4pp for a
+# top team, ~0.5pp on advancement) at the cost of more runtime. Override per run
+# with `worldcup simulate --runs N`.
+runs = 10000
 seed = 42
 team_strength_scale = 0.20
 penalty_skill_weight = 0.8927
