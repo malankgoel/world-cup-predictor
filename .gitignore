@@ -11,6 +11,9 @@ outputs/
 # Superseded by predictions_log/ (the tracked forecast logbook). Safe to delete.
 results_archive/
 
+# Self-contained sports-betting performance log. Kept local for now -- do not push.
+sports_betting_performance/
+
 # Secrets / credentials -- never commit
 .env
 .env.*
