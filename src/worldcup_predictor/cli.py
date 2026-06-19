@@ -264,8 +264,12 @@ def update_result(config, args) -> dict:
         "neutral": args.neutral,
         "winner": normalize_team(args.winner) if args.winner else "",
     }
-    if "winner" not in frame:
+    if "winner" not in frame.columns:
         frame["winner"] = ""
+    # An all-empty winner column is read back as float NaN; coerce it to text so
+    # writing a (possibly empty) winner string can't trip a dtype error on
+    # newer pandas (LossySetitemError / "Invalid value '' for dtype float64").
+    frame["winner"] = frame["winner"].fillna("").astype(object)
     key = (
         (frame["date"] == row["date"])
         & (frame["home_team"].map(normalize_team) == row["home_team"])
