@@ -170,6 +170,38 @@ def test_third_place_assignment_uses_each_team_once():
     assert len(set(assigned.values())) == 8
 
 
+def test_third_place_assignment_uses_official_2026_table_for_current_projection():
+    sources = [
+        "3A/B/C/D/F",
+        "3C/D/F/G/H",
+        "3C/E/F/H/I",
+        "3E/H/I/J/K",
+        "3B/E/F/I/J",
+        "3A/E/H/I/J",
+        "3E/F/G/I/J",
+        "3D/E/I/J/L",
+    ]
+    qualified = {
+        "B": "Bosnia and Herzegovina",
+        "D": "Paraguay",
+        "E": "Ecuador",
+        "F": "Sweden",
+        "I": "Senegal",
+        "J": "Algeria",
+        "K": "DR Congo",
+        "L": "Ghana",
+    }
+    assigned = assign_third_place_teams(sources, qualified)
+    assert assigned["3C/E/F/H/I"] == "Ecuador"
+    assert assigned["3E/F/G/I/J"] == "Algeria"
+    assert assigned["3B/E/F/I/J"] == "Bosnia and Herzegovina"
+    assert assigned["3A/B/C/D/F"] == "Paraguay"
+    assert assigned["3A/E/H/I/J"] == "Senegal"
+    assert assigned["3C/D/F/G/H"] == "Sweden"
+    assert assigned["3D/E/I/J/L"] == "Ghana"
+    assert assigned["3E/H/I/J/K"] == "DR Congo"
+
+
 @pytest.mark.skipif(not SCHEDULE.exists(), reason="shipped schedule not present")
 def test_simulate_produces_a_valid_probability_table(monkeypatch):
     # Constant, label-symmetric goal rates let the full bracket run without a

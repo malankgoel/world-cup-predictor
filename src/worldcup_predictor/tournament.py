@@ -33,10 +33,43 @@ TEAM_STRENGTH_SCALE = 0.20
 # pre-cutoff international shootouts.
 PENALTY_SKILL_WEIGHT = 0.8927
 
+# FIFA's 2026 third-place allocation table assigns the eight advancing
+# third-place groups to these bracket slots in this column order.
+OFFICIAL_THIRD_PLACE_SOURCE_ORDER = (
+    "3C/E/F/H/I",  # vs 1A
+    "3E/F/G/I/J",  # vs 1B
+    "3B/E/F/I/J",  # vs 1D
+    "3A/B/C/D/F",  # vs 1E
+    "3A/E/H/I/J",  # vs 1G
+    "3C/D/F/G/H",  # vs 1I
+    "3D/E/I/J/L",  # vs 1K
+    "3E/H/I/J/K",  # vs 1L
+)
+
+OFFICIAL_THIRD_PLACE_ASSIGNMENTS = {
+    # Current projected advancing third-place groups:
+    # 1A-3E, 1B-3J, 1D-3B, 1E-3D, 1G-3I, 1I-3F, 1K-3L, 1L-3K.
+    "BDEFIJKL": ("E", "J", "B", "D", "I", "F", "L", "K"),
+}
+
 
 def assign_third_place_teams(
     sources: list[str], qualified: dict[str, str]
 ) -> dict[str, str]:
+    qualified_key = "".join(sorted(qualified))
+    official_groups = OFFICIAL_THIRD_PLACE_ASSIGNMENTS.get(qualified_key)
+    if official_groups and set(OFFICIAL_THIRD_PLACE_SOURCE_ORDER).issubset(sources):
+        assigned = {}
+        for source, group in zip(
+            OFFICIAL_THIRD_PLACE_SOURCE_ORDER, official_groups, strict=True
+        ):
+            if group not in source[1:].split("/") or group not in qualified:
+                raise ValueError(
+                    "Official third-place assignment is incompatible with bracket"
+                )
+            assigned[source] = qualified[group]
+        return assigned
+
     candidates = {
         source: [group for group in source[1:].split("/") if group in qualified]
         for source in sources
