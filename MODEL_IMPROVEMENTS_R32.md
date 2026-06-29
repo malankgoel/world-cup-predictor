@@ -1,79 +1,90 @@
-# Tightening the model for the Round of 32 and beyond
+# Round-of-32 model overhaul — what shipped, what the backtest rejected
 
-_Why the model keeps under-pricing favorites, and the concrete levers to fix it. Based on a read of `src/worldcup_predictor/` (model.py, tournament.py, features.py) and `config.toml`._
+This documents the R32 changes to the **updated (v2)** model in the repo root.
+The frozen pre-overhaul model lives in `baseline_model_v1/` for comparison.
 
-## The core problem in one sentence
+The headline complaint was that the model **severely under-priced favorites**.
+The first thing the overhaul did was quantify it on the 2022 World Cup
+out-of-sample backtest (train only on pre-2022 internationals, score the 64
+actual matches). Favorites in the 0.55–0.80 predicted band won **+18pp more
+often than predicted** in 2022 and **+5pp** in 2018 — real, and persistent.
 
-Every layer of the pipeline adds a little mean-zero noise or a little shrinkage to the goal rates. Each is individually defensible, but **adding symmetric noise to a goal-rate gap is not symmetric on win probability — it bleeds the favorite toward 50%.** Stack three or four of these layers and a true 90% favorite comes out at 80%. That is exactly the pattern you saw (France 85% vs Iraq, Argentina 90% vs Jordan, Spain 78% vs Saudi — all visibly soft vs the market).
+The important and slightly counter-intuitive finding: **most ways of "making the
+model more confident in favorites" do not survive out-of-sample testing.** 2022
+was an upset-heavy tournament (Saudi over Argentina, Japan over Germany & Spain,
+Morocco to the semis), and log loss punishes confident-and-wrong hard. So blanket
+sharpening helps 2018 but actively hurts 2022. The fix that *does* generalize is
+anchoring each match to the **betting market**, which is well-calibrated and
+adapts per matchup instead of betting on a tournament being chalky or chaotic.
 
-There is no single bug; it's accumulated regression-to-the-mean. Below, ranked by expected impact.
+## Shipped
 
----
+**1. Market anchor (the real favorite fix).** A log-opinion-pool blend of the
+model's 1X2 with the vig-removed market 1X2:
+`p_blend ∝ p_model^(1−w) · p_market^w`, `w = [market].blend_weight = 0.5`.
+Applied to published predictions whenever odds are present
+(`WorldCupModel.blend_market`, wired into `predict_schedule`). `scripts/
+import_kalshi_odds.py` converts Kalshi prices to decimal odds in
+`data/input/match_features.csv` (it only **reads** the betting folder). Effect on
+the live group fixtures — favorites that were under-priced get lifted toward the
+market, and the few that were over-priced get moderated:
 
-## 1. Anchor to the betting market — biggest, easiest win
+| Fixture | model | blended | market |
+|---|---|---|---|
+| Spain v Cape Verde | 0.75 | 0.85 | 0.91 |
+| Portugal v DR Congo | 0.56 | 0.68 | 0.77 |
+| Brazil v Morocco | 0.42 | 0.50 | 0.58 |
+| France v Senegal | 0.54 | 0.60 | 0.66 |
+| Canada v Qatar (over-priced) | 0.86 | 0.82 | 0.77 |
 
-The model *already declares* `home_market_probability`, `draw_market_probability`, `away_market_probability` as features (see `model_features` in `artifacts/metrics.json`), but they are **completely empty** — `data/input/match_features.csv` has zero non-null market cells, so they never become active features. The single best predictor of a favorite's true win rate is the closing line, and it's currently unused.
+**2. Recency half-life 4.0 → 3.0 years** (`[training].recency_half_life_years`).
+The one *training* change that improved holdout log loss on **both** tournaments
+(2022 1.1033→1.0981, 2018 0.9735→0.9675). Current squad strength matters more
+than five-year-old form.
 
-Two ways to use it, in order of preference:
+**3. Monotonic constraints on the goal model** (`MONOTONIC_SIGNS` in `model.py`).
+A `HistGradientBoosting` model predicts leaf averages and can't extrapolate past
+the strongest mismatches it trained on, so it compresses elite-vs-minnow rates.
+Pinning the sign of each unambiguous strength signal (own strength +, opponent
+strength −) stops perverse splits. Backtest-neutral on its own, but it is also
+what makes the market-probability feature behave monotonically if it ever enters
+the trained model, so it's kept as a principled safeguard.
 
-- **Blend at the output (log-opinion pool).** Take the model's 1X2 vector and the market's implied (vig-removed) vector and combine in log space: `p ∝ p_model^(1−w) · p_market^w`, with `w ≈ 0.4–0.6`. This is robust, hard to overfit, and directly cures tail compression because the market does not under-price favorites.
-- **Feed it as a feature** (populate the existing columns). Weaker, because the GBM will still partially shrink it.
+**4. Tournament-importance weight power 0.5 → 0.75**
+(`[training].importance_weight_power`). Up-weights real tournament football over
+friendlies. Backtest-neutral (helps 2022, marginally hurts 2018, both inside
+64-match noise); kept because it's principled, not because it's a proven win.
 
-You have Kalshi odds being collected in `sports_betting_performance/data/kalshi_odds.csv`. Per your instruction I'm leaving that folder alone, but the *main* model can read a copy of those closing probabilities. This alone probably closes most of the gap.
+**5. Per-match noise made configurable** (`[simulation].match_noise_sigma_scale`,
+plumbed through `TournamentSimulator`). See "rejected" below for why the default
+is **1.0**, not 0.0.
 
-## 2. Stop stacking noise layers in the simulation
+All 45 unit tests pass (4 new, covering the blend, the monotonic attachment, and
+the importance weighting); `ruff` is clean. The live model was retrained and the
+published match predictions were regenerated with the blend on display.
 
-In `tournament.py._play()` each simulated match multiplies both goal rates by an independent lognormal shock (`sigma` up to 0.35), **on top of** the per-tournament `_apply_team_shock` (`TEAM_STRENGTH_SCALE = 0.20`). Two independent variance injections, both of which widen the rate gap distribution and therefore pull favorites' *advancement* probabilities toward the field.
+## Tested and rejected (kept the original behaviour)
 
-- The per-tournament team shock is the one with a principled justification (it restores between-match correlation). Keep it.
-- The per-match `sigma` shock is mostly double-counting — the score is *already* sampled from a Poisson/NB matrix, which is the match-level randomness. Cut it hard (try `sigma → 0`) or fold its intended uncertainty into the team shock, then re-fit `TEAM_STRENGTH_SCALE` against advancement Brier.
-- Now that group games are in (`include_tournament = true`), posterior uncertainty is lower, so the shock scale should come *down* for R32 onward regardless.
+**Global temperature sharpening.** Sweeping the 1X2 temperature on both
+tournaments: average log loss is *minimised at temperature 1.0* and gets worse as
+you sharpen, because 2022 punishes confidence. This is why the original author
+left it unpinned — confirmed, not changed.
 
-## 3. The GBM compresses extremes — give it a strength term that extrapolates
+**Cutting the "double-counted" per-match simulation noise (proposed item #2).**
+In theory the per-match rate shock duplicates the variance already in the score
+draw. But against the **actual** 2022 bracket, setting it to 0.0 made advancement
+calibration **worse at every stage** (total Brier 0.452 → 0.464), because
+`team_strength_scale` was tuned *with* that shock present and 2022 rewards more
+spread. The knob is exposed so it can be re-tuned jointly with
+`team_strength_scale`, but the default stays at the empirically-better 1.0.
 
-`HistGradientBoostingRegressor` (max_leaf_nodes=15, lr=0.03) predicts goal rates from leaf averages, so it **cannot extrapolate past the strongest matchups it saw in training** and systematically pulls elite-vs-minnow rates toward the middle of the training distribution — which is dominated by friendlies and qualifiers, not World Cup mismatches.
+## Still outstanding — needs the actual results (item #7)
 
-- **Ensemble the GBM rate with a log-linear strength rate** (Elo/Bradley–Terry implied, or a Dixon–Coles attack/defense model). The linear model extrapolates; blend the two log-rates. This is the structural fix for tail compression.
-- Or add **monotonic constraints** on `elo_diff`, `rank_points_diff`, `xi_rating_diff`, `squad_attack/defense_diff` so strength always moves the rate the right direction with no saturation reversals. `HistGradientBoostingRegressor` supports `monotonic_cst` directly.
-
-## 4. Re-weight training toward tournament football
-
-Favorites convert at a *higher* rate in World Cups than in friendlies (more at stake, fewer experimental lineups). Your training is ~25k matches, mostly low-stakes. `_sample_weights` already multiplies by `sqrt(importance)` — push that harder:
-
-- Raise the importance exponent (e.g. `importance^0.75` or linear) so WC/continental-cup matches dominate the fit.
-- Shorten `recency_half_life_years` modestly (4.0 → 3.0) so current squad strength matters more than 5-year-old form.
-- This teaches the model the *real* favorite-conversion rate instead of the friendly-diluted one.
-
-## 5. Replace global temperature with tail-aware calibration
-
-`calibration_temperature ≈ 0.97` is fit on a ~5,000-match validation holdout (mostly non-tournament) and is a **single global scalar** — it cannot fix miscalibration that lives specifically in the high-confidence tail. A favorite-undervaluation problem is a tail problem, so global temperature is the wrong tool.
-
-- Fit **isotonic regression or a logistic recalibration on the favorite's win probability** (binned), using historical tournament matches. This can sharpen the 70–95% range without touching coin-flips.
-- At minimum, evaluate calibration *conditioned on favorite strength buckets* (0.6–0.7, 0.7–0.8, 0.8–0.9, 0.9+) rather than the single aggregate `calibration_error = 0.0136`, which hides tail bias.
-
-## 6. Tame the draw share
-
-In low-scoring independent-Poisson matrices, draw probability is structurally inflated, and every point of excess draw comes out of the favorite's win column. Your fitted Dixon–Coles `rho ≈ −0.047` is small.
-
-- Refit `rho` on **tournament matches only**, and check the realized draw rate vs predicted in the validation set. If predicted draws > actual, that's favorite probability leaking into the draw bucket.
-- Consider a **bivariate Poisson** (shared component) instead of Dixon–Coles low-score correction — it handles the draw/correlation structure more cleanly.
-
-## 7. R32-specific: actually ingest the group-stage results
-
-You've flipped `include_tournament = true`, but confirm the group results are (a) loaded with real scores — right now `data/raw/results.csv` has `NA` for every 2026 match — and (b) updating each team's attack/defense state via the xG-aware path. For knockouts:
-
-- Backfill the 72 group-stage scorelines (and xG if available) into `results.csv`, then `worldcup update`/retrain so team states reflect *this tournament's* form, not just pre-tournament priors.
-- With real evidence in hand, **lower `TEAM_STRENGTH_SCALE`** (less prior uncertainty) — this is the right moment for the model to get more confident in the teams that looked strong.
-- Knockouts have no draws (ET → pens). You already branch on `knockout` for extra-time; double-check the ET goal rate (`rate/3`) and the shootout `PENALTY_SKILL_WEIGHT = 0.89` shrink aren't themselves flattening the stronger side.
-
----
-
-## Suggested order of attack
-
-1. **Market blend (#1)** — do this first; largest effect for least code.
-2. **Cut the double noise (#2)** and **re-fit the shock scale** with group results in.
-3. **Monotonic constraints / strength ensemble (#3)** — structural, medium effort.
-4. **Tournament re-weighting (#4)** and **tail calibration (#5)** — re-train and re-check bucketed calibration.
-5. Draw/bivariate-Poisson (#6) and the R32 data hygiene (#7) as cleanup.
-
-After each change, re-run the 2022 out-of-sample backtest (`scripts/backtest_2022.py`) and check **calibration in the 0.7–0.95 favorite bucket specifically**, not just aggregate log loss — the aggregate is what's been hiding this.
+`data/raw/results.csv` has the 2026 fixtures with **NA scores**, and
+`load_results` drops NA rows — so the model currently treats the whole tournament
+as unplayed. To make the bracket and team-states reflect what really happened in
+the group stage (the biggest single lever for tightening R32 specifically), the
+real group scores must be entered, e.g. `worldcup update --date … --home … --away
+… --home-score … --away-score …` (with `--home-xg/--away-xg` when available),
+then `worldcup train`. Once R32 fixtures and their Kalshi odds are added, the
+market anchor applies to them automatically.

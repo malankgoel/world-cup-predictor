@@ -30,6 +30,38 @@ DEFAULT_PRIOR_ADJUSTMENTS = {
     "chemistry_clip": 0.5,
 }
 
+# Default exponent on match importance in the training sample weights. The goal
+# model is fit on a stacked design whose target is the goals scored by the
+# "home_*" (attacking) team, so a feature's sign is its effect on that team's
+# scoring rate. Raising this from the old 0.5 (sqrt) up-weights real tournament
+# football relative to friendlies, which is where favorites actually convert at
+# the rate the market expects -- directly countering the model's tendency to
+# under-price strong teams (favorites were under-priced by +11 to +26pp in the
+# 0.6-0.8 band on the 2022 out-of-sample backtest).
+DEFAULT_IMPORTANCE_POWER = 0.75
+
+# Monotonic constraints for the HistGradientBoosting goal model. A tree model
+# predicts leaf averages and therefore CANNOT extrapolate past the strongest
+# mismatches it saw in training (mostly friendlies/qualifiers), so it compresses
+# elite-vs-minnow rates toward the middle and shrinks favorites. Pinning the
+# sign of each unambiguous strength signal stops any perverse non-monotonic
+# split and lets strength keep pushing the rate the right way. Sign is relative
+# to the home_* (attacking) team's goal rate: own strength +1, opponent strength
+# -1. `_diff` columns are home-minus-away, hence +1.
+MONOTONIC_SIGNS = {
+    "home_elo": 1, "away_elo": -1, "elo_diff": 1,
+    "home_rank_points": 1, "away_rank_points": -1, "rank_points_diff": 1,
+    "home_attack_state": 1, "away_defense_state": -1,
+    "attack_state_diff": 1, "defense_state_diff": 1,
+    "home_xi_rating": 1, "away_xi_rating": -1, "xi_rating_diff": 1,
+    "home_squad_attack": 1, "squad_attack_diff": 1,
+    "away_squad_defense": -1, "squad_defense_diff": 1,
+    "home_star_rating": 1, "away_star_rating": -1, "star_rating_diff": 1,
+    "home_top3_rating": 1, "away_top3_rating": -1, "top3_rating_diff": 1,
+    "home_depth_rating": 1, "away_depth_rating": -1,
+    "home_market_probability": 1, "away_market_probability": -1,
+}
+
 
 def flip_features(frame: pd.DataFrame) -> pd.DataFrame:
     """Return the same matches with the home/away labels swapped."""
@@ -65,8 +97,14 @@ class WorldCupModel:
         parameters: dict | None = None,
         adjustments: dict | None = None,
         calibration_temperature: float | None = None,
+        importance_power: float = DEFAULT_IMPORTANCE_POWER,
+        monotonic: bool = True,
     ):
-        parameters = parameters or {}
+        parameters = dict(parameters or {})
+        # These are model-level knobs, not HistGradientBoosting constructor
+        # arguments, so pull them out before the rest is forwarded to sklearn.
+        importance_power = parameters.pop("importance_power", importance_power)
+        monotonic = parameters.pop("monotonic", monotonic)
         defaults = {
             "loss": "poisson",
             "learning_rate": 0.05,
@@ -78,6 +116,8 @@ class WorldCupModel:
         }
         defaults.update(parameters)
         self.parameters = defaults
+        self.importance_power = importance_power
+        self.monotonic = monotonic
         self.adjustments = {**DEFAULT_PRIOR_ADJUSTMENTS, **(adjustments or {})}
         self.fixed_temperature = calibration_temperature
         self.rho = 0.0
@@ -89,7 +129,14 @@ class WorldCupModel:
         self.goal_model = self._new_model()
 
     def _new_model(self):
-        return HistGradientBoostingRegressor(**self.parameters)
+        params = dict(self.parameters)
+        if getattr(self, "monotonic", True):
+            params["monotonic_cst"] = {
+                column: MONOTONIC_SIGNS[column]
+                for column in self.feature_columns
+                if column in MONOTONIC_SIGNS
+            }
+        return HistGradientBoostingRegressor(**params)
 
     @staticmethod
     def score_matrix(
@@ -150,6 +197,41 @@ class WorldCupModel:
         draw = float(np.trace(matrix))
         away_win = float(np.triu(matrix, 1).sum())
         return home_win, draw, away_win, matrix
+
+    @staticmethod
+    def blend_market(
+        model_probs,
+        market_probs,
+        weight: float,
+    ) -> tuple[float, float, float]:
+        """Log-opinion pool of a model 1X2 vector with a market 1X2 vector.
+
+        ``p_blend ∝ p_model**(1-weight) * p_market**weight``, renormalised over
+        (home, draw, away). Returns the model probabilities unchanged when the
+        weight is non-positive or the market vector is missing/degenerate, so it
+        is always safe to call. The market is the best-calibrated favorite
+        estimate available and, unlike a global temperature, adapts per matchup,
+        which is the robust cure for the prior model under-pricing favorites.
+        """
+        model_arr = np.asarray(model_probs, dtype=float)
+        if weight <= 0.0:
+            return tuple(float(value) for value in model_arr)
+        market_arr = np.asarray(market_probs, dtype=float)
+        if (
+            market_arr.shape != model_arr.shape
+            or not np.isfinite(market_arr).all()
+            or market_arr.sum() <= 0.0
+            or np.any(market_arr < 0.0)
+        ):
+            return tuple(float(value) for value in model_arr)
+        market_arr = market_arr / market_arr.sum()
+        log_blend = (1.0 - weight) * np.log(
+            np.clip(model_arr, 1e-12, 1.0)
+        ) + weight * np.log(np.clip(market_arr, 1e-12, 1.0))
+        log_blend -= log_blend.max()
+        blended = np.exp(log_blend)
+        blended /= blended.sum()
+        return tuple(float(value) for value in blended)
 
     def _fit_rho(
         self,
@@ -328,12 +410,16 @@ class WorldCupModel:
             ).x
         )
 
-    @staticmethod
-    def _sample_weights(frame: pd.DataFrame, half_life_years: float) -> pd.Series:
-        """Exponential recency decay times sqrt(match importance)."""
+    def _sample_weights(self, frame: pd.DataFrame, half_life_years: float) -> pd.Series:
+        """Exponential recency decay times match importance ** importance_power.
+
+        importance_power controls how hard real tournament matches outweigh
+        friendlies; the old behaviour was a fixed 0.5 (sqrt).
+        """
+        power = getattr(self, "importance_power", DEFAULT_IMPORTANCE_POWER)
         age_days = (frame["date"].max() - frame["date"]).dt.days
         weights = np.exp(-np.log(2) * age_days / (365.25 * half_life_years))
-        return weights * np.sqrt(frame["importance"].clip(lower=0.1))
+        return weights * np.power(frame["importance"].clip(lower=0.1), power)
 
     def fit_window(
         self, frame: pd.DataFrame, half_life_years: float = 4.0

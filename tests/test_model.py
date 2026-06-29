@@ -105,3 +105,47 @@ def test_fixed_temperature_is_stored_for_fit_window():
     model = WorldCupModel(calibration_temperature=0.9)
     assert model.fixed_temperature == 0.9
     assert WorldCupModel().fixed_temperature is None
+
+
+def test_blend_market_pulls_toward_a_sharper_market_favorite():
+    model_probs = (0.55, 0.25, 0.20)  # mild home favorite
+    market_probs = (0.80, 0.13, 0.07)  # market is far more confident
+    blended = WorldCupModel.blend_market(model_probs, market_probs, weight=0.5)
+    assert np.isclose(sum(blended), 1.0)
+    # The blend must move the favorite up toward the market, fixing the
+    # under-pricing, without overshooting the market itself.
+    assert model_probs[0] < blended[0] < market_probs[0]
+
+
+def test_blend_market_is_a_noop_without_usable_odds():
+    model_probs = (0.55, 0.25, 0.20)
+    # weight 0 disables it; missing/degenerate market vectors are ignored.
+    assert WorldCupModel.blend_market(model_probs, (0.8, 0.1, 0.1), 0.0) == model_probs
+    assert WorldCupModel.blend_market(
+        model_probs, (np.nan, np.nan, np.nan), 0.5
+    ) == model_probs
+    assert WorldCupModel.blend_market(model_probs, (0.0, 0.0, 0.0), 0.5) == model_probs
+
+
+def test_monotonic_constraints_are_attached_to_the_goal_model():
+    model = WorldCupModel()
+    constraints = model.goal_model.get_params()["monotonic_cst"]
+    assert constraints["home_elo"] == 1
+    assert constraints["away_elo"] == -1
+    # Disabling the flag must drop the constraints entirely.
+    assert WorldCupModel(monotonic=False).goal_model.get_params()[
+        "monotonic_cst"
+    ] is None
+
+
+def test_importance_power_sharpens_tournament_weighting():
+    frame = pd.DataFrame(
+        {
+            "date": pd.to_datetime(["2020-01-01", "2020-01-01"]),
+            "importance": [1.0, 4.0],
+        }
+    )
+    low = WorldCupModel(importance_power=0.5)._sample_weights(frame, 4.0)
+    high = WorldCupModel(importance_power=1.0)._sample_weights(frame, 4.0)
+    # A higher power widens the gap between a friendly and a major match.
+    assert high.iloc[1] / high.iloc[0] > low.iloc[1] / low.iloc[0]

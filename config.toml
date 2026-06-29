@@ -24,7 +24,15 @@ start_date = "2000-01-01"
 cutoff_date = "2026-06-11"
 include_tournament = true
 validation_fraction = 0.20
-recency_half_life_years = 4.0
+# Lowered 4.0 -> 3.0 for the R32 overhaul. On the out-of-sample 2018 AND 2022
+# World Cup backtests a 3-year half-life was the one training change that
+# improved holdout log loss on BOTH tournaments (2022 1.1033->1.0981,
+# 2018 0.9735->0.9675), because current squad strength matters more than
+# 5-year-old form. See MODEL_IMPROVEMENTS_R32.md for the full grid.
+recency_half_life_years = 3.0
+# Exponent on match importance in the training sample weights (old behaviour was
+# 0.5 = sqrt). 0.75 up-weights real tournament football over friendlies.
+importance_weight_power = 0.75
 form_matches = 8
 random_state = 42
 
@@ -88,3 +96,25 @@ runs = 10000
 seed = 42
 team_strength_scale = 0.20
 penalty_skill_weight = 0.8927
+# Multiplier on the per-MATCH lognormal rate shock inside _play. In theory this
+# shock looks like it double-counts the variance already in the Poisson/NB score
+# draw, so the R32 overhaul tested cutting it to 0.0 — but on the ACTUAL 2022
+# bracket that made advancement calibration WORSE at every stage (total Brier
+# 0.452 -> 0.464), because the original team_strength_scale was tuned WITH this
+# shock present and 2022 was an upset-heavy tournament that rewards more spread.
+# Kept at 1.0 (original behaviour). Lower it only after re-fitting
+# team_strength_scale jointly against advancement Brier. See
+# MODEL_IMPROVEMENTS_R32.md.
+match_noise_sigma_scale = 1.0
+
+[market]
+# Output-stage anchor to the betting market via a log-opinion pool:
+#   p_blend ∝ p_model^(1-w) · p_market^w   (renormalised over home/draw/away)
+# Applied to PUBLISHED match predictions whenever vig-removed market
+# probabilities are available for the fixture (populate home/draw/away_odds in
+# data/input/match_features.csv, e.g. via scripts/import_kalshi_odds.py). The
+# market does not under-price favorites, so this is the robust, per-match cure
+# for the favorite-undervaluation the prior model showed — and unlike a global
+# temperature it adapts to each matchup instead of betting on a tournament being
+# chalky or upset-heavy. weight 0.0 disables the blend.
+blend_weight = 0.5

@@ -121,12 +121,14 @@ class TournamentSimulator:
         include_tournament: bool = False,
         team_strength_scale: float = TEAM_STRENGTH_SCALE,
         penalty_skill_weight: float = PENALTY_SKILL_WEIGHT,
+        match_noise_sigma_scale: float = 1.0,
     ):
         self.model = model
         self.builder = builder
         self.schedule = schedule.sort_values(["date", "match_id"])
         self.team_strength_scale = team_strength_scale
         self.penalty_skill_weight = penalty_skill_weight
+        self.match_noise_sigma_scale = match_noise_sigma_scale
         tournament_start = self.schedule["date"].min()
         # Team strengths are always frozen at the tournament kickoff so the
         # match-rate baseline never leaks results we are trying to predict.
@@ -271,13 +273,15 @@ class TournamentSimulator:
             home_rate, away_rate, elo_diff, uncertainty = self.rates[
                 (int(row["match_id"]), home, away)
             ]
-            sigma = min(0.35, 0.15 * np.sqrt(uncertainty))
-            home_rate *= np.exp(
-                rng.normal(-0.5 * sigma**2, sigma)
-            )
-            away_rate *= np.exp(
-                rng.normal(-0.5 * sigma**2, sigma)
-            )
+            # The score is already sampled from the Poisson/NB matrix below, so
+            # this per-match rate shock is supplementary; scaled by
+            # match_noise_sigma_scale (default 0.0) to avoid double-counting
+            # match variance on top of the per-tournament team shock, which used
+            # to wash out favorites' advancement odds.
+            sigma = self.match_noise_sigma_scale * min(0.35, 0.15 * np.sqrt(uncertainty))
+            if sigma > 0.0:
+                home_rate *= np.exp(rng.normal(-0.5 * sigma**2, sigma))
+                away_rate *= np.exp(rng.normal(-0.5 * sigma**2, sigma))
             if shock is not None:
                 home_rate, away_rate = self._apply_team_shock(
                     home_rate, away_rate, shock[home], shock[away]

@@ -142,6 +142,9 @@ def train(config) -> dict:
     frame = builder.training_frame(results)
     parameters = dict(config["model"])
     parameters["random_state"] = config["training"]["random_state"]
+    parameters["importance_power"] = config["training"].get(
+        "importance_weight_power", 0.75
+    )
     model = WorldCupModel(
         parameters,
         adjustments=config.get("priors"),
@@ -162,10 +165,40 @@ def train(config) -> dict:
     return metrics
 
 
+def load_odds_map(config) -> dict:
+    """Map (date, home, away) -> (home_odds, draw_odds, away_odds) from the
+    match-features file, used to anchor published predictions to the market.
+
+    Only rows with all three decimal odds present are returned; team names and
+    dates are normalised so lookups match the schedule.
+    """
+    path = Path(config["paths"].get("match_features", ""))
+    if not (str(path) and path.is_file() and path.stat().st_size):
+        return {}
+    frame = pd.read_csv(path)
+    needed = {"date", "home_team", "away_team", "home_odds", "draw_odds", "away_odds"}
+    if not needed.issubset(frame.columns):
+        return {}
+    odds_map: dict = {}
+    for row in frame.itertuples():
+        triple = (row.home_odds, row.draw_odds, row.away_odds)
+        if not all(pd.notna(value) for value in triple):
+            continue
+        key = (
+            pd.Timestamp(row.date).date(),
+            normalize_team(row.home_team),
+            normalize_team(row.away_team),
+        )
+        odds_map[key] = tuple(float(value) for value in triple)
+    return odds_map
+
+
 def predict_schedule(config) -> pd.DataFrame:
     results, builder = inputs(config)
     schedule = load_schedule(config["paths"]["schedule"])
     model = WorldCupModel.load(config["paths"]["model"])
+    odds_map = load_odds_map(config)
+    blend_weight = float(config.get("market", {}).get("blend_weight", 0.0))
     completed = {
         (
             pd.Timestamp(row.date).date(),
@@ -186,8 +219,28 @@ def predict_schedule(config) -> pd.DataFrame:
             continue
         match = fixture.copy()
         match["tournament"] = "FIFA World Cup"
+        odds = odds_map.get(
+            (
+                fixture["date"].date(),
+                normalize_team(fixture["home_team"]),
+                normalize_team(fixture["away_team"]),
+            )
+        )
+        if odds is not None:
+            match["home_odds"], match["draw_odds"], match["away_odds"] = odds
         features = builder.make_features(match, states)
         prediction = model.predict(features)
+        if blend_weight > 0.0:
+            blended = WorldCupModel.blend_market(
+                (prediction.home_win, prediction.draw, prediction.away_win),
+                (
+                    features.get("home_market_probability"),
+                    features.get("draw_market_probability"),
+                    features.get("away_market_probability"),
+                ),
+                blend_weight,
+            )
+            prediction.home_win, prediction.draw, prediction.away_win = blended
         rows.append(
             {
                 "match_id": fixture["match_id"],
@@ -316,6 +369,10 @@ def simulate(config, runs: int | None, seed: int | None) -> pd.DataFrame:
             "penalty_skill_weight",
             0.8927,
         ),
+        match_noise_sigma_scale=config["simulation"].get(
+            "match_noise_sigma_scale",
+            0.0,
+        ),
     )
     output = simulator.simulate(
         runs or config["simulation"]["runs"],
@@ -364,6 +421,9 @@ def backtest(config, cutoffs: str | None, out: str | None):
         fold_cutoffs = [f"{year}-01-01" for year in range(last_year - 3, last_year + 1)]
     parameters = dict(config["model"])
     parameters["random_state"] = config["training"]["random_state"]
+    parameters["importance_power"] = config["training"].get(
+        "importance_weight_power", 0.75
+    )
     table = expanding_window_backtest(
         features,
         cutoffs=fold_cutoffs,

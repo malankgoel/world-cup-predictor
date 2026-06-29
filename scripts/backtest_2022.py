@@ -87,9 +87,13 @@ def main() -> None:
         calibration_temperature=config.get("calibration", {}).get(
             "temperature"
         ),
+        importance_power=config["training"].get("importance_weight_power", 0.75),
     )
     log("fitting pre-2022 goal models")
-    model.fit_window(train, half_life_years=4.0)
+    model.fit_window(
+        train,
+        half_life_years=config["training"].get("recency_half_life_years", 3.0),
+    )
 
     log("scoring the 64 actual 2022 matches (match level)")
     match_metrics = model.evaluate(test)
@@ -103,6 +107,9 @@ def main() -> None:
         schedule,
         team_strength_scale=config["simulation"]["team_strength_scale"],
         penalty_skill_weight=config["simulation"]["penalty_skill_weight"],
+        match_noise_sigma_scale=config["simulation"].get(
+            "match_noise_sigma_scale", 0.0
+        ),
     )
     table = simulator.simulate(runs=RUNS, seed=SEED).reset_index(drop=True)
 
