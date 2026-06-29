@@ -1,0 +1,90 @@
+[paths]
+results = "data/raw/results.csv"
+schedule = "data/input/schedule_2026.csv"
+rankings = "data/input/rankings.csv"
+squads = "data/input/squads.csv"
+match_features = "data/input/match_features.csv"
+shootouts = "data/raw/shootouts.csv"
+model = "artifacts/model.joblib"
+metrics = "artifacts/metrics.json"
+team_state = "artifacts/team_state.json"
+predictions = "outputs/match_predictions.csv"
+simulation = "outputs/tournament_probabilities.csv"
+# Append-only forecast history; one checkpoint folder per data-through date.
+predictions_log = "predictions_log"
+# Clean human-readable summary, regenerated on every predict/simulate.
+report = "PREDICTIONS.md"
+
+[training]
+start_date = "2000-01-01"
+# Matches on or after cutoff_date are excluded from training, team-state
+# building, and the simulation baseline, so the model stays purely
+# pre-tournament. Defaults to the 2026 World Cup kickoff. Set
+# include_tournament = true (phase 2) to fold tournament games back in.
+cutoff_date = "2026-06-11"
+include_tournament = true
+validation_fraction = 0.20
+recency_half_life_years = 4.0
+form_matches = 8
+random_state = 42
+
+[model]
+learning_rate = 0.03
+max_iter = 350
+max_leaf_nodes = 15
+l2_regularization = 1.0
+early_stopping = true
+
+[priors]
+squad_coef = 0.0
+squad_clip = 0.25
+rank_coef = 0.0
+rank_clip = 0.25
+chemistry_coef = 0.0
+chemistry_clip = 0.5
+
+[state]
+# Fraction of the attack/defense state update driven by expected goals rather
+# than the raw scoreline (0 = goals only, original behaviour; 1 = xG only).
+# Only affects matches that actually carry xG; everything else falls back to
+# the scoreline and is unchanged.
+#
+# Left OFF by default: on the 2022 World Cup out-of-sample backtest a 0.6 blend
+# was marginally WORSE on every metric (RPS 0.1948 vs 0.1911, log loss 0.9607
+# vs 0.9510), because only the 2018 World Cup carries real xG in the training
+# window -- too little coverage to help. Raise this only once broad per-match
+# xG is supplied (e.g. live 2026 games via `worldcup update --home-xg/--away-xg`)
+# AND a fresh backtest shows it helps.
+xg_weight = 0.0
+neutral_base_log = 0.1592268655592673
+home_advantage_log = 0.27
+observation_variance = 1.0
+update_step = 0.65
+surprise_clip = 1.0
+state_mean_clip = 1.5
+variance_drift_per_day = 0.0005
+variance_ceiling = 0.60
+
+[elo]
+k_factor = 20.0
+home_advantage_points = 80.0
+
+[calibration]
+# Optional pinned 1X2 temperature. Left unset on purpose: a temperature fit on
+# one held-out World Cup does not generalize to the next (see
+# scripts/calibrate_tournaments.py — 2018-fit temperature is ~0.88 but is
+# slightly WORSE on the untouched 2022 tournament), so the apparent
+# overconfidence is mostly tournament-to-tournament noise. With no value pinned,
+# `worldcup train` instead fits the temperature on its own ~5,000-match
+# validation holdout, which is far more stable. Pin a value here only if you
+# want fit_window/backtests to apply a fixed temperature.
+# temperature = 0.88
+
+[simulation]
+# 10,000 Monte Carlo runs keeps sampling noise low (champion SE ~0.4pp for a
+# top team, ~0.5pp on advancement) at the cost of more runtime. Override per run
+# with `worldcup simulate --runs N`.
+runs = 10000
+seed = 42
+team_strength_scale = 0.20
+penalty_skill_weight = 0.8927

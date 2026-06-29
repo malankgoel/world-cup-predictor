@@ -1,0 +1,10 @@
+{
+  "results_through": "2026-06-17",
+  "played_matches": 25367,
+  "model_training_through": "2026-06-15",
+  "git_commit": "db1a8d3",
+  "last_run_at": "2026-06-18 23:57:24 CDT",
+  "predict_recorded_at": "2026-06-19T04:57:24+00:00",
+  "predict_last_run_at": "2026-06-18 23:57:24 CDT",
+  "predict_file": "match_predictions.csv"
+}

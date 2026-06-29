@@ -1,0 +1,10 @@
+FIFA 15-22 annual player databases:
+https://www.kaggle.com/api/v1/datasets/download/stefanoleone992/fifa-22-complete-player-dataset
+
+EA Sports FC 24 player database:
+https://www.kaggle.com/api/v1/datasets/download/stefanoleone992/ea-sports-fc-24-complete-player-dataset
+
+EA Sports FC 25 player database (June 2025):
+https://www.kaggle.com/api/v1/datasets/download/aniss7/fifa-player-data-from-sofifa-2025-06-03
+
+The June 2026 rows are the actual squad snapshot documented in squads_match_report.txt.

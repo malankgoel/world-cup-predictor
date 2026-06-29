@@ -1,5 +1,12 @@
 # World Cup Predictor
 
+> **Repository layout (updated for the Round of 32).** The main tree is the
+> **updated (v2) model** — the one on display and under active development.
+> The original group-stage model is frozen, fully runnable, under
+> [`baseline_model_v1/`](baseline_model_v1/ARCHIVE_NOTE.md) for before/after
+> comparison. Planned v2 changes are tracked in
+> [`MODEL_IMPROVEMENTS_R32.md`](MODEL_IMPROVEMENTS_R32.md).
+
 End-to-end probabilistic prediction for the 2026 FIFA World Cup. The project:
 
 - predicts expected goals, win/draw/loss, likely score, over 2.5, and BTTS;

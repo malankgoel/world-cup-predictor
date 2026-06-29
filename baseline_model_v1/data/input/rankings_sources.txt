@@ -1,0 +1,5 @@
+Historical monthly releases through 2018:
+https://www.kaggle.com/api/v1/datasets/download/tadhgfitzgerald/fifa-international-soccer-mens-ranking-1993now
+
+Pre-match ranking points from 2019 through March 2026:
+https://www.kaggle.com/api/v1/datasets/download/arrnalireza/international-football-dataset-from-2004-to-2026

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "worldcup-predictor"
+version = "0.1.0"
+description = "Time-aware World Cup match prediction and tournament simulation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "joblib>=1.4",
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "requests>=2.32",
+    "scikit-learn>=1.6",
+    "scipy>=1.14",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+# Only needed to regenerate data/input/squads.csv from source (scripts/).
+scripts = ["beautifulsoup4>=4.12", "lxml>=5.0"]
+
+[project.scripts]
+worldcup = "worldcup_predictor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
