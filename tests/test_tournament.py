@@ -15,6 +15,104 @@ from worldcup_predictor.tournament import (
 )
 
 
+def _mini_bracket():
+    schedule = pd.DataFrame(
+        [
+            {"match_id": 1, "stage": "group", "group": "A", "date": "2026-06-11",
+             "home_team": "Alpha", "away_team": "Bravo",
+             "home_source": "", "away_source": "", "venue": "X", "venue_country": "Y",
+             "neutral": True},
+            {"match_id": 2, "stage": "group", "group": "B", "date": "2026-06-11",
+             "home_team": "Charlie", "away_team": "Delta",
+             "home_source": "", "away_source": "", "venue": "X", "venue_country": "Y",
+             "neutral": True},
+            {"match_id": 3, "stage": "round_of_16", "group": "", "date": "2026-06-20",
+             "home_team": "", "away_team": "",
+             "home_source": "1A", "away_source": "1B", "venue": "X",
+             "venue_country": "Y", "neutral": True},
+        ]
+    )
+    schedule["date"] = pd.to_datetime(schedule["date"])
+    return schedule
+
+
+def test_resolve_first_knockout_maps_slots_to_real_teams():
+    from worldcup_predictor.cli import resolve_first_knockout_matchups
+
+    schedule = _mini_bracket()
+    results = pd.DataFrame(
+        [
+            {"date": "2026-06-11", "home_team": "Alpha", "away_team": "Bravo",
+             "home_score": 1, "away_score": 0, "tournament": "FIFA World Cup"},
+            {"date": "2026-06-11", "home_team": "Charlie", "away_team": "Delta",
+             "home_score": 2, "away_score": 0, "tournament": "FIFA World Cup"},
+        ]
+    )
+    results["date"] = pd.to_datetime(results["date"])
+    fixtures, _ = resolve_first_knockout_matchups(schedule, results)
+    assert len(fixtures) == 1
+    _, _, home, away = fixtures[0]
+    # 1A is Alpha (beat Bravo), 1B is Charlie (beat Delta).
+    assert (home, away) == ("Alpha", "Charlie")
+
+
+def test_resolve_first_knockout_raises_when_group_stage_incomplete():
+    from worldcup_predictor.cli import resolve_first_knockout_matchups
+
+    schedule = _mini_bracket()
+    results = pd.DataFrame(
+        [
+            {"date": "2026-06-11", "home_team": "Alpha", "away_team": "Bravo",
+             "home_score": 1, "away_score": 0, "tournament": "FIFA World Cup"},
+        ]
+    )
+    results["date"] = pd.to_datetime(results["date"])
+    with pytest.raises(ValueError, match="not yet in results"):
+        resolve_first_knockout_matchups(schedule, results)
+
+
+def test_merge_shootout_winners_fills_only_blank_winners(tmp_path):
+    from worldcup_predictor.cli import merge_shootout_winners
+
+    results = pd.DataFrame(
+        {
+            "date": pd.to_datetime(["2026-07-04", "2026-07-05", "2026-07-06"]),
+            "home_team": ["Alpha", "Charlie", "Echo"],
+            "away_team": ["Bravo", "Delta", "Foxtrot"],
+            "winner": ["", "Charlie", ""],  # middle game already decided manually
+        }
+    )
+    shootouts = pd.DataFrame(
+        {
+            "date": ["2026-07-04", "2026-07-05"],
+            "home_team": ["Alpha", "Charlie"],
+            "away_team": ["Bravo", "Delta"],
+            "winner": ["Bravo", "Delta"],  # would overwrite the manual one if buggy
+        }
+    )
+    path = tmp_path / "shootouts.csv"
+    shootouts.to_csv(path, index=False)
+    merged = merge_shootout_winners(results, str(path))
+    by_home = merged.set_index("home_team")["winner"]
+    assert by_home["Alpha"] == "Bravo"      # blank winner filled from shootouts
+    assert by_home["Charlie"] == "Charlie"  # manual winner preserved (not clobbered)
+    assert by_home["Echo"] == ""            # no shootout -> stays blank
+
+
+def test_merge_shootout_winners_is_a_noop_without_a_file():
+    from worldcup_predictor.cli import merge_shootout_winners
+
+    results = pd.DataFrame(
+        {
+            "date": pd.to_datetime(["2026-07-04"]),
+            "home_team": ["Alpha"],
+            "away_team": ["Bravo"],
+            "winner": [""],
+        }
+    )
+    pd.testing.assert_frame_equal(merge_shootout_winners(results, None), results)
+
+
 def test_shootout_probability_shrinks_favorite_toward_coin_flip():
     # No edge -> exactly 50/50.
     assert TournamentSimulator._shootout_probability(0.0) == 0.5

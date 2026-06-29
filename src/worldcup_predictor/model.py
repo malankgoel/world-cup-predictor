@@ -233,6 +233,43 @@ class WorldCupModel:
         blended /= blended.sum()
         return tuple(float(value) for value in blended)
 
+    def knockout_advance_probabilities(
+        self,
+        home_rate: float,
+        away_rate: float,
+        elo_diff: float,
+        penalty_skill_weight: float = 0.8927,
+        ninety: tuple[float, float, float] | None = None,
+    ) -> tuple[float, float]:
+        """Two-way "who advances" probabilities for a knockout tie.
+
+        A knockout can't end level: a draw after 90 goes to extra time (modelled,
+        as in the simulator, as a short mini-match at one-third the scoring
+        rates) and, if still level, a shootout shrunk toward a coin flip from the
+        Elo gap by ``penalty_skill_weight``. This mirrors the bracket simulator's
+        resolution exactly, computed analytically.
+
+        ``ninety`` lets the caller pass the (possibly market-blended) 90-minute
+        home/draw/away vector so the moneyline stays consistent with the
+        displayed 1X2; otherwise the model's own 90-minute split is used.
+        """
+        if ninety is None:
+            home90, draw90, away90, _ = self.outcome_probabilities(
+                home_rate, away_rate
+            )
+        else:
+            home90, draw90, away90 = (float(value) for value in ninety)
+        # Extra time: same calibrated machinery at one-third the base rates.
+        home_et, draw_et, _away_et, _ = self.outcome_probabilities(
+            home_rate / 3.0, away_rate / 3.0
+        )
+        elo_home = 1.0 / (1.0 + np.exp(-elo_diff / 400.0))
+        shootout_home = 0.5 + penalty_skill_weight * (elo_home - 0.5)
+        home_from_level = home_et + draw_et * shootout_home
+        home_advance = home90 + draw90 * home_from_level
+        home_advance = float(min(1.0, max(0.0, home_advance)))
+        return home_advance, float(1.0 - home_advance)
+
     def _fit_rho(
         self,
         frame: pd.DataFrame,

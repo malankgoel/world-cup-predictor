@@ -5,6 +5,7 @@ import json
 import tomllib
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 from . import logbook, report
@@ -20,7 +21,11 @@ from .data import (
 )
 from .features import FeatureBuilder
 from .model import WorldCupModel
-from .tournament import TournamentSimulator
+from .tournament import (
+    TournamentSimulator,
+    assign_third_place_teams,
+)
+from .tournament import _rank_group as rank_group
 
 RANKING_COLUMNS = ["date", "team", "rank", "points"]
 SQUAD_COLUMNS = [
@@ -55,6 +60,40 @@ def cutoff_date(config) -> pd.Timestamp | None:
         return None
     value = training.get("cutoff_date")
     return pd.Timestamp(value) if value else None
+
+
+def merge_shootout_winners(results: pd.DataFrame, shootouts_path) -> pd.DataFrame:
+    """Fill the ``winner`` column from the shootouts file for penalty-decided
+    games.
+
+    The martj42 results feed has no ``winner`` column — penalty-shootout
+    outcomes live in a separate shootouts.csv. Without this merge a knockout game
+    that was level after extra time has a blank winner, so the simulator falls
+    back to an Elo coin-flip instead of pinning who actually advanced. Only blank
+    winners are filled, so any manually entered ``--winner`` is preserved.
+    """
+    if not shootouts_path:
+        return results
+    path = Path(shootouts_path)
+    if not (path.is_file() and path.stat().st_size):
+        return results
+    shootouts = pd.read_csv(path)
+    if not {"date", "home_team", "away_team", "winner"}.issubset(shootouts.columns):
+        return results
+    shootouts = shootouts[["date", "home_team", "away_team", "winner"]].copy()
+    shootouts["date"] = pd.to_datetime(shootouts["date"], errors="coerce")
+    shootouts["home_team"] = shootouts["home_team"].map(normalize_team)
+    shootouts["away_team"] = shootouts["away_team"].map(normalize_team)
+    shootouts["winner"] = shootouts["winner"].map(
+        lambda value: normalize_team(value) if isinstance(value, str) and value else ""
+    )
+    shootouts = shootouts.rename(columns={"winner": "_shootout_winner"})
+    results = results.merge(
+        shootouts, on=["date", "home_team", "away_team"], how="left"
+    )
+    blank = results["winner"].fillna("") == ""
+    results.loc[blank, "winner"] = results.loc[blank, "_shootout_winner"].fillna("")
+    return results.drop(columns="_shootout_winner")
 
 
 def inputs(config):
@@ -101,6 +140,7 @@ def inputs(config):
                 else:
                     results[column] = results[external_column]
                 results = results.drop(columns=external_column)
+    results = merge_shootout_winners(results, paths.get("shootouts"))
     rankings = load_optional(paths["rankings"], RANKING_COLUMNS)
     squads = load_optional(paths["squads"], SQUAD_COLUMNS)
     builder = FeatureBuilder(
@@ -199,14 +239,15 @@ def predict_schedule(config) -> pd.DataFrame:
     model = WorldCupModel.load(config["paths"]["model"])
     odds_map = load_odds_map(config)
     blend_weight = float(config.get("market", {}).get("blend_weight", 0.0))
-    completed = {
-        (
-            pd.Timestamp(row.date).date(),
-            normalize_team(row.home_team),
-            normalize_team(row.away_team),
-        )
-        for row in results.itertuples()
-    }
+    completed = set()
+    for row in results.itertuples():
+        played_on = pd.Timestamp(row.date).date()
+        home = normalize_team(row.home_team)
+        away = normalize_team(row.away_team)
+        # Both orderings: the feed may list a host/neutral game with sides
+        # swapped versus the schedule, and we still want to skip the played game.
+        completed.add((played_on, home, away))
+        completed.add((played_on, away, home))
     states = builder.build_states(results, before=cutoff_date(config))
     rows = []
     for _, fixture in schedule[schedule["stage"] == "group"].iterrows():
@@ -258,6 +299,188 @@ def predict_schedule(config) -> pd.DataFrame:
     output.to_csv(path, index=False)
     logbook.record(config, results, "predict", output)
     report.write_report(config, logbook.latest_result_date(results))
+    return output
+
+
+def resolve_first_knockout_matchups(schedule, results, seed: int = 42):
+    """Resolve the actual first knockout round (Round of 32 in 2026) from the
+    completed group results.
+
+    Ranks every group, assigns the best third-placed teams, and maps each
+    bracket slot (``1A``, ``2B``, ``3CDEF`` …) to a real team — the same logic
+    the simulator uses, but deterministic on the real scorelines. Raises if any
+    group game is still missing from ``results`` (the bracket isn't decided yet).
+    Returns ``(fixtures, group_order)`` where fixtures is a list of
+    ``(match_id, schedule_row, home_team, away_team)``.
+    """
+    group_rows = schedule[schedule["stage"] == "group"]
+    tournament_start = pd.Timestamp(group_rows["date"].min())
+    # Restrict to this tournament so a same-named historical pairing can't shadow
+    # a 2026 group game, and key both home/away orderings: the results feed lists
+    # a host nation as "home" even when the schedule has it away (e.g. Canada vs
+    # Switzerland), so an exact-tuple match would spuriously miss those games.
+    world_cup = results[
+        (results["tournament"] == "FIFA World Cup")
+        & (results["date"] >= tournament_start)
+    ]
+    scores: dict[tuple[str, str], tuple[int, int]] = {}
+    for row in world_cup.itertuples():
+        home = normalize_team(row.home_team)
+        away = normalize_team(row.away_team)
+        hg, ag = int(row.home_score), int(row.away_score)
+        scores[(home, away)] = (hg, ag)
+        scores[(away, home)] = (ag, hg)
+    table: dict[str, dict] = {}
+    group_matches: dict[str, list] = {}
+    missing = []
+    for _, row in group_rows.iterrows():
+        group = row["group"]
+        home = normalize_team(row["home_team"])
+        away = normalize_team(row["away_team"])
+        table.setdefault(group, {})
+        group_matches.setdefault(group, [])
+        for team in (home, away):
+            table[group].setdefault(team, {"points": 0, "gf": 0, "ga": 0})
+        if (home, away) not in scores:
+            missing.append((row["date"].date(), home, away))
+            continue
+        hg, ag = scores[(home, away)]
+        table[group][home]["gf"] += hg
+        table[group][home]["ga"] += ag
+        table[group][away]["gf"] += ag
+        table[group][away]["ga"] += hg
+        if hg > ag:
+            table[group][home]["points"] += 3
+        elif ag > hg:
+            table[group][away]["points"] += 3
+        else:
+            table[group][home]["points"] += 1
+            table[group][away]["points"] += 1
+        group_matches[group].append((home, away, hg, ag))
+    if missing:
+        raise ValueError(
+            f"{len(missing)} group game(s) not yet in results, so the bracket "
+            f"is not decided. First missing: {missing[0][1]} vs {missing[0][2]} "
+            f"on {missing[0][0]}."
+        )
+
+    rng = np.random.default_rng(seed)
+    group_order = {
+        group: rank_group(list(teams), teams, group_matches[group], rng)
+        for group, teams in table.items()
+    }
+    knockout_rows = schedule[schedule["stage"] != "group"]
+    third_sources = sorted(
+        {
+            source
+            for source in pd.concat(
+                [knockout_rows["home_source"], knockout_rows["away_source"]]
+            )
+            if str(source).startswith("3")
+        }
+    )
+    if third_sources:
+        third_order = sorted(
+            [(group, teams[2]) for group, teams in group_order.items()],
+            key=lambda item: (
+                table[item[0]][item[1]]["points"],
+                table[item[0]][item[1]]["gf"] - table[item[0]][item[1]]["ga"],
+                table[item[0]][item[1]]["gf"],
+                rng.random(),
+            ),
+            reverse=True,
+        )
+        third_assignments = assign_third_place_teams(
+            third_sources, dict(third_order[: len(third_sources)])
+        )
+    else:
+        third_assignments = {}
+
+    first_stage = list(
+        dict.fromkeys(knockout_rows.sort_values("match_id")["stage"])
+    )[0]
+    fixtures = []
+    for _, row in knockout_rows[knockout_rows["stage"] == first_stage].iterrows():
+        home = TournamentSimulator._source(
+            row["home_source"], group_order, third_assignments, {}, {}
+        )
+        away = TournamentSimulator._source(
+            row["away_source"], group_order, third_assignments, {}, {}
+        )
+        fixtures.append((int(row["match_id"]), row, home, away))
+    return fixtures, group_order
+
+
+def predict_knockouts(config) -> pd.DataFrame:
+    """Predict every fixture in the first knockout round (Round of 32) once the
+    group stage is complete, applying the market blend where odds are present.
+    """
+    results, builder = inputs(config)
+    schedule = load_schedule(config["paths"]["schedule"])
+    model = WorldCupModel.load(config["paths"]["model"])
+    odds_map = load_odds_map(config)
+    blend_weight = float(config.get("market", {}).get("blend_weight", 0.0))
+    penalty_skill_weight = float(
+        config.get("simulation", {}).get("penalty_skill_weight", 0.8927)
+    )
+    fixtures, _ = resolve_first_knockout_matchups(schedule, results)
+    # Team states through the end of the group stage, so knockout predictions
+    # reflect group-stage form (results.csv should hold group games only).
+    states = builder.build_states(results, before=None)
+    rows = []
+    for match_id, srow, home, away in fixtures:
+        match = srow.copy()
+        match["home_team"] = home
+        match["away_team"] = away
+        match["tournament"] = "FIFA World Cup"
+        odds = odds_map.get((srow["date"].date(), home, away))
+        if odds is not None:
+            match["home_odds"], match["draw_odds"], match["away_odds"] = odds
+        features = builder.make_features(match, states)
+        prediction = model.predict(features)
+        if blend_weight > 0.0:
+            blended = WorldCupModel.blend_market(
+                (prediction.home_win, prediction.draw, prediction.away_win),
+                (
+                    features.get("home_market_probability"),
+                    features.get("draw_market_probability"),
+                    features.get("away_market_probability"),
+                ),
+                blend_weight,
+            )
+            prediction.home_win, prediction.draw, prediction.away_win = blended
+        # Moneyline: who advances once extra time + penalties resolve the tie,
+        # consistent with the (possibly blended) 90-minute split shown above.
+        home_rate, away_rate = (value[0] for value in model._rates(
+            pd.DataFrame([features])
+        ))
+        home_advance, away_advance = model.knockout_advance_probabilities(
+            float(home_rate),
+            float(away_rate),
+            float(features["elo_diff"]),
+            penalty_skill_weight,
+            ninety=(prediction.home_win, prediction.draw, prediction.away_win),
+        )
+        rows.append(
+            {
+                "match_id": match_id,
+                "date": srow["date"].date().isoformat(),
+                "stage": srow["stage"],
+                "home_team": home,
+                "away_team": away,
+                **prediction.__dict__,
+                "home_advance": round(home_advance, 3),
+                "away_advance": round(away_advance, 3),
+            }
+        )
+    output = pd.DataFrame(rows).round(3)
+    path = Path(
+        config["paths"].get(
+            "knockout_predictions", "outputs/knockout_predictions.csv"
+        )
+    )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    output.to_csv(path, index=False)
     return output
 
 
@@ -447,6 +670,7 @@ def parser() -> argparse.ArgumentParser:
     commands.add_parser("download-data")
     commands.add_parser("train")
     commands.add_parser("predict")
+    commands.add_parser("predict-knockouts")
     simulation = commands.add_parser("simulate")
     simulation.add_argument("--runs", type=int)
     simulation.add_argument("--seed", type=int)
@@ -506,6 +730,8 @@ def main() -> None:
         print(json.dumps(train(config), indent=2))
     elif args.command == "predict":
         print(predict_schedule(config).to_string(index=False))
+    elif args.command == "predict-knockouts":
+        print(predict_knockouts(config).to_string(index=False))
     elif args.command == "update":
         print(json.dumps(update_result(config, args), indent=2))
     elif args.command == "simulate":

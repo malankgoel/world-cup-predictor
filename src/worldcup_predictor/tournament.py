@@ -137,18 +137,27 @@ class TournamentSimulator:
         self.base_states = builder.build_states(results, before=tournament_start)
         if include_tournament:
             tournament_results = results[results["date"] >= tournament_start]
-            self.completed = {
-                (
-                    pd.Timestamp(row.date).date(),
-                    row.home_team,
-                    row.away_team,
-                ): (
-                    int(row.home_score),
-                    int(row.away_score),
-                    row.winner or "",
+            # Key both home/away orderings: the schedule and the results feed can
+            # disagree on which side is "home" for neutral/host games (e.g. the
+            # feed lists Canada vs Switzerland, the schedule Switzerland vs
+            # Canada). Storing the swapped orientation too means the lookup in
+            # _play pins the real result instead of resimulating the match.
+            self.completed = {}
+            for row in tournament_results.itertuples():
+                played_on = pd.Timestamp(row.date).date()
+                home_goals = int(row.home_score)
+                away_goals = int(row.away_score)
+                winner = row.winner or ""
+                self.completed[(played_on, row.home_team, row.away_team)] = (
+                    home_goals,
+                    away_goals,
+                    winner,
                 )
-                for row in tournament_results.itertuples()
-            }
+                self.completed[(played_on, row.away_team, row.home_team)] = (
+                    away_goals,
+                    home_goals,
+                    winner,
+                )
         else:
             self.completed = {}
         self.teams = sorted(

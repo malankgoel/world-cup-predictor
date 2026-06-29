@@ -127,6 +127,31 @@ def test_blend_market_is_a_noop_without_usable_odds():
     assert WorldCupModel.blend_market(model_probs, (0.0, 0.0, 0.0), 0.5) == model_probs
 
 
+def test_knockout_advance_probabilities_have_no_draw_and_favor_the_stronger_side():
+    model = WorldCupModel()
+    model.rho = -0.05
+    home_adv, away_adv = model.knockout_advance_probabilities(
+        1.8, 1.0, elo_diff=150.0
+    )
+    # A knockout must resolve: the two advance probabilities sum to 1 (no draw).
+    assert np.isclose(home_adv + away_adv, 1.0)
+    # The stronger side advances more often than its 90-minute win prob, because
+    # half the draw mass (via extra time / a near-even shootout) also goes its way.
+    home90, draw90, away90, _ = model.outcome_probabilities(1.8, 1.0)
+    assert home_adv > home90
+    assert home_adv > away_adv
+
+
+def test_knockout_advance_uses_supplied_ninety_minute_split():
+    model = WorldCupModel()
+    # With an even 90-minute split and no Elo edge, advancing is a coin flip.
+    home_adv, away_adv = model.knockout_advance_probabilities(
+        1.3, 1.3, elo_diff=0.0, ninety=(0.4, 0.2, 0.4)
+    )
+    assert np.isclose(home_adv, 0.5, atol=1e-6)
+    assert np.isclose(away_adv, 0.5, atol=1e-6)
+
+
 def test_monotonic_constraints_are_attached_to_the_goal_model():
     model = WorldCupModel()
     constraints = model.goal_model.get_params()["monotonic_cst"]

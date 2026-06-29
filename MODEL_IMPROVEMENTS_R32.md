@@ -78,13 +78,27 @@ calibration **worse at every stage** (total Brier 0.452 → 0.464), because
 spread. The knob is exposed so it can be re-tuned jointly with
 `team_strength_scale`, but the default stays at the empirically-better 1.0.
 
-## Still outstanding — needs the actual results (item #7)
+## Round-of-32 workflow (item #7, now wired up)
 
-`data/raw/results.csv` has the 2026 fixtures with **NA scores**, and
-`load_results` drops NA rows — so the model currently treats the whole tournament
-as unplayed. To make the bracket and team-states reflect what really happened in
-the group stage (the biggest single lever for tightening R32 specifically), the
-real group scores must be entered, e.g. `worldcup update --date … --home … --away
-… --home-score … --away-score …` (with `--home-xg/--away-xg` when available),
-then `worldcup train`. Once R32 fixtures and their Kalshi odds are added, the
-market anchor applies to them automatically.
+The model pulls real results from the live martj42 `international_results`
+dataset — the same source the group games already came from. To make the bracket
+and team-states reflect the actual group stage and forecast the Round of 32, run:
+
+```bash
+bash scripts/refresh_results_for_r32.sh
+```
+
+It (1) refreshes results only (leaving `schedule_2026.csv` untouched), (2) drops
+every World Cup match on/after the first knockout date so already-played
+knockouts don't leak in, (3) retrains, (4) simulates advancement/title odds, and
+(5) runs the new `worldcup predict-knockouts`.
+
+`predict-knockouts` resolves the **actual** Round-of-32 matchups from the final
+group standings (ranking every group, assigning the eight best third-placed
+teams, mapping each bracket slot to a real team — the same logic the simulator
+uses) and prints a 1X2 + scoreline for all 16 games, with the market blend
+applied wherever odds are present. Output: `outputs/knockout_predictions.csv`.
+It raises a clear message if any group game is still missing from the feed.
+
+The simulator already resolved these matchups internally; this exposes them as
+per-match predictions, which `worldcup predict` (group-stage only) did not.
