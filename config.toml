@@ -28,7 +28,7 @@ validation_fraction = 0.20
 # World Cup backtests a 3-year half-life was the one training change that
 # improved holdout log loss on BOTH tournaments (2022 1.1033->1.0981,
 # 2018 0.9735->0.9675), because current squad strength matters more than
-# 5-year-old form. See MODEL_IMPROVEMENTS_R32.md for the full grid.
+# 5-year-old form.
 recency_half_life_years = 3.0
 # Exponent on match importance in the training sample weights (old behaviour was
 # 0.5 = sqrt). 0.75 up-weights real tournament football over friendlies.
@@ -103,8 +103,7 @@ penalty_skill_weight = 0.8927
 # 0.452 -> 0.464), because the original team_strength_scale was tuned WITH this
 # shock present and 2022 was an upset-heavy tournament that rewards more spread.
 # Kept at 1.0 (original behaviour). Lower it only after re-fitting
-# team_strength_scale jointly against advancement Brier. See
-# MODEL_IMPROVEMENTS_R32.md.
+# team_strength_scale jointly against advancement Brier.
 match_noise_sigma_scale = 1.0
 
 [market]

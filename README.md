@@ -4,8 +4,7 @@
 > **updated (v2) model** — the one on display and under active development.
 > The original group-stage model is frozen, fully runnable, under
 > [`baseline_model_v1/`](baseline_model_v1/ARCHIVE_NOTE.md) for before/after
-> comparison. Planned v2 changes are tracked in
-> [`MODEL_IMPROVEMENTS_R32.md`](MODEL_IMPROVEMENTS_R32.md).
+> comparison.
 
 End-to-end probabilistic prediction for the 2026 FIFA World Cup. The project:
 
